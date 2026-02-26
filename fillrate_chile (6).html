@@ -1,0 +1,1715 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard Chile - Customer Service</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red: #E8002D;
+    --andina: #0057A8;
+    --embonor: #00875A;
+    --navy: #000000;
+    --navy-mid: #111111;
+    --navy-light: #1A1A1A;
+    --white: #FFFFFF;
+    --gray-500: #6B7E9F;
+    --gray-200: #D0D9E8;
+    --gray-700: #2E3F5C;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Barlow',sans-serif; background:var(--navy); color:var(--white); min-height:100vh; }
+
+  /* HEADER */
+  .header {
+    background: #000000;
+    border-bottom: 3px solid var(--red);
+    padding: 24px 36px;
+    display: flex; align-items: center; justify-content: space-between;
+    position: relative; overflow: hidden;
+  }
+  .header::after {
+    content:''; position:absolute; right:0; top:0; width:400px; height:100%;
+    background: linear-gradient(90deg, transparent, rgba(0,87,168,0.06), rgba(0,135,90,0.06));
+    pointer-events:none;
+  }
+  .header-title h1 {
+    font-family:'Barlow Condensed',sans-serif; font-size:2rem; font-weight:900;
+    text-transform:uppercase; letter-spacing:2px;
+  }
+  .header-title h1 .chile { } .ch-r{color:#E8002D} .ch-b{color:#0039A6}
+  .header-title p { font-size:0.78rem; color:var(--white); letter-spacing:3px; text-transform:uppercase; margin-top:3px; }
+  .header-kpis { display:flex; gap:20px; }
+  .hkpi { text-align:center; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.07); border-radius:8px; padding:12px 18px; }
+  .hkpi .v { font-family:'Barlow Condensed',sans-serif; font-size:1.8rem; font-weight:900; color:var(--white); }
+  .hkpi .l { font-size:0.65rem; color:var(--gray-500); letter-spacing:2px; text-transform:uppercase; margin-top:2px; }
+  .bottler-pills { display:flex; gap:8px; margin-left:20px; }
+  .pill { font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:0.85rem; letter-spacing:1px; padding:6px 14px; border-radius:20px; text-transform:uppercase; }
+  .pill-andina { background:rgba(0,87,168,0.25); border:1px solid var(--andina); color:#5BA8FF; }
+  .pill-embonor { background:rgba(0,135,90,0.25); border:1px solid var(--embonor); color:#3DFFB0; }
+
+  /* NAV */
+  .nav { background:var(--navy-mid); border-bottom:1px solid rgba(255,255,255,0.05); padding:0 36px; display:flex; gap:0; }
+  .nav-btn {
+    background:none; border:none; color:var(--gray-500);
+    font-family:'Barlow Condensed',sans-serif; font-size:0.95rem; font-weight:700;
+    letter-spacing:1px; text-transform:uppercase; padding:15px 18px 13px;
+    cursor:pointer; border-bottom:3px solid transparent; transition:all 0.2s;
+  }
+  .nav-btn:hover { color:var(--white); }
+  .nav-btn.active { color:var(--white); border-bottom-color:var(--red); }
+  .nav-sep { width:1px; background:rgba(255,255,255,0.05); margin:8px 4px; }
+
+  /* MAIN */
+  .main { padding:28px 36px 60px; }
+  .panel { display:none; }
+  .panel.active { display:block; }
+
+  /* SECTION LABEL */
+  .sec-label {
+    font-family:'Barlow Condensed',sans-serif; font-size:0.72rem; font-weight:700;
+    letter-spacing:3px; text-transform:uppercase; color:var(--gray-500); margin-bottom:14px;
+  }
+
+  /* BOTTLER HEADER */
+  .bottler-header {
+    display:flex; align-items:center; gap:12px; margin-bottom:16px; margin-top:28px;
+  }
+  .bottler-badge {
+    font-family:'Barlow Condensed',sans-serif; font-weight:900; font-size:1rem;
+    letter-spacing:2px; text-transform:uppercase; padding:5px 14px; border-radius:4px;
+  }
+  .badge-andina { background:var(--andina); color:#fff; }
+  .badge-embonor { background:var(--embonor); color:#fff; }
+  .bottler-stats { display:flex; gap:16px; }
+  .bstat { font-size:0.78rem; color:var(--gray-500); }
+  .bstat span { font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:1rem; color:var(--white); }
+
+  /* TABLE */
+  .tbl-wrap { border-radius:10px; border:1px solid rgba(255,255,255,0.07); overflow:hidden; margin-bottom:8px; }
+  table { width:100%; border-collapse:collapse; font-size:0.8rem; }
+  thead tr { background:var(--navy-light); }
+  thead th {
+    font-family:'Barlow Condensed',sans-serif; font-size:0.7rem; font-weight:700;
+    letter-spacing:1.5px; text-transform:uppercase; color:var(--gray-500);
+    padding:10px 12px; text-align:right; white-space:nowrap;
+  }
+  thead th:first-child { text-align:left; }
+  tbody tr { border-bottom:1px solid rgba(255,255,255,0.04); transition:background 0.15s; }
+  tbody tr:hover { background:rgba(255,255,255,0.025); }
+  tbody tr.total-row { background:var(--navy-mid); border-top:2px solid rgba(255,255,255,0.1); }
+  tbody tr.total-row td { font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:0.88rem; }
+  td { padding:10px 12px; text-align:right; color:var(--gray-200); }
+  td:first-child { text-align:left; font-weight:600; color:var(--white); }
+
+  /* FR cell */
+  .fr-cell { display:flex; align-items:center; justify-content:flex-end; gap:8px; }
+  .fr-num { font-family:'Barlow Condensed',sans-serif; font-weight:900; font-size:1rem; min-width:50px; text-align:right; color:var(--white); }
+  .bar-bg { width:60px; height:5px; background:rgba(255,255,255,0.08); border-radius:3px; overflow:hidden; }
+  .bar-fill { height:100%; border-radius:3px; }
+
+  /* cause pct */
+  .cp { font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:0.82rem; }
+  .cp.zero { color:var(--gray-700); }
+
+  /* colors */
+  .c-green       { color:#4ADE80; }   /* 90.1–100%  verde claro  */
+  .c-green-dark  { color:#16A34A; }   /* 85.1–90%   verde oscuro */
+  .c-gold        { color:#FCA5A5; }   /* kept for dif usage      */
+  .c-orange      { color:#FB923C; }   /* 80.1–85%   naranja claro*/
+  .c-orange-dark { color:#C2410C; }   /* 75.1–80%   naranja oscuro*/
+  .c-red         { color:#EF4444; }   /* 70.1–75%   rojo claro   */
+  .c-red-dark    { color:#7F1D1D; }   /* 0–70%      rojo oscuro  */
+  .c-quiebre   { color:#FF6B6B; }
+  .c-bloqueo   { color:#6AABFF; }
+  .c-rechazo   { color:#50E9AA; }
+  .c-costos    { color:#F5C842; }
+  .c-eliminado { color:#CC80FF; }
+  .c-noid      { color:#AAA; }
+  .c-capacidad { color:#F5A623; }
+  .c-otros     { color:#607090; }
+
+  /* SUMMARY GRID */
+  .summary-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-bottom:28px; }
+  .sum-card {
+    background:var(--navy-mid); border:1px solid rgba(255,255,255,0.07); border-radius:10px; padding:16px;
+  }
+  .sum-card.andina-card { border-left:3px solid var(--andina); }
+  .sum-card.embonor-card { border-left:3px solid var(--embonor); }
+  .sum-card.total-card { border-left:3px solid var(--red); background:linear-gradient(135deg,rgba(232,0,45,0.05),var(--navy-mid)); }
+  .sum-card .sc-title { font-family:'Barlow Condensed',sans-serif; font-size:0.7rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--gray-500); margin-bottom:8px; }
+  .sum-card .sc-fr { font-family:'Barlow Condensed',sans-serif; font-size:2.4rem; font-weight:900; line-height:1; color:var(--white); }
+  .sum-card .sc-sub { font-size:0.7rem; color:var(--gray-500); margin-top:4px; }
+  .sum-card .sc-nums { display:flex; gap:12px; margin-top:10px; }
+  .sum-card .sc-n { font-size:0.7rem; color:var(--gray-500); }
+  .sum-card .sc-n span { font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:0.88rem; color:var(--white); display:block; }
+
+  /* CAT COMPARISON */
+  .cat-compare { display:grid; grid-template-columns:repeat(5,1fr); gap:10px; margin-bottom:28px; }
+  .cc-card { background:var(--navy-mid); border:1px solid rgba(255,255,255,0.07); border-radius:10px; padding:14px; }
+  .cc-cat { font-family:'Barlow Condensed',sans-serif; font-size:0.72rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--gray-500); margin-bottom:10px; text-align:center; }
+  .cc-row { display:flex; align-items:center; justify-content:space-between; margin-bottom:6px; }
+  .cc-bottler { font-size:0.65rem; font-weight:700; letter-spacing:1px; text-transform:uppercase; }
+  .cc-bottler.a { color:#5BA8FF; }
+  .cc-bottler.e { color:#3DFFB0; }
+  .cc-fr { font-family:'Barlow Condensed',sans-serif; font-weight:900; font-size:1.1rem; }
+  .cc-bar-wrap { height:4px; background:rgba(255,255,255,0.06); border-radius:2px; overflow:hidden; margin-top:2px; margin-bottom:6px; }
+  .cc-bar { height:100%; border-radius:2px; }
+
+  hr.div { border:none; border-top:1px solid rgba(255,255,255,0.05); margin:24px 0; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-title">
+    <h1>Dashboard <span class="chile"><span class="ch-r">C</span><span class="ch-b">h</span><span class="ch-r">i</span><span class="ch-b">l</span><span class="ch-r">e</span></span> - Customer Service</h1>
+    <p style="color:var(--white)">Enero 2026</p>
+  </div>
+  <div style="display:flex;align-items:center;gap:16px">
+    <div class="bottler-pills">
+      <div class="pill pill-andina">Andina</div>
+      <div class="pill pill-embonor">Embonor</div>
+    </div>
+    <div class="header-kpis">
+      <div class="hkpi"><div class="v" id="kpi-andina-fr">—</div><div class="l">FR Andina</div></div>
+      <div class="hkpi"><div class="v" id="kpi-embonor-fr">—</div><div class="l">FR Embonor</div></div>
+      <div class="hkpi"><div class="v" id="kpi-chile-fr">—</div><div class="l">FR Chile Total</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="nav">
+  <button class="nav-btn active" onclick="showPanel('resumen',this)">🇨🇱 Resumen Chile</button>
+  <button class="nav-btn" onclick="showPanel('race',this);setTimeout(()=>{if(window._raceStart)window._raceStart();},100)" style="background:rgba(232,0,45,0.15);border:1px solid rgba(232,0,45,0.4);font-weight:900;letter-spacing:1px">🏎 F1 Race 26</button>
+  <button class="nav-btn" onclick="showPanel('comparativo',this);setTimeout(()=>{if(window._compChartDraw)window._compChartDraw();},50)" style="background:rgba(232,0,45,0.1);border:1px solid rgba(232,0,45,0.3)">📊 Ene 25 vs 26</button>
+  <button class="nav-btn" onclick="showPanel('evolucion',this);setTimeout(()=>{if(window._evoDrawChart)window._evoDrawChart();},80)" style="background:rgba(232,0,45,0.1);border:1px solid rgba(232,0,45,0.3)">📈 Evolución FR</button>
+  <div class="nav-sep"></div>
+  <button class="nav-btn" onclick="showPanel('andina',this)">Andina</button>
+  <button class="nav-btn" onclick="showPanel('andina-tottus',this)">↳ <span style='color:#22C55E'>Tottus</span></button>
+  <button class="nav-btn" onclick="showPanel('andina-cencosud',this)">↳ <span style='color:#38BDF8'>Cencosud</span></button>
+  <button class="nav-btn" onclick="showPanel('andina-smu',this)">↳ <span style='color:#EF4444'>SMU</span></button>
+  <button class="nav-btn" onclick="showPanel('andina-walmart',this)">↳ <span style='color:#F97316'>Walmart</span></button>
+  <div class="nav-sep"></div>
+  <button class="nav-btn" onclick="showPanel('embonor',this)">Embonor</button>
+  <button class="nav-btn" onclick="showPanel('embonor-tottus',this)">↳ <span style='color:#22C55E'>Tottus</span></button>
+  <button class="nav-btn" onclick="showPanel('embonor-cencosud',this)">↳ <span style='color:#38BDF8'>Cencosud</span></button>
+  <button class="nav-btn" onclick="showPanel('embonor-smu',this)">↳ <span style='color:#EF4444'>SMU</span></button>
+  <button class="nav-btn" onclick="showPanel('embonor-walmart',this)">↳ <span style='color:#F97316'>Walmart</span></button>
+</div>
+
+<div class="main">
+  <div id="p-resumen" class="panel active"></div>
+  <div id="p-comparativo" class="panel"></div>
+  <div id="p-race" class="panel" style="padding:0;overflow:hidden"></div>
+  <div id="p-evolucion" class="panel"></div>
+  <div id="p-andina" class="panel"></div>
+  <div id="p-andina-tottus" class="panel"></div>
+  <div id="p-andina-cencosud" class="panel"></div>
+  <div id="p-andina-smu" class="panel"></div>
+  <div id="p-andina-walmart" class="panel"></div>
+  <div id="p-embonor" class="panel"></div>
+  <div id="p-embonor-tottus" class="panel"></div>
+  <div id="p-embonor-cencosud" class="panel"></div>
+  <div id="p-embonor-smu" class="panel"></div>
+  <div id="p-embonor-walmart" class="panel"></div>
+</div>
+
+<script>
+// ─── DATA ─────────────────────────────────────────────────────────────────────
+// Andina: [Solicitadas, Recibidas, %Quiebre, %Bloqueo, %Rechazo, %Costos, %Eliminado, %NoId]
+// NOTE: causes are % of Solicitadas already (from source)
+// We store as: sol, rec, and cause percentages. FR = rec/sol
+
+// For Andina, the original data came from the Argentina dashboard
+// Recalculating from the Chile pivot table data provided
+// Andina categories: Gaseosas=SSD, Aguas=Aguas, Jugos=Jugos, Isotónicos=Hidratantes, Energética=Energéticos
+
+const ANDINA = {
+  TOTTUS: {
+    // From original data: Venta CF = entregado, Cantidad CF = solicitado
+    // Tottus Andina categories mapped:
+    'Gaseosas':   { sol: 149907, rec: 118105+31802, causes: [0,0,0,0,0,0] }, // SSD Colas + SSD Sabores
+    'Aguas':      { sol: 40720+62485, rec: 30926+56261, causes: [0,0,0,0,0,0] },
+    'Jugos':      { sol: 30050+2017, rec: 24435+1361, causes: [0,0,0,0,0,0] },
+    'Isotónicos': { sol: 10155, rec: 9348, causes: [0,0,0,0,0,0] },
+    'Energética': { sol: 23541, rec: 17553, causes: [0,0,0,0,0,0] },
+  },
+  CENCOSUD: {
+    'Gaseosas':   { sol: 586375+109488, rec: 510454+88875, causes: [0,0,0,0,0,0] },
+    'Aguas':      { sol: 81750+310494, rec: 63978+275207, causes: [0,0,0,0,0,0] },
+    'Jugos':      { sol: 75946+9343, rec: 66099+7609, causes: [0,0,0,0,0,0] },
+    'Isotónicos': { sol: 17907, rec: 15565, causes: [0,0,0,0,0,0] },
+    'Energética': { sol: 51170, rec: 36522, causes: [0,0,0,0,0,0] },
+  },
+  SMU: {
+    'Gaseosas':   { sol: 609434+127294, rec: 527149+95995, causes: [0,0,0,0,0,0] },
+    'Aguas':      { sol: 75878+205013, rec: 48197+176384, causes: [0,0,0,0,0,0] },
+    'Jugos':      { sol: 94655+525, rec: 63227+383, causes: [0,0,0,0,0,0] },
+    'Isotónicos': { sol: 27832, rec: 24219, causes: [0,0,0,0,0,0] },
+    'Energética': { sol: 58597, rec: 45991, causes: [0,0,0,0,0,0] },
+  },
+  WALMART: {
+    'Gaseosas':   { sol: 946549+232508, rec: 787853+183382, causes: [0,0,0,0,0,0] },
+    'Aguas':      { sol: 103174+394224, rec: 88559+345911, causes: [0,0,0,0,0,0] },
+    'Jugos':      { sol: 132662+0, rec: 116557+0, causes: [0,0,0,0,0,0] },
+    'Isotónicos': { sol: 62337, rec: 49432, causes: [0,0,0,0,0,0] },
+    'Energética': { sol: 89232, rec: 73994, causes: [0,0,0,0,0,0] },
+  },
+};
+
+// Embonor: causes stored as percentages of Solicitadas
+// [sol, rec, %Quiebre, %Bloqueo, %Rechazo, %Costos, %Eliminado, %NoId]
+const EMBONOR_RAW = {
+  TOTTUS: {
+    'Gaseosas':   [57103,  47373,  4.20, 0.90, 5.60, 5.00, 0.60, 0.70],
+    'Aguas':      [41386,  27446,  9.40, 2.20, 3.20,18.40, 0.00, 0.40],
+    'Jugos':      [12042,   6125, 10.00,18.40, 5.50,14.10, 0.00, 1.10],
+    'Isotónicos': [ 5492,   3592,  6.70, 0.50, 2.00,24.50, 0.10, 0.80],
+    'Energética': [ 1795,   1470,  1.00, 3.00, 3.70, 5.60, 0.00, 4.70],
+  },
+  CENCOSUD: {
+    'Gaseosas':   [313406, 282626, 3.00, 0.20, 2.00, 0.20, 0.10, 0.80],
+    'Aguas':      [230438, 184856, 9.50, 2.10, 1.70, 4.60, 0.10, 0.50],
+    'Jugos':      [ 49402,  38180, 6.50, 8.50, 1.60, 4.40, 0.10, 0.50],
+    'Isotónicos': [ 11695,  10529, 5.80, 1.50, 1.80, 0.00, 0.10, 0.10],
+    'Energética': [  6335,   5891, 1.20, 2.60, 2.20, 0.10, 0.10, 0.00],
+  },
+  SMU: {
+    'Gaseosas':   [466029, 403069, 4.50, 0.40, 3.90, 2.30, 0.40, 0.70],
+    'Aguas':      [244952, 195374,12.70, 1.60, 3.40, 0.20, 0.20, 0.90],
+    'Jugos':      [ 88107,  49155,27.40, 2.50, 8.40, 1.20, 3.30, 0.50],
+    'Isotónicos': [ 31563,  26846, 4.90, 0.00, 2.10, 3.20, 0.10, 0.30],
+    'Energética': [ 10151,   9131, 1.30, 4.70, 2.30, 0.00, 0.20, 0.90],
+  },
+  WALMART: {
+    'Gaseosas':   [878722, 642432, 1.70, 0.20, 1.90,20.30, 0.50, 0.70],
+    'Aguas':      [325537, 257077,11.70, 0.30, 2.30, 3.30, 0.20, 1.00],
+    'Jugos':      [113920,  86796,11.90, 2.10, 3.40, 1.40, 0.40, 1.60],
+    'Isotónicos': [ 54381,  43139, 5.30, 0.80, 1.90, 9.80, 0.10, 1.20],
+    'Energética': [ 17128,  15650, 0.90, 1.80, 2.20, 0.10, 0.70, 0.50],
+  },
+};
+
+// Convert Embonor raw to same structure (causes as absolute numbers)
+const EMBONOR = {};
+Object.keys(EMBONOR_RAW).forEach(chain => {
+  EMBONOR[chain] = {};
+  Object.keys(EMBONOR_RAW[chain]).forEach(cat => {
+    const r = EMBONOR_RAW[chain][cat];
+    const sol = r[0];
+    EMBONOR[chain][cat] = {
+      sol,
+      rec: r[1],
+      // indices: 0=Quiebre,1=Bloqueo,2=Rechazo,3=Costos,4=Eliminado,5=NoId,6=Capacidad(0)
+      causes: [...[r[2],r[3],r[4],r[5],r[6],r[7]].map(p => sol * p / 100), 0]
+    };
+  });
+});
+
+// For Andina, derive causes from original raw data
+// Andina causes: Quiebre, Bloqueo(=Capacidad), Rechazo(=Retorno), Costos(=DifPrecio), Eliminado(=DifADM), NoId(=Otros)
+// Original indices: [Venta, Cant, Quiebre, Capacidad, DifADM, DifPrecio, Retorno, Otros]
+const ANDINA_RAW_ORIG = {
+  TOTTUS: {
+    // sol=Cantidad CF (pedido), rec=Venta CF (entregado)
+    'Gaseosas':   [174247, 149907, (1752+2847), (5099+1266), 0, (79+239), (8406+5567), (704+186)],
+    'Aguas':      [103205,  87187, (2815+1717), (2092+1448), 0, (2851+17),(2210+3040), (90+696)],
+    'Jugos':      [ 32067,  25796, (1213+458),  (1267+41),   0, (740+0),  (2441+158),  (102+22)],
+    'Isotónicos': [ 10155,   9348, 259,          170,         0, 9,        366,          90],
+    'Energética': [ 23541,  17553, 4202,         673,         0, 35,       1177,         48],
+  },
+  CENCOSUD: {
+    'Gaseosas':   [695863, 599329, (14805+4457),(35408+6143),0,(839+5685),(20620+3707),(47+1)],
+    'Aguas':      [392244, 339185, (10466+9271),(3698+13544),0,(889+3168),(2506+6188),(4+6)],
+    'Jugos':      [ 85289,  73708, (2803+649),  (4100+659),  0,(755+6),   (2208+463),  (20+0)],
+    'Isotónicos': [ 17907,  15565, 457,          1097,        0,13,        653,          2],
+    'Energética': [ 51170,  36522, 10832,        2625,        0,0,         1578,         0],
+  },
+  SMU: {
+    'Gaseosas':   [736728, 623144, (9957+13704),(30958+8308),0,(18190+4976),(21475+5441),(212+43)],
+    'Aguas':      [280891, 224581, (19506+9402),(3446+9688), 0,(2198+3624), (2348+5404), (24+34)],
+    'Jugos':      [ 95180,  63610, (15498+60),  (5635+44),   1,(8200+0),    (3642+32),   (13+0)],
+    'Isotónicos': [ 27832,  24219, 236,          2108,        1,71,         1439,         10],
+    'Energética': [ 58597,  45991, 8167,         3120,        0,0,          1696,         0],
+  },
+  WALMART: {
+    'Gaseosas':   [1179057, 971235,(9749+6285),(45936+11341),(358+514),(73889+22815),(21720+6527),(40+61)],
+    'Aguas':      [ 497398, 434470,(3390+10064),(5013+18067),(40+1176),(2843+6383),  (2402+9417), (9+297)],
+    'Jugos':      [ 132662, 116557,3838,         5834,         425,     1033,          3452,         10],
+    'Isotónicos': [  62337,  49432,1269,          2779,         201,     6860,          1188,         0],
+    'Energética': [  89232,  73994,6362,          4720,         608,     300,           2347,         12],
+  },
+};
+
+// Build ANDINA structure from raw
+// Raw cols: [sol, rec, Quiebre, Capacidad, DifADM, DifPrecio, Retorno, Otros]
+// CAUSES indices: 0=Quiebre, 1=Bloqueo(N/A), 2=Rechazo, 3=Costos, 4=Eliminado, 5=NoId
+// Andina has NO Bloqueo → index 1 = 0
+// Capacidad (r[3]) has no equivalent → folded into NoId
+Object.keys(ANDINA_RAW_ORIG).forEach(chain => {
+  ANDINA[chain] = {};
+  Object.keys(ANDINA_RAW_ORIG[chain]).forEach(cat => {
+    const r = ANDINA_RAW_ORIG[chain][cat];
+    ANDINA[chain][cat] = {
+      sol: r[0], rec: r[1],
+      causes: [
+        r[2],   // 0: Quiebre
+        0,      // 1: Bloqueo — Andina no tiene
+        r[6],   // 2: Rechazo (= Retorno)
+        r[5],   // 3: Costos (= DifPrecio)
+        r[4],   // 4: Eliminado (= DifADM)
+        r[7],   // 5: NoId (= Otros)
+        r[3],   // 6: Capacidad — solo Andina
+      ]
+    };
+  });
+});
+
+const CATS = ['Gaseosas','Aguas','Jugos','Isotónicos','Energética'];
+const CHAINS = ['TOTTUS','CENCOSUD','SMU','WALMART'];
+// Causas por bottler — índices alineados entre sí
+// idx: 0=Quiebre, 1=Bloqueo, 2=Rechazo, 3=Costos, 4=Eliminado/DifAdmin, 5=NoId, 6=Capacidad, 7=Otros(gap)
+const CAUSES = [
+  { key:'Quiebre',   cls:'c-quiebre',   color:'#FF6B6B' },
+  { key:'Bloqueo',   cls:'c-bloqueo',   color:'#6AABFF' },
+  { key:'Rechazo',   cls:'c-rechazo',   color:'#50E9AA' },
+  { key:'Costos',    cls:'c-costos',    color:'#F5C842' },
+  { key:'Eliminado', cls:'c-eliminado', color:'#CC80FF' }, // Embonor: Eliminado / Andina: Dif Admin
+  { key:'No Ident.', cls:'c-noid',      color:'#AAA'    },
+  { key:'Capacidad', cls:'c-capacidad', color:'#F5A623' }, // idx 6 — solo Andina
+  { key:'Otros',     cls:'c-otros',     color:'#607090' }, // idx 7 — gap cierre 100%
+];
+// Labels por bottler para índice 4
+const CAUSE_LABEL = {
+  ANDINA:  ['Quiebre','—',       'Rechazo','Costos','Dif Admin', 'No Ident.','Capacidad','Otros'],
+  EMBONOR: ['Quiebre','Bloqueo', 'Rechazo','Costos','Eliminado', 'No Ident.','—',        'Otros'],
+  TOTAL:   ['Quiebre','Bloqueo', 'Rechazo','Costos','Dif Admin', 'No Ident.','Capacidad','Otros'],
+};
+// In TOTAL view: idx4 = avg(Andina DifAdmin, Embonor Eliminado), idx1=avg(0,Embonor Bloqueo), idx6=avg(Andina Capacidad,0)
+
+// ─── HELPERS ─────────────────────────────────────────────────────────────────
+const pct  = (a,b) => b>0 ? a/b : 0;
+const fmtP = v => (v*100).toFixed(1)+'%';
+const fmtN = v => Math.round(v).toLocaleString('es-CL');
+function colorFR(fr) {
+  if (fr>0.901) return 'c-green';
+  if (fr>0.851) return 'c-green-dark';
+  if (fr>0.801) return 'c-orange';
+  if (fr>0.751) return 'c-orange-dark';
+  if (fr>0.701) return 'c-red';
+  return 'c-red-dark';
+}
+function barColor(fr) {
+  if (fr>0.901) return '#4ADE80';   // verde claro
+  if (fr>0.851) return '#16A34A';   // verde oscuro
+  if (fr>0.801) return '#FB923C';   // naranja claro
+  if (fr>0.751) return '#C2410C';   // naranja oscuro
+  if (fr>0.701) return '#EF4444';   // rojo claro
+  return '#7F1D1D';                 // rojo oscuro
+}
+
+function aggData(data, chains, cats) {
+  let sol=0, rec=0, causes=new Array(8).fill(0); // 8 slots: 0-6 real causes + 7 Otros
+  chains.forEach(ch => {
+    cats.forEach(cat => {
+      if (!data[ch] || !data[ch][cat]) return;
+      const d = data[ch][cat];
+      sol += d.sol; rec += d.rec;
+      d.causes.forEach((c,i) => { causes[i] = (causes[i]||0) + c; });
+    });
+  });
+  return {sol, rec, causes};
+}
+
+// ─── RENDER TABLE ─────────────────────────────────────────────────────────────
+function renderTable(data, chain, bottlerName) {
+  const chainData = data[chain];
+  // Use bottler-specific labels for each cause column
+  const bKey = bottlerName.toUpperCase();
+  const labels = CAUSE_LABEL[bKey] || CAUSE_LABEL.TOTAL;
+
+  // Build headers only for causes that are relevant to this bottler (skip '—')
+  const visibleIdx = CAUSES.map((_,i) => i).filter(i => labels[i] !== '—');
+
+  let thead = `<tr>
+    <th style="text-align:left">Categoría</th>
+    <th>Solicitado</th><th>Entregado</th><th>Fill Rate</th>
+    ${visibleIdx.map(i=>`<th style="color:${CAUSES[i].color}">%${labels[i]}</th>`).join('')}
+  </tr>`;
+
+  let tbody = '';
+  let totSol=0, totRec=0, totCauses=new Array(8).fill(0);
+
+  CATS.forEach(cat => {
+    if (!chainData[cat]) return;
+    const {sol, rec, causes} = chainData[cat];
+    totSol+=sol; totRec+=rec;
+    causes.forEach((c,i)=>{ totCauses[i]=(totCauses[i]||0)+c; });
+    const fr = pct(rec, sol);
+    const adjCauses = adjustCauses(CAUSES.map((c,i)=>pct(causes[i]||0,sol)), 1-fr);
+    tbody += `<tr>
+      <td>${cat}</td>
+      <td>${fmtN(sol)}</td><td>${fmtN(rec)}</td>
+      <td><div class="fr-cell">
+        <span class="fr-num">${fmtP(fr)}</span>
+        <div class="bar-bg"><div class="bar-fill" style="width:${fr*100}%;background:${barColor(fr)}"></div></div>
+      </div></td>
+      
+      ${visibleIdx.map(i=>{const p=adjCauses[i];return `<td class="cp ${p>0?CAUSES[i].cls:'zero'}">${p>0?fmtP(p):'—'}</td>`;}).join('')}
+    </tr>`;
+  });
+
+  const frTot = pct(totRec, totSol);
+  const adjTotCauses = adjustCauses(CAUSES.map((c,i) => pct(totCauses[i]||0, totSol)), 1 - frTot);
+  tbody += `<tr class="total-row">
+    <td>TOTAL ${chain}</td>
+    <td>${fmtN(totSol)}</td><td>${fmtN(totRec)}</td>
+    <td><div class="fr-cell">
+      <span class="fr-num">${fmtP(frTot)}</span>
+      <div class="bar-bg"><div class="bar-fill" style="width:${frTot*100}%;background:${barColor(frTot)}"></div></div>
+    </div></td>
+    
+    ${visibleIdx.map(i=>{const p=adjTotCauses[i];return `<td class="cp ${p>0?CAUSES[i].cls:'zero'}">${p>0?fmtP(p):'—'}</td>`;}).join('')}
+  </tr>`;
+
+  return `<div class="tbl-wrap"><table><thead>${thead}</thead><tbody>${tbody}</tbody></table></div>`;
+}
+
+// ─── RENDER BOTTLER SUMMARY ───────────────────────────────────────────────────
+function renderBottlerSummary(data, bottlerName, badgeClass, accentColor) {
+  // Summary cards per chain
+  let html = `<div class="sec-label">Fill Rate por Cadena — ${bottlerName}</div>`;
+  
+  // Per-chain mini cards
+  html += `<div style="display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:24px">`;
+  CHAINS.forEach(ch => {
+    const {sol, rec, causes} = aggData(data, [ch], CATS);
+    const fr = pct(rec, sol);
+    html += `<div class="sum-card" style="border-left:3px solid ${accentColor}">
+      <div class="sc-title">${ch}</div>
+      <div class="sc-fr">${fmtP(fr)}</div>
+      <div class="sc-nums">
+        <div class="sc-n">Solicitado<span>${fmtN(sol)}</span></div>
+        <div class="sc-n">Entregado<span>${fmtN(rec)}</span></div>
+      </div>
+    </div>`;
+  });
+  // Total bottler card
+  const totB = aggData(data, CHAINS, CATS);
+  const frTotB = pct(totB.rec, totB.sol);
+  html += `<div class="sum-card" style="border-left:3px solid ${accentColor};background:linear-gradient(135deg,rgba(255,255,255,0.04),var(--navy-mid))">
+    <div class="sc-title">TOTAL ${bottlerName.toUpperCase()}</div>
+    <div class="sc-fr">${fmtP(frTotB)}</div>
+    <div class="sc-nums">
+      <div class="sc-n">Solicitado<span>${fmtN(totB.sol)}</span></div>
+      <div class="sc-n">Entregado<span>${fmtN(totB.rec)}</span></div>
+    </div>
+  </div>`;
+  html += `</div>`;
+
+  // Per-category FR table
+  html += `<div class="sec-label">Fill Rate por Categoría — ${bottlerName}</div>`;
+  html += `<div class="tbl-wrap"><table>
+    <thead><tr>
+      <th style="text-align:left">Categoría</th>
+      ${CHAINS.map(ch=>`<th>${ch}</th>`).join('')}
+      <th>Total ${bottlerName}</th>
+    </tr></thead><tbody>`;
+
+  CATS.forEach(cat => {
+    html += `<tr><td>${cat}</td>`;
+    let totSol=0, totRec=0;
+    CHAINS.forEach(ch => {
+      if (!data[ch] || !data[ch][cat]) { html+=`<td style="color:var(--gray-700)">—</td>`; return; }
+      const {sol,rec} = data[ch][cat];
+      totSol+=sol; totRec+=rec;
+      const fr=pct(rec,sol);
+      html+=`<td><span class="fr-num" style="font-size:0.88rem">${fmtP(fr)}</span></td>`;
+    });
+    const frTot=pct(totRec,totSol);
+    html+=`<td><span class="fr-num">${fmtP(frTot)}</span></td>`;
+    html+=`</tr>`;
+  });
+
+  // Total FR row
+  const tot = aggData(data, CHAINS, CATS);
+  const frTot = pct(tot.rec, tot.sol);
+  html += `<tr class="total-row"><td>TOTAL ${bottlerName.toUpperCase()}</td>`;
+  CHAINS.forEach(ch => {
+    const a = aggData(data,[ch],CATS);
+    const fr = pct(a.rec,a.sol);
+    html+=`<td><span class="fr-num">${fmtP(fr)}</span></td>`;
+  });
+  html+=`<td><span class="fr-num">${fmtP(frTot)}</span></td>`;
+  html+=`</tr></tbody></table></div>`;
+
+  // ── CAUSAS DE NO ENTREGA ──
+  // Por cadena: promedio de causas de todas las categorías (÷ cant categorías con datos)
+  // Total bottler: promedio de las 4 cadenas (÷4)
+  const bKey = bottlerName.toUpperCase();
+  const labels = CAUSE_LABEL[bKey] || CAUSE_LABEL.TOTAL;
+  const visIdx = CAUSES.map((_,i)=>i).filter(i => labels[i] !== '—');
+
+  html += `<div class="sec-label" style="margin-top:24px">Causas de No Entrega — ${bottlerName}</div>`;
+  html += `<div class="tbl-wrap"><table>
+    <thead><tr>
+      <th style="text-align:left">Cadena</th>
+      <th>Sol.</th><th>Ent.</th><th>FR</th>
+      ${visIdx.map(i=>`<th style="color:${CAUSES[i].color}">%${labels[i]}</th>`).join('')}
+    </tr></thead><tbody>`;
+
+  // Per-chain cause row: average causes across categories weighted by sol
+  let chainCausePcts = []; // store each chain's adjusted cause pcts for total avg
+  CHAINS.forEach(ch => {
+    const d = aggData(data, [ch], CATS);
+    const fr = pct(d.rec, d.sol);
+    const noFR = 1 - fr;
+    // raw cause pcts from absolute causes / sol
+    const rawPcts = [0,1,2,3,4,5,6].map(i => d.sol > 0 ? (d.causes[i]||0)/d.sol : 0);
+    const adj = adjustCauses(rawPcts, noFR);
+    chainCausePcts.push(adj);
+    html += `<tr>
+      <td>${ch}</td>
+      <td>${fmtN(d.sol)}</td><td>${fmtN(d.rec)}</td>
+      <td><span class="fr-num" style="font-size:0.88rem">${fmtP(fr)}</span></td>
+      
+      ${visIdx.map(i=>{const p=adj[i];return `<td class="cp ${p>0?CAUSES[i].cls:'zero'}">${p>0?fmtP(p):'—'}</td>`;}).join('')}
+    </tr>`;
+  });
+
+  // Total bottler: promedio ÷4 de las 4 cadenas (igual que hace el usuario)
+  const noFRtot = 1 - frTot;
+  const avgRaw4 = [0,1,2,3,4,5,6].map(i => chainCausePcts.reduce((s,cp)=>s+(cp[i]||0),0) / CHAINS.length);
+  const adjTot = adjustCauses(avgRaw4, noFRtot);
+
+  html += `<tr class="total-row">
+    <td>TOTAL ${bottlerName.toUpperCase()}</td>
+    <td>${fmtN(tot.sol)}</td><td>${fmtN(tot.rec)}</td>
+    <td><span class="fr-num">${fmtP(frTot)}</span></td>
+    
+    ${visIdx.map(i=>{const p=adjTot[i];return `<td class="cp ${p>0?CAUSES[i].cls:'zero'}">${p>0?fmtP(p):'—'}</td>`;}).join('')}
+  </tr>`;
+  html+=`</tbody></table></div>`;
+
+  return html;
+}
+
+// ─── HELPER: % causas promedio de 2 bottlers ─────────────────────────────────
+function avgCausePcts(dA, dE) {
+  // Average all 7 real causes ÷2 (number of bottlers).
+  // If one bottler doesn't have a cause (e.g. Andina has no Bloqueo → 0),
+  // it still contributes 0 and the average is ÷2.
+  // This is correct: Bloqueo Chile = (0 + Embonor_Bloqueo%) / 2
+  // Capacidad Chile = (Andina_Capacidad% + 0) / 2
+  return [0,1,2,3,4,5,6].map(i => {
+    const pA = dA.sol > 0 ? (dA.causes[i] || 0) / dA.sol : 0;
+    const pE = dE.sol > 0 ? (dE.causes[i] || 0) / dE.sol : 0;
+    return (pA + pE) / 2;  // always ÷2 regardless of whether one is 0
+  });
+}
+
+// ─── HELPER: ajustar causas para que FR + causas = 100% exacto ───────────────
+// noFR = 1 - FR (el espacio que deben llenar las causas)
+// Si suma < noFR  → diferencia va a Otros (índice 5)
+// Si suma > noFR  → reducir todas proporcionalmente
+function adjustCauses(causePcts, noFR) {
+  // indices 0-6 = real causes (0=Quiebre..6=Capacidad), index 7 = Otros (gap)
+  let adj = causePcts.slice();
+  while (adj.length < 8) adj.push(0);
+  adj[7] = 0; // reset Otros before recalculating
+
+  const sum = adj.slice(0,7).reduce((a,b) => a+b, 0); // sum 7 real causes
+  if (noFR <= 0) return adj;
+
+  if (sum > noFR) {
+    // Reducir proporcionalmente las 7 causas reales
+    const factor = noFR / sum;
+    for (let i=0; i<7; i++) adj[i] = adj[i] * factor;
+    adj[7] = 0;
+  } else {
+    // Diferencia va a Otros (índice 7)
+    adj[7] = noFR - sum;
+  }
+  return adj;
+}
+
+// ─── HELPER: árbol de pérdidas ───────────────────────────────────────────────
+function renderLossTree(fr, causePcts, sol, rec, label, causeLabels) {
+  const noFR = 1 - fr;
+  const lbls = causeLabels || CAUSE_LABEL.TOTAL;
+  const treeHtml = CAUSES.map((c, i) => {
+    if (lbls[i] === '—') return ''; // skip causes not relevant to this bottler
+    const p = causePcts[i];
+    if (p <= 0) return '';
+    const pctOfNoFR = noFR > 0 ? (p / noFR) * 100 : 0;
+    const barW = Math.min(100, (p / noFR) * 100);
+    return `<div style="margin-bottom:10px">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:3px">
+        <span style="font-size:0.72rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:${c.color}">${lbls[i]}</span>
+        <div style="display:flex;gap:12px;align-items:center">
+          <span style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:0.95rem;color:${c.color}">${fmtP(p)}</span>
+          <span style="font-size:0.68rem;color:var(--gray-500);min-width:38px;text-align:right">${pctOfNoFR.toFixed(0)}% del NFR</span>
+        </div>
+      </div>
+      <div style="height:5px;background:rgba(255,255,255,0.06);border-radius:3px;overflow:hidden">
+        <div style="width:${barW}%;height:100%;background:${c.color};border-radius:3px;opacity:0.85"></div>
+      </div>
+    </div>`;
+  }).join('');
+
+  return `<div style="background:var(--navy-mid);border:1px solid rgba(255,255,255,0.07);border-radius:12px;padding:18px 20px">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,0.07)">
+      <div>
+        <div style="font-family:'Barlow Condensed',sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gray-500);margin-bottom:4px">${label}</div>
+        <div style="font-family:'Barlow Condensed',sans-serif;font-size:2.2rem;font-weight:900;line-height:1" class="">${fmtP(fr)}</div>
+        <div style="font-size:0.72rem;color:var(--gray-500);margin-top:3px">No FR: <span class="c-red" style="font-weight:700">${fmtP(noFR)}</span></div>
+      </div>
+      <div style="text-align:right">
+        <div style="font-size:0.65rem;color:var(--gray-500);text-transform:uppercase;letter-spacing:1px">Solicitado</div>
+        <div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.95rem">${fmtN(sol)}</div>
+        <div style="font-size:0.65rem;color:var(--gray-500);text-transform:uppercase;letter-spacing:1px;margin-top:6px">Entregado</div>
+        <div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.95rem">${fmtN(rec)}</div>
+      </div>
+    </div>
+    <div style="font-family:'Barlow Condensed',sans-serif;font-size:0.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gray-500);margin-bottom:12px">▼ Árbol de Pérdidas</div>
+    ${treeHtml}
+  </div>`;
+}
+
+// ─── RENDER RESUMEN CHILE ─────────────────────────────────────────────────────
+function renderResumen() {
+  // Totales por bottler
+  const totA = aggData(ANDINA,  CHAINS, CATS);
+  const totE = aggData(EMBONOR, CHAINS, CATS);
+  const frA  = pct(totA.rec, totA.sol);
+  const frE  = pct(totE.rec, totE.sol);
+
+  // Total Chile: bultos suma directa, FR real, causas promedio de bottlers
+  const solChile = totA.sol + totE.sol;
+  const recChile = totA.rec + totE.rec;
+  const frChile  = pct(recChile, solChile);
+  const causesChile = adjustCauses(avgCausePcts(totA, totE), 1 - frChile);
+
+  // Causas por bottler (% sobre sol)
+  const causesA = adjustCauses(CAUSES.map((c,i) => totA.sol > 0 ? totA.causes[i]/totA.sol : 0), 1 - frA);
+  const causesE = adjustCauses(CAUSES.map((c,i) => totE.sol > 0 ? totE.causes[i]/totE.sol : 0), 1 - frE);
+
+  let html = `<div class="sec-label">Resumen Ejecutivo — Chile Enero 2026</div>`;
+
+  // ── ÁRBOL TOTAL CHILE ──
+  html += `<div style="margin-bottom:28px">`;
+  html += renderLossTree(frChile, causesChile, solChile, recChile, '🇨🇱 TOTAL CHILE', CAUSE_LABEL.TOTAL);
+  html += `</div>`;
+
+  // ── ÁRBOLES POR CADENA (Total Andina + Embonor promediado) ──
+  html += `<div class="sec-label">Árbol de Pérdidas por Cadena — Total Chile</div>`;
+  html += `<div style="display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-bottom:28px">`;
+  CHAINS.forEach(ch => {
+    const dA = aggData(ANDINA,  [ch], CATS);
+    const dE = aggData(EMBONOR, [ch], CATS);
+    const solCh = dA.sol + dE.sol;
+    const recCh = dA.rec + dE.rec;
+    const frCh  = pct(recCh, solCh);
+    const causesCh = adjustCauses(avgCausePcts(dA, dE), 1 - frCh);
+    html += renderLossTree(frCh, causesCh, solCh, recCh, ch, CAUSE_LABEL.TOTAL);
+  });
+  html += `</div>`;
+
+  // ── ÁRBOLES ANDINA y EMBONOR ──
+  html += `<div class="sec-label">Árbol de Pérdidas por Bottler</div>`;
+  html += `<div style="display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-bottom:28px">`;
+  html += renderLossTree(frA, causesA, totA.sol, totA.rec, '🔵 ANDINA', CAUSE_LABEL.ANDINA);
+  html += renderLossTree(frE, causesE, totE.sol, totE.rec, '🟢 EMBONOR', CAUSE_LABEL.EMBONOR);
+  html += `</div>`;
+
+  // ── TABLA COMPARATIVA CADENAS ──
+  html += `<div class="sec-label">Comparativo por Cadena — Andina vs Embonor</div>`;
+  html += `<div class="tbl-wrap"><table>
+    <thead><tr>
+      <th style="text-align:left">Cadena</th>
+      <th>Sol. Total</th><th>Ent. Total</th><th>FR Chile</th>
+      ${CAUSES.map(c=>`<th style="color:${c.color}">%${c.key}</th>`).join('')}
+      <th style="color:#5BA8FF">FR Andina</th>
+      <th style="color:#3DFFB0">FR Embonor</th>
+    </tr></thead><tbody>`;
+
+  CHAINS.forEach(ch => {
+    const dA = aggData(ANDINA,  [ch], CATS);
+    const dE = aggData(EMBONOR, [ch], CATS);
+    const solCh = dA.sol + dE.sol;
+    const recCh = dA.rec + dE.rec;
+    const frCh  = pct(recCh, solCh);
+    const frAch = pct(dA.rec, dA.sol);
+    const frEch = pct(dE.rec, dE.sol);
+    const causesCh = adjustCauses(avgCausePcts(dA, dE), 1 - frCh);
+    html += `<tr>
+      <td>${ch}</td>
+      <td>${fmtN(solCh)}</td><td>${fmtN(recCh)}</td>
+      <td><span class="fr-num">${fmtP(frCh)}</span></td>
+      
+      ${causesCh.map((p,i)=>`<td class="cp ${p>0?CAUSES[i].cls:'zero'}">${p>0?fmtP(p):'—'}</td>`).join('')}
+      <td><span class="fr-num" style="font-size:0.88rem">${fmtP(frAch)}</span></td>
+      <td><span class="fr-num" style="font-size:0.88rem">${fmtP(frEch)}</span></td>
+    </tr>`;
+  });
+
+  // Total Chile row
+  html += `<tr class="total-row">
+    <td>TOTAL CHILE</td>
+    <td>${fmtN(solChile)}</td><td>${fmtN(recChile)}</td>
+    <td><span class="fr-num">${fmtP(frChile)}</span></td>
+    
+    ${causesChile.map((p,i)=>`<td class="cp ${p>0?CAUSES[i].cls:'zero'}">${p>0?fmtP(p):'—'}</td>`).join('')}
+    <td><span class="fr-num">${fmtP(frA)}</span></td>
+    <td><span class="fr-num">${fmtP(frE)}</span></td>
+  </tr>`;
+  html += `</tbody></table></div>`;
+
+  return html;
+}
+
+// ─── DATA 2025 ENE ───────────────────────────────────────────────────────────
+const D25 = {
+  CHILE:    { TOTAL:0.8529, Gaseosas:0.8509, Aguas:0.8423, Jugos:0.8793, Isotónicos:0.8572, Energética:0.9028 },
+  ANDINA:   { TOTAL:0.8734, Gaseosas:0.8686, Aguas:0.8783, Jugos:0.8845, Isotónicos:0.8321, Energética:0.9023 },
+  EMBONOR:  { TOTAL:0.8230, Gaseosas:0.8276, Aguas:0.7844, Jugos:0.8717, Isotónicos:0.8906, Energética:0.9055 },
+  TOTTUS:   { TOTAL:0.7693, Gaseosas:0.7176, Aguas:0.8426, Jugos:0.8281, Isotónicos:0.8722, Energética:0.8975, ANDINA:0.7934, EMBONOR:0.6960 },
+  CENCOSUD: { TOTAL:0.8935, Gaseosas:0.8919, Aguas:0.9034, Jugos:0.8698, Isotónicos:0.8819, Energética:0.9115, ANDINA:0.9159, EMBONOR:0.8517 },
+  SMU:      { TOTAL:0.8927, Gaseosas:0.8937, Aguas:0.8880, Jugos:0.9069, Isotónicos:0.9184, Energética:0.8515, ANDINA:0.8942, EMBONOR:0.8907 },
+  WALMART:  { TOTAL:0.8173, Gaseosas:0.8185, Aguas:0.7849, Jugos:0.8855, Isotónicos:0.8070, Energética:0.9200, ANDINA:0.8445, EMBONOR:0.7849 },
+};
+const D26 = {
+  CHILE:    { TOTAL:0.820,  Gaseosas:0.826, Aguas:0.827, Jugos:0.756, Isotónicos:0.825, Energética:0.799 },
+  ANDINA:   { TOTAL:0.839,  Gaseosas:0.841, Aguas:0.852, Jugos:0.810, Isotónicos:0.834, Energética:0.782 },
+  EMBONOR:  { TOTAL:0.790,  Gaseosas:0.802, Aguas:0.789, Jugos:0.684, Isotónicos:0.816, Energética:0.908 },
+  TOTTUS:   { TOTAL:0.815,  Gaseosas:0.853, Aguas:0.793, Jugos:0.724, Isotónicos:0.827, Energética:0.751, ANDINA:0.844, EMBONOR:0.730 },
+  CENCOSUD: { TOTAL:0.856,  Gaseosas:0.874, Aguas:0.842, Jugos:0.831, Isotónicos:0.881, Energética:0.738, ANDINA:0.857, EMBONOR:0.854 },
+  SMU:      { TOTAL:0.816,  Gaseosas:0.853, Aguas:0.799, Jugos:0.615, Isotónicos:0.860, Energética:0.802, ANDINA:0.818, EMBONOR:0.813 },
+  WALMART:  { TOTAL:0.803,  Gaseosas:0.784, Aguas:0.840, Jugos:0.825, Isotónicos:0.793, Energética:0.843, ANDINA:0.839, EMBONOR:0.752 },
+};
+
+// ─── RENDER COMPARATIVO ───────────────────────────────────────────────────────
+function renderComparativo() {
+  const fmtDif = d => (d>=0?'+':'')+fmtP(d);
+  const difCls = d => d>0.005?'c-green':d<-0.005?'c-red':'';
+  const ALL_CHAINS = ['TOTTUS','CENCOSUD','SMU','WALMART'];
+
+  // Filter state
+  let activeBottler = 'ALL'; // ALL, ANDINA, EMBONOR
+  let activeChains  = new Set(ALL_CHAINS); // which chains to show
+
+  function buildHTML() {
+    // Determine which columns to show based on bottler filter
+    const showTotal  = activeBottler === 'ALL';
+    const showAndina = activeBottler === 'ALL' || activeBottler === 'ANDINA';
+    const showEmbonor= activeBottler === 'ALL' || activeBottler === 'EMBONOR';
+
+    // Chains to display
+    const visChains = ALL_CHAINS.filter(c => activeChains.has(c));
+
+    // ── FILTER BAR ──
+    let h = `<div style="display:flex;flex-wrap:wrap;gap:20px;align-items:center;margin-bottom:22px;padding:14px 18px;background:var(--navy-mid);border-radius:10px;border:1px solid rgba(255,255,255,0.06)">`;
+
+    // Bottler filter
+    h += `<div style="display:flex;align-items:center;gap:8px">
+      <span style="font-size:0.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gray-500)">Bottler</span>
+      ${[['ALL','Total Chile','#E8002D'],['ANDINA','Andina','#0057A8'],['EMBONOR','Embonor','#00875A']].map(([val,lbl,col])=>`
+        <button onclick="compSetBottler('${val}')" id="cbtn-${val}" style="padding:5px 12px;border-radius:6px;border:1px solid ${activeBottler===val?col:'rgba(255,255,255,0.12)'};background:${activeBottler===val?col+'22':'transparent'};color:${activeBottler===val?'var(--white)':'var(--gray-400)'};font-size:0.75rem;font-weight:700;cursor:pointer;font-family:'Barlow Condensed',sans-serif;letter-spacing:1px;text-transform:uppercase">${lbl}</button>
+      `).join('')}
+    </div>`;
+
+    // Chain filter
+    h += `<div style="display:flex;align-items:center;gap:8px">
+      <span style="font-size:0.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gray-500)">Cadena</span>
+      ${ALL_CHAINS.map(ch=>`
+        <button onclick="compToggleChain('${ch}')" id="cchain-${ch}" style="padding:5px 12px;border-radius:6px;border:1px solid ${activeChains.has(ch)?'rgba(255,255,255,0.35)':'rgba(255,255,255,0.1)'};background:${activeChains.has(ch)?'rgba(255,255,255,0.1)':'transparent'};color:${activeChains.has(ch)?'var(--white)':'var(--gray-600)'};font-size:0.75rem;font-weight:700;cursor:pointer;font-family:'Barlow Condensed',sans-serif;letter-spacing:1px;text-transform:uppercase">${ch}</button>
+      `).join('')}
+    </div>`;
+    h += `</div>`;
+
+    // ── TOP CARDS ──
+    const cardScope = activeBottler==='ALL'
+      ? [['CHILE','🇨🇱 Total Chile','#E8002D'],['ANDINA','🔵 Andina','#0057A8'],['EMBONOR','🟢 Embonor','#00875A']]
+      : activeBottler==='ANDINA'
+        ? [['ANDINA','🔵 Andina','#0057A8']]
+        : [['EMBONOR','🟢 Embonor','#00875A']];
+
+    h += `<div style="display:grid;grid-template-columns:repeat(${cardScope.length},1fr);gap:14px;margin-bottom:24px">`;
+    cardScope.forEach(([sc,lbl,color]) => {
+      const fr25=D25[sc].TOTAL, fr26=D26[sc].TOTAL, dif=fr26-fr25;
+      h += `<div style="background:var(--navy-mid);border:1px solid rgba(255,255,255,0.07);border-left:3px solid ${color};border-radius:10px;padding:20px 22px">
+        <div style="font-family:'Barlow Condensed',sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gray-500);margin-bottom:12px">${lbl}</div>
+        <div style="display:flex;align-items:flex-end;gap:16px;margin-bottom:10px">
+          <div>
+            <div style="font-size:0.6rem;color:var(--gray-500);text-transform:uppercase;letter-spacing:1px;margin-bottom:2px">ENE 2025</div>
+            <div style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:2rem;color:var(--gray-400)">${fmtP(fr25)}</div>
+          </div>
+          <div style="color:var(--gray-600);font-size:1.2rem;margin-bottom:8px">→</div>
+          <div>
+            <div style="font-size:0.6rem;color:var(--gray-500);text-transform:uppercase;letter-spacing:1px;margin-bottom:2px">ENE 2026</div>
+            <div style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:2rem;color:var(--white)">${fmtP(fr26)}</div>
+          </div>
+        </div>
+        <div style="font-family:'Barlow Condensed',sans-serif;font-size:1.4rem;font-weight:900" class="${difCls(dif)}">${fmtDif(dif)}</div>
+      </div>`;
+    });
+    h += `</div>`;
+
+    // ── TABLE ──
+    h += `<div class="sec-label">Apertura por Cadena</div>`;
+    h += `<div class="tbl-wrap"><table><thead><tr>
+      <th style="text-align:left">Cadena</th>
+      ${showTotal?`<th style="border-left:2px solid rgba(255,255,255,0.1)">FR Total 2025</th><th>FR Total 2026</th><th>Dif. Total</th>`:''}
+      ${showAndina?`<th style="border-left:2px solid #0057A8;color:#5BA8FF">FR And. 2025</th><th style="color:#5BA8FF">FR And. 2026</th><th style="color:#5BA8FF">Dif. And.</th>`:''}
+      ${showEmbonor?`<th style="border-left:2px solid #00875A;color:#3DFFB0">FR Emb. 2025</th><th style="color:#3DFFB0">FR Emb. 2026</th><th style="color:#3DFFB0">Dif. Emb.</th>`:''}
+    </tr></thead><tbody>`;
+
+    visChains.forEach(ch => {
+      const t25=D25[ch].TOTAL,t26=D26[ch].TOTAL,td=t26-t25;
+      const a25=D25[ch].ANDINA,a26=D26[ch].ANDINA,ad=a26-a25;
+      const e25=D25[ch].EMBONOR,e26=D26[ch].EMBONOR,ed=e26-e25;
+      h += `<tr>
+        <td><b>${ch}</b></td>
+        ${showTotal?`<td style="border-left:2px solid rgba(255,255,255,0.1)"><span class="fr-num">${fmtP(t25)}</span></td><td><span class="fr-num">${fmtP(t26)}</span></td><td class="${difCls(td)}" style="font-weight:700;font-family:'Barlow Condensed',sans-serif;font-size:1rem">${fmtDif(td)}</td>`:''}
+        ${showAndina?`<td style="border-left:2px solid #0057A8"><span class="fr-num">${fmtP(a25)}</span></td><td><span class="fr-num">${fmtP(a26)}</span></td><td class="${difCls(ad)}" style="font-weight:700;font-family:'Barlow Condensed',sans-serif;font-size:1rem">${fmtDif(ad)}</td>`:''}
+        ${showEmbonor?`<td style="border-left:2px solid #00875A"><span class="fr-num">${fmtP(e25)}</span></td><td><span class="fr-num">${fmtP(e26)}</span></td><td class="${difCls(ed)}" style="font-weight:700;font-family:'Barlow Condensed',sans-serif;font-size:1rem">${fmtDif(ed)}</td>`:''}
+      </tr>`;
+    });
+
+    // Total row
+    const tt25=D25.CHILE.TOTAL,tt26=D26.CHILE.TOTAL,ttd=tt26-tt25;
+    const ta25=D25.ANDINA.TOTAL,ta26=D26.ANDINA.TOTAL,tad=ta26-ta25;
+    const te25=D25.EMBONOR.TOTAL,te26=D26.EMBONOR.TOTAL,ted=te26-te25;
+    h += `<tr class="total-row">
+      <td><b>TOTAL CHILE</b></td>
+      ${showTotal?`<td style="border-left:2px solid rgba(255,255,255,0.1)"><span class="fr-num">${fmtP(tt25)}</span></td><td><span class="fr-num">${fmtP(tt26)}</span></td><td class="${difCls(ttd)}" style="font-weight:700;font-family:'Barlow Condensed',sans-serif;font-size:1rem">${fmtDif(ttd)}</td>`:''}
+      ${showAndina?`<td style="border-left:2px solid #0057A8"><span class="fr-num">${fmtP(ta25)}</span></td><td><span class="fr-num">${fmtP(ta26)}</span></td><td class="${difCls(tad)}" style="font-weight:700;font-family:'Barlow Condensed',sans-serif;font-size:1rem">${fmtDif(tad)}</td>`:''}
+      ${showEmbonor?`<td style="border-left:2px solid #00875A"><span class="fr-num">${fmtP(te25)}</span></td><td><span class="fr-num">${fmtP(te26)}</span></td><td class="${difCls(ted)}" style="font-weight:700;font-family:'Barlow Condensed',sans-serif;font-size:1rem">${fmtDif(ted)}</td>`:''}
+    </tr>`;
+    h += `</tbody></table></div>`;
+
+    // ── CHART ──
+    h += `<div class="sec-label" style="margin-top:28px">Gráfico Comparativo — FR por Cadena</div>`;
+    h += `<div style="background:var(--navy-mid);border:1px solid rgba(255,255,255,0.07);border-radius:12px;padding:24px 28px;margin-bottom:20px">`;
+    h += `<canvas id="comp-chart" style="width:100%;max-height:380px"></canvas>`;
+    h += `</div>`;
+
+    return h;
+  }
+
+  function drawChart() {
+    const canvas = document.getElementById('comp-chart');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    const ALL_CHAINS = ['TOTTUS','CENCOSUD','SMU','WALMART'];
+    const visChains = ALL_CHAINS.filter(c => activeChains.has(c));
+    const showTotal  = activeBottler === 'ALL';
+    const showAndina = activeBottler === 'ALL' || activeBottler === 'ANDINA';
+    const showEmbonor= activeBottler === 'ALL' || activeBottler === 'EMBONOR';
+
+    // Chain colors: SMU=red, Cencosud=blue, Tottus=green, Walmart=orange
+    const CHAIN_COLORS = {
+      TOTTUS:   { solid:'#22C55E', light:'rgba(34,197,94,0.35)'  },
+      CENCOSUD: { solid:'#3B82F6', light:'rgba(59,130,246,0.35)' },
+      SMU:      { solid:'#EF4444', light:'rgba(239,68,68,0.35)'  },
+      WALMART:  { solid:'#F97316', light:'rgba(249,115,22,0.35)' },
+    };
+
+    // Determine which value key to use
+    const dataKey = activeBottler==='ANDINA' ? 'ANDINA' : activeBottler==='EMBONOR' ? 'EMBONOR' : 'TOTAL';
+
+    // X-axis = cadenas, two datasets: Ene 2025 and Ene 2026
+    // Each dataset has one value per chain, colored per chain
+    const labels = visChains;
+
+    const datasets = [
+      {
+        label: 'Ene 2025',
+        data: visChains.map(ch => +(D25[ch][dataKey]*100).toFixed(1)),
+        backgroundColor: visChains.map(ch => CHAIN_COLORS[ch].light),
+        borderColor: visChains.map(ch => CHAIN_COLORS[ch].solid),
+        borderWidth: 2,
+        borderRadius: 4,
+        borderSkipped: false,
+      },
+      {
+        label: 'Ene 2026',
+        data: visChains.map(ch => +(D26[ch][dataKey]*100).toFixed(1)),
+        backgroundColor: visChains.map(ch => CHAIN_COLORS[ch].solid),
+        borderColor: visChains.map(ch => CHAIN_COLORS[ch].solid),
+        borderWidth: 2,
+        borderRadius: 4,
+        borderSkipped: false,
+      }
+    ];
+
+    // Destroy previous chart if exists
+    if (window._compChart) { window._compChart.destroy(); }
+
+    // Labels already set correctly per chain
+
+    window._compChart = new Chart(ctx, {
+      type: 'bar',
+      data: { labels, datasets },
+      options: {
+        responsive: true,
+        maintainAspectRatio: true,
+        aspectRatio: 2.6,
+        plugins: {
+          legend: {
+            position: 'top',
+            labels: {
+              color:'#CCC',
+              font:{family:"'Barlow Condensed',sans-serif", size:13, weight:'700'},
+              boxWidth:14, padding:24
+            }
+          },
+          tooltip: {
+            backgroundColor:'#0F1D35',
+            borderColor:'rgba(255,255,255,0.1)',
+            borderWidth:1,
+            titleColor:'#FFF',
+            bodyColor:'#CCC',
+            callbacks: {
+              label: ctx => ` ${ctx.dataset.label}: ${ctx.parsed.y.toFixed(1)}%`
+            }
+          },
+          // Data labels plugin — show value on top of each bar
+          datalabels: false
+        },
+        scales: {
+          x: {
+            ticks:{
+              color:'#CCC',
+              font:{family:"'Barlow Condensed',sans-serif", size:14, weight:'700'}
+            },
+            grid:{ color:'rgba(255,255,255,0.04)' }
+          },
+          y: {
+            min: 55, max: 100,
+            ticks:{
+              color:'#AAA',
+              font:{family:"'Barlow Condensed',sans-serif", size:11},
+              callback: v => v+'%'
+            },
+            grid:{ color:'rgba(255,255,255,0.06)' }
+          }
+        },
+        // Draw value labels on bars manually via animation callback
+        animation: {
+          onComplete: function() {
+            const chart = window._compChart;
+            if (!chart) return;
+            const ctx2 = chart.ctx;
+            ctx2.save();
+            ctx2.font = "bold 16px 'Barlow Condensed', sans-serif";
+            ctx2.textAlign = 'center';
+            ctx2.textBaseline = 'bottom';
+            chart.data.datasets.forEach((dataset, i) => {
+              const meta = chart.getDatasetMeta(i);
+              if (meta.hidden) return;
+              meta.data.forEach((bar, j) => {
+                const val = dataset.data[j];
+                if (val == null) return;
+                // Color: lighter for 2025, brighter for 2026
+                ctx2.fillStyle = dataset.label.includes('2026') ? '#FFFFFF' : 'rgba(255,255,255,0.55)';
+                ctx2.fillText(val.toFixed(1)+'%', bar.x, bar.y - 8);
+              });
+            });
+            ctx2.restore();
+          }
+        }
+      }
+    });
+  }
+
+  function refresh() {
+    document.getElementById('p-comparativo').innerHTML = buildHTML();
+    // Load Chart.js if not loaded yet, then draw
+    if (typeof Chart === 'undefined') {
+      const s = document.createElement('script');
+      s.src = 'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js';
+      s.onload = () => drawChart();
+      document.head.appendChild(s);
+    } else {
+      drawChart();
+    }
+  }
+
+  window.compSetBottler = function(val) {
+    activeBottler = val;
+    refresh();
+  };
+
+  window.compToggleChain = function(ch) {
+    if (activeChains.has(ch)) {
+      if (activeChains.size > 1) activeChains.delete(ch);
+    } else {
+      activeChains.add(ch);
+    }
+    refresh();
+  };
+
+  // Expose drawChart globally for tab switching
+  window._compChartDraw = drawChart;
+
+  return buildHTML();
+}
+
+// ─── EVOLUCIÓN FILL RATE ─────────────────────────────────────────────────────
+function buildEvolucion() {
+  const MESES_2025 = ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
+  const MESES_2026 = ['Ene'];
+  // DATA: sol/rec mensuales 2025 para YTD acumulado correcto
+  // y2026: sol/rec mensuales 2026 (agregar meses a medida que se cargan)
+  const DATA = {
+    CHILE:   {
+      sol2025:[6111318.06,6037159.13,6772349.32,6051094.46,5329658.44,4742340.21,4848973.19,6015914.97,6301720.38,6758869.58,6688919.49,7703950.76],
+      rec2025:[5212616.35,5226711.95,5939398.69,5236563.58,4697969.31,4133420.7,4348970.58,5208492.08,5438669.94,5700137.94,5771440.54,6832413.86],
+      sol2026:[null], rec2026:[null], // placeholder — FR directo abajo
+      y2026:[0.820]
+    },
+    ANDINA:  {
+      sol2025:[3629807.06,3580887.13,4528328.32,3955907.46,3593653.44,3003493.21,3030156.19,4055184.97,4100441.38,4546555.58,4677913.49,4955984.76],
+      rec2025:[3170311.35,3114137.95,4021644.69,3468143.58,3171230.31,2631062.45,2724606.58,3575968.08,3533189.94,3812082.94,4000677.54,4406760.86],
+      sol2026:[null], rec2026:[null],
+      y2026:[0.839]
+    },
+    EMBONOR: {
+      sol2025:[2481511,2456272,2244021,2095187,1736005,1738847,1818817,1960730,2201279,2212314,2011006,2747966],
+      rec2025:[2042305,2112574,1917754,1768420,1526739,1502358.25,1624364,1632524,1905480,1888055,1770763,2425653],
+      sol2026:[null], rec2026:[null],
+      y2026:[0.790]
+    },
+    TOTTUS:  {
+      sol2025:[419835.78,366825.05,381538.29,338504.96,376942.54,350958.25,371005,357423.83,460525.04,481632.16,470734.37,574710.99],
+      rec2025:[322977.61,302643.51,328264.29,281774.41,311469.01,284084.92,310363,306756.79,374694.82,388787.38,387577.73,502768.56],
+      sol2026:[null], rec2026:[null],
+      y2026:[0.815]
+    },
+    CENCOSUD:{
+      sol2025:[1799181.39,1754011.2,2016402.64,1694033.58,1591847.81,1357727.37,1484263.19,1681994.12,1710775.05,1872385.62,1745969.67,2482516.32],
+      rec2025:[1607510.88,1544999.89,1726462.69,1518354.11,1432849.53,1227162.52,1399892.58,1518478.55,1525277.73,1666677.7,1560648.18,2194099.68],
+      sol2026:[null], rec2026:[null],
+      y2026:[0.856]
+    },
+    SMU:     {
+      sol2025:[1338552.29,1317392.11,1546331.88,1244610.24,1075378.99,838139.62,1076617,1108804.11,1275032.85,1489256.31,1545633.06,1509601.92],
+      rec2025:[1194908.93,1177308.14,1393334.06,1102745.05,971776.41,707044.35,923284,946705.23,1095205.71,1264783.09,1311806.31,1334459.43],
+      sol2026:[null], rec2026:[null],
+      y2026:[0.816]
+    },
+    WALMART: {
+      sol2025:[2553748.6,2598930.78,2828076.51,2773945.67,2285489.09,2195514.98,1917088,2867692.91,2855387.44,2915595.49,2926582.39,3137121.52],
+      rec2025:[2087218.93,2201760.42,2491337.64,2333690.02,1981874.36,1915128.91,1715430,2436551.51,2443491.67,2379889.76,2511408.33,2801087.19],
+      sol2026:[null], rec2026:[null],
+      y2026:[0.803]
+    },
+  };
+  // Helper: YTD FR acumulado hasta mes idx (0-based)
+  function ytdFR(key, year, upToIdx) {
+    var solKey = 'sol'+year, recKey = 'rec'+year;
+    var solArr = DATA[key][solKey], recArr = DATA[key][recKey];
+    var totalSol=0, totalRec=0;
+    for (var i=0; i<=upToIdx; i++) {
+      if (solArr[i] && recArr[i]) { totalSol+=solArr[i]; totalRec+=recArr[i]; }
+    }
+    return totalSol>0 ? totalRec/totalSol : null;
+  }
+  const CHAIN_LABELS  = {TOTTUS:'Tottus',CENCOSUD:'Cencosud',SMU:'SMU',WALMART:'Walmart'};
+  const CHAIN_COLORS  = {TOTTUS:'#22C55E',CENCOSUD:'#3B82F6',SMU:'#EF4444',WALMART:'#F97316'};
+  const BOTTLER_COLORS= {CHILE:'#E8002D',ANDINA:'#0057A8',EMBONOR:'#22C55E'};
+  const ALL_LABELS    = {CHILE:'Total Chile',ANDINA:'Andina',EMBONOR:'Embonor',TOTTUS:'Tottus',CENCOSUD:'Cencosud',SMU:'SMU',WALMART:'Walmart'};
+  const ALL_COLORS    = {CHILE:'#E8002D',ANDINA:'#0057A8',EMBONOR:'#22C55E',TOTTUS:'#22C55E',CENCOSUD:'#3B82F6',SMU:'#EF4444',WALMART:'#F97316'};
+
+  let activeBottlers = new Set(['CHILE','ANDINA','EMBONOR']);
+  let activeChains   = new Set();
+  let chartInst      = null;
+
+  const panel = document.getElementById('p-evolucion');
+  if (!panel) return;
+
+  panel.innerHTML =
+    '<div id="evo-filters" style="display:flex;flex-wrap:wrap;gap:20px;align-items:center;padding:14px 18px;background:#111;border-radius:10px;border:1px solid rgba(255,255,255,0.06);margin-bottom:22px"></div>'
+   +'<div style="background:#111;border:1px solid rgba(255,255,255,0.07);border-radius:12px;padding:22px 26px">'
+   +'<canvas id="evo-chart"></canvas></div>'
+   +'<div id="evo-stats" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-top:18px"></div>';
+
+  function btnStyle(on, col) {
+    return 'padding:5px 13px;border-radius:6px;border:1px solid '+(on?col:'rgba(255,255,255,0.12)')
+      +';background:'+(on?col+'22':'transparent')+';color:'+(on?'#fff':'#666')
+      +';font-size:0.75rem;font-weight:700;cursor:pointer;font-family:\'Barlow Condensed\',sans-serif;letter-spacing:1px;text-transform:uppercase;transition:all .15s';
+  }
+
+  function buildFilters() {
+    const el = document.getElementById('evo-filters');
+    if (!el) return;
+    let h = '<div style="display:flex;align-items:center;gap:8px">'
+      +'<span style="font-size:0.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#555">Vista</span>';
+    [['CHILE','Total Chile','#E8002D'],['ANDINA','Andina','#0057A8'],['EMBONOR','Embonor','#22C55E']].forEach(function(arr){
+      var v=arr[0],l=arr[1],c=arr[2];
+      h+='<button onclick="evoTogBottler(\''+v+'\')" style="'+btnStyle(activeBottlers.has(v),c)+'">'+l+'</button>';
+    });
+    h+='</div><div style="display:flex;align-items:center;gap:8px">'
+      +'<span style="font-size:0.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#555">Cadena</span>';
+    [['TOTTUS','Tottus','#22C55E'],['CENCOSUD','Cencosud','#3B82F6'],['SMU','SMU','#EF4444'],['WALMART','Walmart','#F97316']].forEach(function(arr){
+      var v=arr[0],l=arr[1],c=arr[2];
+      h+='<button onclick="evoTogChain(\''+v+'\')" style="'+btnStyle(activeChains.has(v),c)+'">'+l+'</button>';
+    });
+    h+='</div>';
+    el.innerHTML = h;
+  }
+
+  function buildDatasets() {
+    var ds = [];
+    function addSeries(key, col, lbl) {
+      // FR mensual 2025: rec/sol por mes
+      var d25 = DATA[key].sol2025.map(function(sol, i){
+        var rec = DATA[key].rec2025[i];
+        return sol>0 ? +((rec/sol)*100).toFixed(2) : null;
+      });
+      // FR mensual 2026: desde y2026 directo
+      var d26 = DATA[key].y2026.map(function(v){ return +(v*100).toFixed(2); });
+      // 2025 line: punteada
+      ds.push({
+        label: lbl+' 2025',
+        data: d25.concat(new Array(d26.length).fill(null)),
+        borderColor: col, borderWidth: 2, borderDash: [6,4],
+        pointRadius: 3, pointHoverRadius: 6,
+        tension: 0.3, fill: false, spanGaps: false
+      });
+      // 2026 line: sólida, empieza en índice 12
+      var data26full = new Array(12).fill(null).concat(d26);
+      ds.push({
+        label: lbl+' 2026',
+        data: data26full,
+        borderColor: col, borderWidth: 3,
+        pointRadius: 7, pointHoverRadius: 9,
+        pointBackgroundColor: col, pointBorderColor: '#000', pointBorderWidth: 2,
+        tension: 0.3, fill: false
+      });
+    }
+    activeBottlers.forEach(function(k){ addSeries(k, BOTTLER_COLORS[k], ALL_LABELS[k]); });
+    activeChains.forEach(function(k){ addSeries(k, CHAIN_COLORS[k], ALL_LABELS[k]); });
+    return ds;
+  }
+
+  function buildStatsCards() {
+    var el = document.getElementById('evo-stats');
+    if (!el) return;
+    var keys = Array.from(activeBottlers).concat(Array.from(activeChains));
+    if (!keys.length) { el.innerHTML=''; return; }
+    // YTD acumulado: suma sol y rec hasta el último mes disponible 2026
+    var mesNames  = ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
+    var lastIdx26 = DATA['CHILE'].y2026.length - 1;
+    var mesLabel  = mesNames[lastIdx26];
+    el.innerHTML = keys.map(function(k){
+      var ytd25 = ytdFR(k, '2025', lastIdx26);  // suma acumulada sol/rec hasta mismo mes
+      var ytd26 = DATA[k].y2026[lastIdx26];      // FR directo (cuando haya sol2026/rec2026, usar ytdFR)
+      var dif   = ytd26 - ytd25;
+      var dc    = dif>=0?'#22C55E':'#EF4444';
+      var col   = ALL_COLORS[k];
+      return '<div style="background:#111;border:1px solid rgba(255,255,255,0.07);border-left:3px solid '+col+';border-radius:10px;padding:14px 16px">'
+        +'<div style="font-size:0.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#555;margin-bottom:8px">'+ALL_LABELS[k]+'</div>'
+        +'<div style="display:flex;align-items:flex-end;gap:10px">'
+        +'<div><div style="font-size:0.6rem;color:#555;text-transform:uppercase;letter-spacing:1px">YTD '+mesLabel+' 2025</div>'
+        +'<div style="font-family:\'Barlow Condensed\',sans-serif;font-weight:900;font-size:1.5rem;color:#888">'+(ytd25*100).toFixed(1)+'%</div></div>'
+        +'<div style="color:#333;margin-bottom:5px">→</div>'
+        +'<div><div style="font-size:0.6rem;color:#555;text-transform:uppercase;letter-spacing:1px">YTD '+mesLabel+' 2026</div>'
+        +'<div style="font-family:\'Barlow Condensed\',sans-serif;font-weight:900;font-size:1.5rem;color:#fff">'+(ytd26*100).toFixed(1)+'%</div></div>'
+        +'</div>'
+        +'<div style="font-family:\'Barlow Condensed\',sans-serif;font-size:1rem;font-weight:900;color:'+dc+';margin-top:4px">'+(dif>=0?'+':'')+(dif*100).toFixed(1)+'pp YTD '+mesLabel+' 25 vs 26</div>'
+        +'</div>';
+    }).join('');
+  }
+
+  function doRender() {
+    var canvas = document.getElementById('evo-chart');
+    if (!canvas) return;
+    var xLabels = MESES_2025.map(function(m){return m+' 25';}).concat(MESES_2026.map(function(m){return m+' 26';}));
+    if (chartInst) { chartInst.destroy(); chartInst=null; }
+    chartInst = new Chart(canvas, {
+      type: 'line',
+      data: { labels: xLabels, datasets: buildDatasets() },
+      options: {
+        responsive: true,
+        maintainAspectRatio: true,
+        aspectRatio: 3.0,
+        interaction: { mode:'index', intersect:false },
+        plugins: {
+          legend: { labels: { color:'#AAA', font:{family:"'Barlow Condensed',sans-serif",size:12,weight:'700'}, boxWidth:18, padding:18 } },
+          tooltip: {
+            backgroundColor:'#0a0a0a', borderColor:'rgba(255,255,255,0.1)', borderWidth:1,
+            titleColor:'#fff', bodyColor:'#ccc',
+            callbacks: { label: function(c){ return ' '+c.dataset.label+': '+(c.parsed.y!=null?c.parsed.y.toFixed(1)+'%':'—'); } }
+          }
+        },
+        scales: {
+          x: { ticks:{color:'#AAA',font:{family:"'Barlow Condensed',sans-serif",size:11,weight:'700'}}, grid:{color:'rgba(255,255,255,0.04)'} },
+          y: { min:60, max:100, ticks:{color:'#AAA',font:{family:"'Barlow Condensed',sans-serif",size:11},callback:function(v){return v+'%';}}, grid:{color:'rgba(255,255,255,0.06)'} }
+        }
+      },
+      plugins: [{
+        id:'yrSep',
+        afterDraw: function(ch) {
+          var cx=ch.ctx, xa=ch.scales.x, ya=ch.scales.y;
+
+          // ── Year separator line ──
+          var x11=xa.getPixelForValue(11), x12=xa.getPixelForValue(12);
+          var xm=(x11+x12)/2, tp=ch.chartArea.top, bt=ch.chartArea.bottom;
+          cx.save();
+          cx.setLineDash([6,4]); cx.strokeStyle='rgba(232,0,45,0.45)'; cx.lineWidth=1.5;
+          cx.beginPath(); cx.moveTo(xm,tp); cx.lineTo(xm,bt); cx.stroke();
+          cx.setLineDash([]);
+          cx.font="bold 11px 'Barlow Condensed',sans-serif"; cx.fillStyle='rgba(232,0,45,0.7)';
+          cx.textAlign='right'; cx.fillText('2025',xm-6,tp+14);
+          cx.textAlign='left';  cx.fillText('2026',xm+6,tp+14);
+
+          // ── Data labels on each point ──
+          cx.textAlign='center';
+          cx.textBaseline='bottom';
+          ch.data.datasets.forEach(function(ds, di) {
+            var meta = ch.getDatasetMeta(di);
+            if (meta.hidden) return;
+            // Only label 2026 datasets (solid lines) more prominently, all others smaller
+            var is2026 = ds.label && ds.label.indexOf('2026') !== -1;
+            cx.font = is2026
+              ? "bold 11px 'Barlow Condensed',sans-serif"
+              : "10px 'Barlow Condensed',sans-serif";
+            meta.data.forEach(function(pt, j) {
+              var val = ds.data[j];
+              if (val == null) return;
+              // offset above point: 2026 points are radius 7, 2025 are radius 3
+              var offset = is2026 ? 14 : 11;
+              cx.fillStyle = is2026 ? '#fff' : 'rgba(255,255,255,0.5)';
+              cx.fillText(val.toFixed(1)+'%', pt.x, pt.y - offset);
+            });
+          });
+
+          cx.restore();
+        }
+      }]
+    });
+  }
+
+  function drawChart() {
+    if (typeof Chart==='undefined') {
+      var s=document.createElement('script');
+      s.src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js';
+      s.onload=doRender; document.head.appendChild(s);
+    } else { doRender(); }
+  }
+
+  function refresh() { buildFilters(); drawChart(); buildStatsCards(); }
+
+  window.evoTogBottler = function(v) {
+    if (activeBottlers.has(v)) { if(activeBottlers.size>1) activeBottlers.delete(v); }
+    else activeBottlers.add(v);
+    refresh();
+  };
+  window.evoTogChain = function(v) {
+    if (activeChains.has(v)) activeChains.delete(v); else activeChains.add(v);
+    refresh();
+  };
+  window._evoDrawChart = drawChart;
+  refresh();
+}
+
+
+// ─── FILL RATE RACE ──────────────────────────────────────────────────────────
+function buildRace() {
+  const RACERS = [
+    { id:'andina',  name:'Andina',  code:'AND', fr:0.839, color:'#3B82F6', glow:'rgba(59,130,246,0.7)' },
+    { id:'embonor', name:'Embonor', code:'EMB', fr:0.790, color:'#22C55E', glow:'rgba(34,197,94,0.7)'  },
+  ].sort((a,b) => b.fr - a.fr);
+
+  const panel = document.getElementById('p-race');
+  panel.innerHTML = `
+  <style>
+    #race-wrap {
+      width:100%; height:72vh; background:#000;
+      display:flex; flex-direction:column;
+      font-family:'Barlow Condensed',sans-serif;
+      overflow:hidden; position:relative;
+    }
+    #race-wrap::before {
+      content:''; position:absolute; inset:0; z-index:1; pointer-events:none;
+      background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(0,0,0,0.09) 3px,rgba(0,0,0,0.09) 4px);
+    }
+    .race-header {
+      background:#0a0a0a; border-bottom:3px solid #E8002D;
+      padding:7px 20px; display:flex; align-items:center; gap:14px; flex-shrink:0; z-index:10;
+    }
+    .f1-badge { background:#E8002D; color:#fff; font-weight:900; font-size:1.1rem; padding:5px 12px; border-radius:4px; letter-spacing:2px; }
+    .race-title { color:#fff; font-size:1.1rem; font-weight:900; letter-spacing:4px; text-transform:uppercase; }
+    .race-period { color:#555; font-size:0.75rem; letter-spacing:3px; margin-left:4px; margin-top:2px; }
+    .race-controls { margin-left:auto; display:flex; gap:8px; align-items:center; }
+    .rc-btn { background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.15); color:#aaa; font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:0.85rem; padding:5px 14px; border-radius:4px; cursor:pointer; letter-spacing:1px; transition:all .15s; }
+    .rc-btn:hover { background:rgba(255,255,255,0.1); color:#fff; }
+    .rc-btn.rc-active { background:#E8002D; border-color:#E8002D; color:#fff; }
+    .rc-play { background:#E8002D; border:none; color:#fff; font-size:1rem; width:34px; height:34px; border-radius:50%; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:all .2s; flex-shrink:0; box-shadow:0 0 20px rgba(232,0,45,0.4); }
+    .rc-play:hover { background:#ff1a3e; transform:scale(1.08); }
+
+    /* TRACK */
+    .race-body { display:flex; flex:1; overflow:hidden; z-index:2; }
+    .race-labels { width:130px; flex-shrink:0; display:flex; flex-direction:column; justify-content:space-around; padding:6px 0; border-right:1px solid rgba(255,255,255,0.05); }
+    .race-label { display:flex; align-items:center; gap:7px; padding:0 10px; height:50%; }
+    .race-pos-badge { width:30px; height:30px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:900; font-size:1rem; color:#fff; flex-shrink:0; }
+    .race-driver-name { font-size:1.05rem; font-weight:700; color:#fff; line-height:1.1; }
+    .race-driver-code { font-size:0.8rem; letter-spacing:2px; margin-top:2px; }
+
+    .race-track { flex:1; position:relative; overflow:hidden; }
+    .track-bg {
+      position:absolute; inset:0;
+      background:
+        repeating-linear-gradient(90deg,transparent,transparent 119px,rgba(255,255,255,0.02) 120px),
+        #060606;
+    }
+    /* Track surface lines */
+    .track-center-line { position:absolute; top:50%; left:0; right:0; height:1px; background:rgba(255,255,255,0.06); transform:translateY(-50%); }
+
+    .finish-line { position:absolute; top:0; bottom:0; right:190px; width:20px; background:repeating-linear-gradient(180deg,#fff 0,#fff 12px,#000 12px,#000 24px); opacity:0.2; pointer-events:none; z-index:3; }
+    .finish-label { position:absolute; top:8px; right:215px; color:rgba(255,255,255,0.2); font-size:0.65rem; letter-spacing:2px; font-weight:700; z-index:3; }
+
+    .race-lanes { position:absolute; inset:0; display:flex; flex-direction:column; }
+    .race-lane { position:relative; flex:1; display:flex; align-items:center; border-bottom:1px solid rgba(255,255,255,0.04); }
+    .race-lane:last-child { border-bottom:none; }
+    /* Asphalt texture per lane */
+    .race-lane::before { content:''; position:absolute; inset:0; background:linear-gradient(180deg,rgba(255,255,255,0.015) 0%,transparent 40%,transparent 60%,rgba(255,255,255,0.015) 100%); }
+
+    .car-trail { position:absolute; left:0; top:50%; transform:translateY(-50%); height:6px; border-radius:3px; opacity:0.6; }
+    .car-wrap { position:absolute; top:50%; transform:translateY(-50%); display:flex; align-items:center; gap:12px; }
+    .car-svg { width:110px; height:40px; flex-shrink:0; }
+    .car-fr-label { font-size:1.6rem; font-weight:900; white-space:nowrap; letter-spacing:1px; }
+
+    /* LEADERBOARD */
+    .leaderboard { width:190px; flex-shrink:0; background:#080808; border-left:1px solid rgba(255,255,255,0.06); display:flex; flex-direction:column; }
+    .lb-header { background:#E8002D; color:#fff; font-weight:900; font-size:0.75rem; letter-spacing:3px; padding:10px 14px; text-align:center; }
+    .lb-row { display:flex; align-items:center; gap:10px; padding:14px 12px; border-bottom:1px solid rgba(255,255,255,0.05); transition:all .3s; }
+    .lb-pos { font-size:1.1rem; font-weight:900; color:#444; width:20px; text-align:center; }
+    .lb-pos.p1 { color:#FFD700; } .lb-pos.p2 { color:#C0C0C0; }
+    .lb-info { flex:1; }
+    .lb-name { font-size:1rem; font-weight:700; color:#fff; }
+    .lb-fr { font-size:1.8rem; font-weight:900; line-height:1; margin-top:3px; }
+    .lb-gap { font-size:0.68rem; font-weight:700; padding:2px 7px; border-radius:3px; margin-top:4px; display:inline-block; }
+
+    /* SEMÁFORO */
+    #semaforo {
+      position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);
+      z-index:50; display:flex; flex-direction:column; align-items:center; gap:0;
+      background:#111; border:2px solid #333; border-radius:12px;
+      padding:10px 16px; box-shadow:0 0 60px rgba(0,0,0,0.9);
+      transition:opacity .5s;
+    }
+    #semaforo.hidden { opacity:0; pointer-events:none; }
+    .sem-title { font-size:0.7rem; letter-spacing:3px; color:#555; font-weight:700; margin-bottom:12px; text-transform:uppercase; }
+    .sem-lights { display:flex; gap:10px; margin-bottom:10px; }
+    .sem-light {
+      width:26px; height:26px; border-radius:50%;
+      background:#1a0000; border:2px solid #330000;
+      transition:background .1s, box-shadow .1s;
+    }
+    .sem-light.on-red   { background:#E8002D; box-shadow:0 0 20px #E8002D, 0 0 40px rgba(232,0,45,0.5); border-color:#ff4466; }
+    .sem-light.on-green { background:#22C55E; box-shadow:0 0 20px #22C55E, 0 0 40px rgba(34,197,94,0.5); border-color:#4ade80; }
+    .sem-go { font-size:1.2rem; font-weight:900; letter-spacing:6px; color:#22C55E; text-shadow:0 0 20px #22C55E; display:none; }
+  </style>
+
+  <div id="race-wrap">
+    <div class="race-header">
+      <div class="f1-badge">F1</div>
+      <div class="race-title">Fill Rate Race 2026</div>
+      <div class="race-period">YTD Enero 2026</div>
+      <div class="race-controls">
+        <button class="rc-btn" id="rc-1x" onclick="raceSetSpeed(1)">1x</button>
+        <button class="rc-btn rc-active" id="rc-2x" onclick="raceSetSpeed(2)">2x</button>
+        <button class="rc-btn" id="rc-5x" onclick="raceSetSpeed(5)">5x</button>
+        <button class="rc-btn" id="rc-rst" onclick="raceReset()">&#x21BA;</button>
+        <button class="rc-play" id="rc-play" onclick="raceToggle()">&#9654;</button>
+      </div>
+    </div>
+    <div class="race-body">
+      <div class="race-labels" id="race-labels"></div>
+      <div class="race-track" id="race-track">
+        <div class="track-bg"></div>
+        <div class="track-center-line"></div>
+        <div class="finish-line"></div>
+        
+        <div class="race-lanes" id="race-lanes"></div>
+        <!-- SEMÁFORO -->
+        <div id="semaforo" class="hidden">
+          <div class="sem-title">Semáforo de Largada</div>
+          <div class="sem-lights">
+            <div class="sem-light" id="sl1"></div>
+            <div class="sem-light" id="sl2"></div>
+            <div class="sem-light" id="sl3"></div>
+            <div class="sem-light" id="sl4"></div>
+            <div class="sem-light" id="sl5"></div>
+          </div>
+          <div class="sem-go" id="sem-go">GO!</div>
+        </div>
+      </div>
+      <div class="leaderboard">
+        <div class="lb-header">CLASIFICACION</div>
+        <div id="lb-rows"></div>
+      </div>
+    </div>
+  </div>`;
+
+  function carSVG(color) {
+    return '<svg class="car-svg" viewBox="0 0 90 32" fill="none" xmlns="http://www.w3.org/2000/svg">'
+      // Body
+      +'<path d="M6 21 L11 13 L24 10 L36 7 L54 7 L68 10 L78 16 L78 22 L6 22Z" fill="'+color+'" opacity="0.92"/>'
+      // Cockpit
+      +'<path d="M26 10 L30 4 L52 4 L56 10Z" fill="'+color+'" opacity="0.5"/>'
+      // Front wing
+      +'<path d="M72 18 L86 17 L86 21 L72 21Z" fill="'+color+'" opacity="0.8"/>'
+      // Rear wing vertical
+      +'<rect x="3" y="12" width="8" height="3" rx="1" fill="'+color+'" opacity="0.7"/>'
+      +'<rect x="2" y="10" width="10" height="2" rx="1" fill="'+color+'" opacity="0.5"/>'
+      // Wheels
+      +'<circle cx="20" cy="23" r="5.5" fill="#0a0a0a" stroke="'+color+'" stroke-width="2"/>'
+      +'<circle cx="20" cy="23" r="2" fill="'+color+'" opacity="0.6"/>'
+      +'<circle cx="60" cy="23" r="5.5" fill="#0a0a0a" stroke="'+color+'" stroke-width="2"/>'
+      +'<circle cx="60" cy="23" r="2" fill="'+color+'" opacity="0.6"/>'
+      // Exhaust
+      +'<ellipse cx="4" cy="18" rx="5" ry="2.5" fill="'+color+'" opacity="0.25"/>'
+      +'</svg>';
+  }
+
+  const labelsEl = document.getElementById('race-labels');
+  const lanesEl  = document.getElementById('race-lanes');
+
+  RACERS.forEach((r, i) => {
+    const lbl = document.createElement('div');
+    lbl.className = 'race-label';
+    lbl.innerHTML = '<div class="race-pos-badge" style="background:'+r.color+'">'+(i+1)+'</div>'
+      +'<div><div class="race-driver-name">'+r.name+'</div>'
+      +'<div class="race-driver-code" style="color:'+r.color+'">'+r.code+'</div></div>';
+    labelsEl.appendChild(lbl);
+
+    const lane = document.createElement('div');
+    lane.className = 'race-lane';
+    lane.id = 'lane-'+r.id;
+
+    const trail = document.createElement('div');
+    trail.className = 'car-trail';
+    trail.id = 'trail-'+r.id;
+    trail.style.background = 'linear-gradient(90deg,transparent 0%,'+r.color+'66 40%,'+r.color+' 100%)';
+    lane.appendChild(trail);
+
+    const carWrap = document.createElement('div');
+    carWrap.className = 'car-wrap';
+    carWrap.id = 'car-'+r.id;
+    carWrap.innerHTML = carSVG(r.color)
+      +'<span class="car-fr-label" id="fr-lbl-'+r.id+'" style="color:'+r.color+'">0.0%</span>';
+    lane.appendChild(carWrap);
+    lanesEl.appendChild(lane);
+  });
+
+  function updateLeaderboard(curFRs) {
+    const sorted = RACERS.map(r=>({...r,cur:curFRs[r.id]})).sort((a,b)=>b.cur-a.cur);
+    const lbEl = document.getElementById('lb-rows');
+    if (!lbEl) return;
+    lbEl.innerHTML = sorted.map((r,i) => {
+      const gap = i===0?'':('+'+((r.cur-sorted[1].cur)*100).toFixed(1)+'pp');
+      const gCol = i===0?'#22C55E':'#EF4444';
+      const pc = ['p1','p2'][i]||'';
+      return '<div class="lb-row">'
+        +'<div class="lb-pos '+pc+'">'+(i+1)+'</div>'
+        +'<div class="lb-info">'
+        +'<div class="lb-name">'+r.name+'</div>'
+        +'<div class="lb-fr" style="color:'+r.color+'">'+(r.cur*100).toFixed(1)+'%</div>'
+        +(i===0?'<div class="lb-gap" style="background:'+gCol+'22;color:'+gCol+'">&#9650; Lider</div>':'<div class="lb-gap" style="background:'+gCol+'22;color:'+gCol+'">'+(((sorted[0].cur-r.cur)*100).toFixed(1))+'pp</div>')
+        +'</div></div>';
+    }).join('');
+  }
+
+  // ── SEMÁFORO ──
+  function runSemaforo(onGo) {
+    const sem = document.getElementById('semaforo');
+    const goEl = document.getElementById('sem-go');
+    if (!sem) { onGo(); return; }
+
+    sem.classList.remove('hidden');
+    goEl.style.display = 'none';
+
+    // Reset all lights
+    for(let i=1;i<=5;i++) {
+      const l = document.getElementById('sl'+i);
+      if(l) { l.className='sem-light'; }
+    }
+
+    let lit = 0;
+    const interval = setInterval(() => {
+      lit++;
+      const l = document.getElementById('sl'+lit);
+      if(l) l.classList.add('on-red');
+      if(lit===5) {
+        clearInterval(interval);
+        // All red → pause → GO
+        setTimeout(() => {
+          for(let i=1;i<=5;i++) {
+            const ll=document.getElementById('sl'+i);
+            if(ll) ll.className='sem-light';
+          }
+          goEl.style.display='block';
+          setTimeout(() => {
+            sem.classList.add('hidden');
+            onGo();
+          }, 700);
+        }, 900);
+      }
+    }, 400);
+  }
+
+  // ── ANIMATION ──
+  let progress=0, speed=2, running=false, rafId=null, lastTime=null;
+  const DURATION=5000;
+
+  function trackW() {
+    const t=document.getElementById('race-track');
+    return t ? t.offsetWidth-190-100 : 600;
+  }
+  function posForFR(fr, w) {
+    const mn=0.70, mx=1.0;
+    return ((fr-mn)/(mx-mn))*w*0.78;
+  }
+
+  function renderFrame(prog) {
+    const w = trackW();
+    const curFRs = {};
+    RACERS.forEach(r => {
+      const p = Math.min(prog,1);
+      const eased = p<0.5 ? 2*p*p : 1-Math.pow(-2*p+2,2)/2;
+      const targetPos = posForFR(r.fr,w);
+      const curPos = targetPos*eased;
+      const curFR = 0.70+(r.fr-0.70)*eased;
+      curFRs[r.id] = curFR;
+      const carEl   = document.getElementById('car-'+r.id);
+      const trailEl = document.getElementById('trail-'+r.id);
+      const frLbl   = document.getElementById('fr-lbl-'+r.id);
+      if(carEl)   { carEl.style.left=curPos+'px'; carEl.style.filter='drop-shadow(0 0 '+(4+10*eased)+'px '+r.color+')'; }
+      if(trailEl) trailEl.style.width=curPos+'px';
+      if(frLbl)   frLbl.textContent=(curFR*100).toFixed(1)+'%';
+    });
+    updateLeaderboard(curFRs);
+    const pb=document.getElementById('rc-play');
+    if(pb) pb.innerHTML = running ? '&#9646;&#9646;' : '&#9654;';
+  }
+
+  function animate(ts) {
+    if(!lastTime) lastTime=ts;
+    const delta=(ts-lastTime)*speed;
+    lastTime=ts;
+    progress+=delta/DURATION;
+    if(progress>=1){
+      progress=1; running=false; renderFrame(1);
+      const pb=document.getElementById('rc-play');
+      if(pb) pb.innerHTML='&#9654;';
+      return;
+    }
+    renderFrame(progress);
+    if(running) rafId=requestAnimationFrame(animate);
+  }
+
+  function startRace() {
+    running=true; lastTime=null; rafId=requestAnimationFrame(animate);
+  }
+
+  window.raceToggle=function(){
+    if(progress>=1) { progress=0; renderFrame(0); }
+    if(!running) {
+      // show semáforo then start
+      runSemaforo(startRace);
+    } else {
+      running=false; cancelAnimationFrame(rafId);
+      const pb=document.getElementById('rc-play');
+      if(pb) pb.innerHTML='&#9654;';
+    }
+  };
+
+  window.raceReset=function(){
+    running=false; cancelAnimationFrame(rafId);
+    progress=0; renderFrame(0);
+    const pb=document.getElementById('rc-play');
+    if(pb) pb.innerHTML='&#9654;';
+    const sem=document.getElementById('semaforo');
+    if(sem) sem.classList.add('hidden');
+  };
+
+  window.raceSetSpeed=function(s){
+    speed=s;
+    ['1x','2x','5x'].forEach(id=>{
+      const b=document.getElementById('rc-'+id);
+      if(b) b.classList.toggle('rc-active', id===s+'x');
+    });
+  };
+
+  window._raceStart=function(){ raceReset(); setTimeout(raceToggle,300); };
+  renderFrame(0);
+}
+
+// ─── INIT ────────────────────────────────────────────────────────────────────
+function init() {
+  // Resumen
+  document.getElementById('p-resumen').innerHTML = renderResumen();
+  document.getElementById('p-comparativo').innerHTML = renderComparativo();
+  buildRace();
+  buildEvolucion();
+  // Load Chart.js for comparativo
+  if (typeof Chart === 'undefined') {
+    const s = document.createElement('script');
+    s.src = 'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js';
+    document.head.appendChild(s);
+  }
+
+  // Andina summary + drill-downs
+  document.getElementById('p-andina').innerHTML =
+    renderBottlerSummary(ANDINA, 'Andina', 'badge-andina', '#0057A8');
+  CHAINS.forEach(ch => {
+    document.getElementById('p-andina-'+ch.toLowerCase()).innerHTML =
+      `<div class="bottler-header">
+        <div class="bottler-badge badge-andina">Andina</div>
+        <div style="font-family:'Barlow Condensed',sans-serif;font-size:1.3rem;font-weight:800">${ch}</div>
+      </div>` + renderTable(ANDINA, ch, 'Andina');
+  });
+
+  // Embonor summary + drill-downs
+  document.getElementById('p-embonor').innerHTML =
+    renderBottlerSummary(EMBONOR, 'Embonor', 'badge-embonor', '#00875A');
+  CHAINS.forEach(ch => {
+    document.getElementById('p-embonor-'+ch.toLowerCase()).innerHTML =
+      `<div class="bottler-header">
+        <div class="bottler-badge badge-embonor">Embonor</div>
+        <div style="font-family:'Barlow Condensed',sans-serif;font-size:1.3rem;font-weight:800">${ch}</div>
+      </div>` + renderTable(EMBONOR, ch, 'Embonor');
+  });
+
+  // Header KPIs
+  const tA = aggData(ANDINA,  CHAINS, CATS);
+  const tE = aggData(EMBONOR, CHAINS, CATS);
+  const frA = pct(tA.rec, tA.sol);
+  const frE = pct(tE.rec, tE.sol);
+  const frC = pct(tA.rec+tE.rec, tA.sol+tE.sol);
+
+  const kA = document.getElementById('kpi-andina-fr');
+  kA.textContent = fmtP(frA); kA.className = 'v';
+  const kE = document.getElementById('kpi-embonor-fr');
+  kE.textContent = fmtP(frE); kE.className = 'v';
+  const kC = document.getElementById('kpi-chile-fr');
+  kC.textContent = fmtP(frC); kC.className = 'v';
+}
+
+function showPanel(name, btn) {
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('p-'+name).classList.add('active');
+  btn.classList.add('active');
+}
+
+init();
+</script>
+</body>
+</html>
