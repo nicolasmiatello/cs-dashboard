@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -165,7 +166,7 @@
 <div class="header">
   <div class="header-title">
     <h1>Dashboard <span class="chile"><span class="ch-r">C</span><span class="ch-b">h</span><span class="ch-r">i</span><span class="ch-b">l</span><span class="ch-r">e</span></span> - Customer Service</h1>
-    <p style="color:var(--white)">Enero 2026</p>
+    <p style="color:var(--white)">Febrero 2026</p>
   </div>
   <div style="display:flex;align-items:center;gap:16px">
     <div class="bottler-pills">
@@ -183,7 +184,7 @@
 <div class="nav">
   <button class="nav-btn active" onclick="showPanel('resumen',this)">🇨🇱 Resumen Chile</button>
   <button class="nav-btn" onclick="showPanel('race',this);setTimeout(()=>{if(window._raceStart)window._raceStart();},100)" style="background:rgba(232,0,45,0.15);border:1px solid rgba(232,0,45,0.4);font-weight:900;letter-spacing:1px">🏎 F1 Race 26</button>
-  <button class="nav-btn" onclick="showPanel('comparativo',this);setTimeout(()=>{if(window._compChartDraw)window._compChartDraw();},50)" style="background:rgba(232,0,45,0.1);border:1px solid rgba(232,0,45,0.3)">📊 Ene 25 vs 26</button>
+  <button class="nav-btn" onclick="showPanel('comparativo',this);setTimeout(()=>{if(window._compChartDraw)window._compChartDraw();},50)" style="background:rgba(232,0,45,0.1);border:1px solid rgba(232,0,45,0.3)">📊 Feb 25 vs 26</button>
   <button class="nav-btn" onclick="showPanel('evolucion',this);setTimeout(()=>{if(window._evoDrawChart)window._evoDrawChart();},80)" style="background:rgba(232,0,45,0.1);border:1px solid rgba(232,0,45,0.3)">📈 Evolución FR</button>
   <div class="nav-sep"></div>
   <button class="nav-btn" onclick="showPanel('andina',this)">Andina</button>
@@ -227,68 +228,68 @@
 // Andina categories: Gaseosas=SSD, Aguas=Aguas, Jugos=Jugos, Isotónicos=Hidratantes, Energética=Energéticos
 
 const ANDINA = {
+  // Febrero 2026 — sol=CANTIDAD CF, rec=VENTA CF
   TOTTUS: {
-    // From original data: Venta CF = entregado, Cantidad CF = solicitado
-    // Tottus Andina categories mapped:
-    'Gaseosas':   { sol: 149907, rec: 118105+31802, causes: [0,0,0,0,0,0] }, // SSD Colas + SSD Sabores
-    'Aguas':      { sol: 40720+62485, rec: 30926+56261, causes: [0,0,0,0,0,0] },
-    'Jugos':      { sol: 30050+2017, rec: 24435+1361, causes: [0,0,0,0,0,0] },
-    'Isotónicos': { sol: 10155, rec: 9348, causes: [0,0,0,0,0,0] },
-    'Energética': { sol: 23541, rec: 17553, causes: [0,0,0,0,0,0] },
+    'Gaseosas':   { sol: 174166+51910,  rec: 155642+40037, causes: [0,0,0,0,0,0] }, // SSD Colas + SSD Sabores
+    'Aguas':      { sol: 53380+16238,   rec: 49092+14856,  causes: [0,0,0,0,0,0] }, // Aguas Plain + Aguas Sab
+    'Jugos':      { sol: 46709,         rec: 39203,        causes: [0,0,0,0,0,0] },
+    'Isotónicos': { sol: 11071,         rec: 9051,         causes: [0,0,0,0,0,0] },
+    'Energética': { sol: 26727,         rec: 24719,        causes: [0,0,0,0,0,0] },
   },
   CENCOSUD: {
-    'Gaseosas':   { sol: 586375+109488, rec: 510454+88875, causes: [0,0,0,0,0,0] },
-    'Aguas':      { sol: 81750+310494, rec: 63978+275207, causes: [0,0,0,0,0,0] },
-    'Jugos':      { sol: 75946+9343, rec: 66099+7609, causes: [0,0,0,0,0,0] },
-    'Isotónicos': { sol: 17907, rec: 15565, causes: [0,0,0,0,0,0] },
-    'Energética': { sol: 51170, rec: 36522, causes: [0,0,0,0,0,0] },
+    'Gaseosas':   { sol: 502423+135733, rec: 458133+116899, causes: [0,0,0,0,0,0] }, // SSD Colas + SSD Sabores
+    'Aguas':      { sol: 239756+51931,  rec: 225134+47323,  causes: [0,0,0,0,0,0] }, // Aguas Plain + Aguas Sab
+    'Jugos':      { sol: 107798+10487,  rec: 97656+8527,    causes: [0,0,0,0,0,0] }, // Jugos + Leche Vegetal
+    'Isotónicos': { sol: 21903,         rec: 17901,         causes: [0,0,0,0,0,0] },
+    'Energética': { sol: 38190,         rec: 35186,         causes: [0,0,0,0,0,0] },
   },
   SMU: {
-    'Gaseosas':   { sol: 609434+127294, rec: 527149+95995, causes: [0,0,0,0,0,0] },
-    'Aguas':      { sol: 75878+205013, rec: 48197+176384, causes: [0,0,0,0,0,0] },
-    'Jugos':      { sol: 94655+525, rec: 63227+383, causes: [0,0,0,0,0,0] },
-    'Isotónicos': { sol: 27832, rec: 24219, causes: [0,0,0,0,0,0] },
-    'Energética': { sol: 58597, rec: 45991, causes: [0,0,0,0,0,0] },
+    'Gaseosas':   { sol: 541817+106532, rec: 468258+73018,  causes: [0,0,0,0,0,0] }, // SSD Colas + SSD Sabores
+    'Aguas':      { sol: 169462+48888,  rec: 130211+36302,  causes: [0,0,0,0,0,0] }, // Aguas Plain + Aguas Sab
+    'Jugos':      { sol: 105453+255,    rec: 67320+231,     causes: [0,0,0,0,0,0] }, // Jugos + Leche Vegetal
+    'Isotónicos': { sol: 33659,         rec: 22159,         causes: [0,0,0,0,0,0] },
+    'Energética': { sol: 42966,         rec: 39262,         causes: [0,0,0,0,0,0] },
   },
   WALMART: {
-    'Gaseosas':   { sol: 946549+232508, rec: 787853+183382, causes: [0,0,0,0,0,0] },
-    'Aguas':      { sol: 103174+394224, rec: 88559+345911, causes: [0,0,0,0,0,0] },
-    'Jugos':      { sol: 132662+0, rec: 116557+0, causes: [0,0,0,0,0,0] },
-    'Isotónicos': { sol: 62337, rec: 49432, causes: [0,0,0,0,0,0] },
-    'Energética': { sol: 89232, rec: 73994, causes: [0,0,0,0,0,0] },
+    'Gaseosas':   { sol: 723530+158384, rec: 667634+139282, causes: [0,0,0,0,0,0] }, // SSD Colas + SSD Sabores
+    'Aguas':      { sol: 282640+97753,  rec: 258576+89443,  causes: [0,0,0,0,0,0] }, // Aguas Plain + Aguas Sab
+    'Jugos':      { sol: 199705,        rec: 170107,        causes: [0,0,0,0,0,0] },
+    'Isotónicos': { sol: 68789,         rec: 50061,         causes: [0,0,0,0,0,0] },
+    'Energética': { sol: 78893,         rec: 72471,         causes: [0,0,0,0,0,0] },
   },
 };
 
 // Embonor: causes stored as percentages of Solicitadas
 // [sol, rec, %Quiebre, %Bloqueo, %Rechazo, %Costos, %Eliminado, %NoId]
 const EMBONOR_RAW = {
+  // Febrero 2026 — sol=CJ Solicitadas, rec=CJ Entregadas, causas en %
   TOTTUS: {
-    'Gaseosas':   [57103,  47373,  4.20, 0.90, 5.60, 5.00, 0.60, 0.70],
-    'Aguas':      [41386,  27446,  9.40, 2.20, 3.20,18.40, 0.00, 0.40],
-    'Jugos':      [12042,   6125, 10.00,18.40, 5.50,14.10, 0.00, 1.10],
-    'Isotónicos': [ 5492,   3592,  6.70, 0.50, 2.00,24.50, 0.10, 0.80],
-    'Energética': [ 1795,   1470,  1.00, 3.00, 3.70, 5.60, 0.00, 4.70],
+    'Gaseosas':   [69470,  64534,  2.80, 0.00, 2.70, 1.30, 0.20, 0.10],
+    'Aguas':      [20978,  18149,  6.90, 3.80, 2.00, 0.40, 0.00, 0.40],
+    'Jugos':      [16230,  11933, 15.00, 3.30, 3.70, 3.90, 0.10, 0.60],
+    'Isotónicos': [ 3494,   3019,  5.60, 3.10, 3.10, 1.60, 0.00, 0.20],
+    'Energética': [ 2245,   1927,  3.30, 8.60, 2.20, 0.00, 0.00, 0.00],
   },
   CENCOSUD: {
-    'Gaseosas':   [313406, 282626, 3.00, 0.20, 2.00, 0.20, 0.10, 0.80],
-    'Aguas':      [230438, 184856, 9.50, 2.10, 1.70, 4.60, 0.10, 0.50],
-    'Jugos':      [ 49402,  38180, 6.50, 8.50, 1.60, 4.40, 0.10, 0.50],
-    'Isotónicos': [ 11695,  10529, 5.80, 1.50, 1.80, 0.00, 0.10, 0.10],
-    'Energética': [  6335,   5891, 1.20, 2.60, 2.20, 0.10, 0.10, 0.00],
+    'Gaseosas':   [310053, 288998,  2.60, 0.00, 1.80, 0.40, 0.60, 0.10],
+    'Aguas':      [168680, 151862,  4.90, 0.40, 1.90, 0.00, 1.10, 0.40],
+    'Jugos':      [ 98801,  76228,  5.50, 4.50, 3.70, 0.50, 0.40, 0.70],
+    'Isotónicos': [ 15627,  13969,  2.80, 4.50, 2.10, 0.00, 0.80, 0.10],
+    'Energética': [  7033,   6318,  2.60, 5.50, 1.40, 0.10, 0.30, 0.10],
   },
   SMU: {
-    'Gaseosas':   [466029, 403069, 4.50, 0.40, 3.90, 2.30, 0.40, 0.70],
-    'Aguas':      [244952, 195374,12.70, 1.60, 3.40, 0.20, 0.20, 0.90],
-    'Jugos':      [ 88107,  49155,27.40, 2.50, 8.40, 1.20, 3.30, 0.50],
-    'Isotónicos': [ 31563,  26846, 4.90, 0.00, 2.10, 3.20, 0.10, 0.30],
-    'Energética': [ 10151,   9131, 1.30, 4.70, 2.30, 0.00, 0.20, 0.90],
+    'Gaseosas':   [559015, 503106,  2.40, 1.60, 3.10, 1.40, 0.30, 0.50],
+    'Aguas':      [164005, 144944,  3.50, 0.70, 3.20, 2.00, 0.50, 1.00],
+    'Jugos':      [ 91203,  56377,  8.30, 6.30,14.20, 5.60, 0.70, 2.10],
+    'Isotónicos': [ 28720,  24368,  6.00, 3.10, 2.60, 2.30, 0.10, 0.60],
+    'Energética': [ 13458,   9683,  1.70, 6.10, 2.40,16.40, 0.20, 0.70],
   },
   WALMART: {
-    'Gaseosas':   [878722, 642432, 1.70, 0.20, 1.90,20.30, 0.50, 0.70],
-    'Aguas':      [325537, 257077,11.70, 0.30, 2.30, 3.30, 0.20, 1.00],
-    'Jugos':      [113920,  86796,11.90, 2.10, 3.40, 1.40, 0.40, 1.60],
-    'Isotónicos': [ 54381,  43139, 5.30, 0.80, 1.90, 9.80, 0.10, 1.20],
-    'Energética': [ 17128,  15650, 0.90, 1.80, 2.20, 0.10, 0.70, 0.50],
+    'Gaseosas':   [537042, 497905,  1.10, 0.00, 2.00, 1.50, 0.40, 0.40],
+    'Aguas':      [203452, 181729,  4.10, 0.00, 2.80, 0.10, 0.90, 0.50],
+    'Jugos':      [226350, 174485,  9.70, 4.90, 5.20, 1.10, 0.40, 0.40],
+    'Isotónicos': [ 38367,  32875,  7.90, 2.00, 2.10, 0.90, 0.30, 0.50],
+    'Energética': [ 12560,  11450,  1.20, 5.40, 1.40, 0.00, 0.10, 0.30],
   },
 };
 
@@ -312,56 +313,57 @@ Object.keys(EMBONOR_RAW).forEach(chain => {
 // Andina causes: Quiebre, Bloqueo(=Capacidad), Rechazo(=Retorno), Costos(=DifPrecio), Eliminado(=DifADM), NoId(=Otros)
 // Original indices: [Venta, Cant, Quiebre, Capacidad, DifADM, DifPrecio, Retorno, Otros]
 const ANDINA_RAW_ORIG = {
+  // Febrero 2026 — [sol, rec, %Quiebre, %Capacidad, %DifADM, %DifPrecio, %Retorno, %Otros]
   TOTTUS: {
-    // sol=Cantidad CF (pedido), rec=Venta CF (entregado)
-    'Gaseosas':   [174247, 149907, (1752+2847), (5099+1266), 0, (79+239), (8406+5567), (704+186)],
-    'Aguas':      [103205,  87187, (2815+1717), (2092+1448), 0, (2851+17),(2210+3040), (90+696)],
-    'Jugos':      [ 32067,  25796, (1213+458),  (1267+41),   0, (740+0),  (2441+158),  (102+22)],
-    'Isotónicos': [ 10155,   9348, 259,          170,         0, 9,        366,          90],
-    'Energética': [ 23541,  17553, 4202,         673,         0, 35,       1177,         48],
+    'Gaseosas':   [226076, 195679, 3.97, 1.92, 0.0,  0.29,  7.65, 0.2],
+    'Aguas':      [ 69618,  63948, 2.11, 1.34, 0.0,  0.19,  4.57, 0.11],
+    'Jugos':      [ 46709,  39203, 1.73, 2.28, 0.0,  1.3,  11.18, 0.0],
+    'Isotónicos': [ 11071,   9051,11.22, 4.63, 0.0,  0.0,   3.86, 0.01],
+    'Energética': [ 26727,  24719, 1.27, 1.77, 0.0,  0.0,   4.45, 0.0],
   },
   CENCOSUD: {
-    'Gaseosas':   [695863, 599329, (14805+4457),(35408+6143),0,(839+5685),(20620+3707),(47+1)],
-    'Aguas':      [392244, 339185, (10466+9271),(3698+13544),0,(889+3168),(2506+6188),(4+6)],
-    'Jugos':      [ 85289,  73708, (2803+649),  (4100+659),  0,(755+6),   (2208+463),  (20+0)],
-    'Isotónicos': [ 17907,  15565, 457,          1097,        0,13,        653,          2],
-    'Energética': [ 51170,  36522, 10832,        2625,        0,0,         1578,         0],
+    'Gaseosas':   [638156, 575032, 3.86, 3.32, 0.0,  0.04,  2.89, 0.03],
+    'Aguas':      [291687, 272457, 1.43, 2.74, 0.0,  0.0,   1.99, 0.07],
+    'Jugos':      [118285, 106183, 4.21, 3.26, 0.0,  0.3,   2.85, 0.04],
+    'Isotónicos': [ 21903,  17901,11.9,  5.44, 0.0,  0.0,   2.77, 0.06],
+    'Energética': [ 38190,  35186, 2.39, 2.41, 0.0,  0.0,   2.74, 0.16],
   },
   SMU: {
-    'Gaseosas':   [736728, 623144, (9957+13704),(30958+8308),0,(18190+4976),(21475+5441),(212+43)],
-    'Aguas':      [280891, 224581, (19506+9402),(3446+9688), 0,(2198+3624), (2348+5404), (24+34)],
-    'Jugos':      [ 95180,  63610, (15498+60),  (5635+44),   1,(8200+0),    (3642+32),   (13+0)],
-    'Isotónicos': [ 27832,  24219, 236,          2108,        1,71,         1439,         10],
-    'Energética': [ 58597,  45991, 8167,         3120,        0,0,          1696,         0],
+    'Gaseosas':   [648349, 541276, 4.21, 2.62, 0.0,  5.8,   3.71, 0.04],
+    'Aguas':      [218350, 166513, 2.96, 1.76, 0.01,15.68,  2.69, 0.06],
+    'Jugos':      [105708,  67551, 6.42, 4.19, 0.0, 23.4,   3.32, 0.02],
+    'Isotónicos': [ 33659,  22159,18.43, 5.24, 0.0,  9.88,  3.42, 0.01],
+    'Energética': [ 42966,  39262, 1.77, 1.93, 0.0,  0.0,   3.93, 0.02],
   },
   WALMART: {
-    'Gaseosas':   [1179057, 971235,(9749+6285),(45936+11341),(358+514),(73889+22815),(21720+6527),(40+61)],
-    'Aguas':      [ 497398, 434470,(3390+10064),(5013+18067),(40+1176),(2843+6383),  (2402+9417), (9+297)],
-    'Jugos':      [ 132662, 116557,3838,         5834,         425,     1033,          3452,         10],
-    'Isotónicos': [  62337,  49432,1269,          2779,         201,     6860,          1188,         0],
-    'Energética': [  89232,  73994,6362,          4720,         608,     300,           2347,         12],
+    'Gaseosas':   [881914, 806916, 1.59, 3.43, 0.0,  0.03,  2.81, 0.03],
+    'Aguas':      [380393, 348019, 1.98, 3.16, 0.0,  0.02,  2.38, 0.05],
+    'Jugos':      [199705, 170107, 4.45, 4.35, 0.0,  0.22,  6.03, 0.03],
+    'Isotónicos': [ 68789,  50061,18.91, 4.52, 0.0,  2.73,  2.24, 0.03],
+    'Energética': [ 78893,  72471, 0.23, 3.76, 0.0,  0.0,   3.33, 0.01],
   },
 };
 
 // Build ANDINA structure from raw
-// Raw cols: [sol, rec, Quiebre, Capacidad, DifADM, DifPrecio, Retorno, Otros]
-// CAUSES indices: 0=Quiebre, 1=Bloqueo(N/A), 2=Rechazo, 3=Costos, 4=Eliminado, 5=NoId
-// Andina has NO Bloqueo → index 1 = 0
-// Capacidad (r[3]) has no equivalent → folded into NoId
+// Raw cols: [sol, rec, %Quiebre, %Capacidad, %DifADM, %DifPrecio, %Retorno, %Otros]
+// Causes stored as %, convert to absolute: bultos = sol * pct / 100
+// CAUSES indices: 0=Quiebre, 1=Bloqueo(N/A), 2=Rechazo, 3=Costos, 4=Eliminado, 5=NoId, 6=Capacidad
 Object.keys(ANDINA_RAW_ORIG).forEach(chain => {
   ANDINA[chain] = {};
   Object.keys(ANDINA_RAW_ORIG[chain]).forEach(cat => {
     const r = ANDINA_RAW_ORIG[chain][cat];
+    const sol = r[0];
+    const pct = (i) => sol * r[i] / 100;
     ANDINA[chain][cat] = {
-      sol: r[0], rec: r[1],
+      sol: sol, rec: r[1],
       causes: [
-        r[2],   // 0: Quiebre
-        0,      // 1: Bloqueo — Andina no tiene
-        r[6],   // 2: Rechazo (= Retorno)
-        r[5],   // 3: Costos (= DifPrecio)
-        r[4],   // 4: Eliminado (= DifADM)
-        r[7],   // 5: NoId (= Otros)
-        r[3],   // 6: Capacidad — solo Andina
+        pct(2),   // 0: Quiebre
+        0,        // 1: Bloqueo — Andina no tiene
+        pct(6),   // 2: Rechazo (= Retorno)
+        pct(5),   // 3: Costos (= DifPrecio)
+        pct(4),   // 4: DifADM
+        pct(7),   // 5: NoId (= Otros)
+        pct(3),   // 6: Capacidad — solo Andina
       ]
     };
   });
@@ -696,7 +698,7 @@ function renderResumen() {
   const causesA = adjustCauses(CAUSES.map((c,i) => totA.sol > 0 ? totA.causes[i]/totA.sol : 0), 1 - frA);
   const causesE = adjustCauses(CAUSES.map((c,i) => totE.sol > 0 ? totE.causes[i]/totE.sol : 0), 1 - frE);
 
-  let html = `<div class="sec-label">Resumen Ejecutivo — Chile Enero 2026</div>`;
+  let html = `<div class="sec-label">Resumen Ejecutivo — Chile Febrero 2026</div>`;
 
   // ── ÁRBOL TOTAL CHILE ──
   html += `<div style="margin-bottom:28px">`;
@@ -772,22 +774,24 @@ function renderResumen() {
 
 // ─── DATA 2025 ENE ───────────────────────────────────────────────────────────
 const D25 = {
-  CHILE:    { TOTAL:0.8529, Gaseosas:0.8509, Aguas:0.8423, Jugos:0.8793, Isotónicos:0.8572, Energética:0.9028 },
-  ANDINA:   { TOTAL:0.8734, Gaseosas:0.8686, Aguas:0.8783, Jugos:0.8845, Isotónicos:0.8321, Energética:0.9023 },
-  EMBONOR:  { TOTAL:0.8230, Gaseosas:0.8276, Aguas:0.7844, Jugos:0.8717, Isotónicos:0.8906, Energética:0.9055 },
-  TOTTUS:   { TOTAL:0.7693, Gaseosas:0.7176, Aguas:0.8426, Jugos:0.8281, Isotónicos:0.8722, Energética:0.8975, ANDINA:0.7934, EMBONOR:0.6960 },
-  CENCOSUD: { TOTAL:0.8935, Gaseosas:0.8919, Aguas:0.9034, Jugos:0.8698, Isotónicos:0.8819, Energética:0.9115, ANDINA:0.9159, EMBONOR:0.8517 },
-  SMU:      { TOTAL:0.8927, Gaseosas:0.8937, Aguas:0.8880, Jugos:0.9069, Isotónicos:0.9184, Energética:0.8515, ANDINA:0.8942, EMBONOR:0.8907 },
-  WALMART:  { TOTAL:0.8173, Gaseosas:0.8185, Aguas:0.7849, Jugos:0.8855, Isotónicos:0.8070, Energética:0.9200, ANDINA:0.8445, EMBONOR:0.7849 },
+  // Febrero 2025 — desde TOTAL_CHILE_2025.xlsx
+  CHILE:    { TOTAL:0.8658, Gaseosas:0.8786, Aguas:0.8626, Jugos:0.8176, Isotónicos:0.8633, Energética:0.8942 },
+  ANDINA:   { TOTAL:0.8697, Gaseosas:0.8785, Aguas:0.8826, Jugos:0.7995, Isotónicos:0.8736, Energética:0.9073 },
+  EMBONOR:  { TOTAL:0.8601, Gaseosas:0.8786, Aguas:0.8350, Jugos:0.8385, Isotónicos:0.8494, Energética:0.8294 },
+  TOTTUS:   { TOTAL:0.8250, Gaseosas:0.7855, Aguas:0.9153, Jugos:0.7549, Isotónicos:0.9052, Energética:0.9088, ANDINA:0.8245, EMBONOR:0.8270 },
+  CENCOSUD: { TOTAL:0.8808, Gaseosas:0.8788, Aguas:0.9052, Jugos:0.8388, Isotónicos:0.8799, Energética:0.9016, ANDINA:0.9004, EMBONOR:0.8424 },
+  SMU:      { TOTAL:0.8937, Gaseosas:0.9019, Aguas:0.8715, Jugos:0.8768, Isotónicos:0.8860, Energética:0.8935, ANDINA:0.9013, EMBONOR:0.8867 },
+  WALMART:  { TOTAL:0.8472, Gaseosas:0.8778, Aguas:0.8180, Jugos:0.7960, Isotónicos:0.8376, Energética:0.8829, ANDINA:0.8412, EMBONOR:0.8554 },
 };
 const D26 = {
-  CHILE:    { TOTAL:0.820,  Gaseosas:0.826, Aguas:0.827, Jugos:0.756, Isotónicos:0.825, Energética:0.799 },
-  ANDINA:   { TOTAL:0.839,  Gaseosas:0.841, Aguas:0.852, Jugos:0.810, Isotónicos:0.834, Energética:0.782 },
-  EMBONOR:  { TOTAL:0.790,  Gaseosas:0.802, Aguas:0.789, Jugos:0.684, Isotónicos:0.816, Energética:0.908 },
-  TOTTUS:   { TOTAL:0.815,  Gaseosas:0.853, Aguas:0.793, Jugos:0.724, Isotónicos:0.827, Energética:0.751, ANDINA:0.844, EMBONOR:0.730 },
-  CENCOSUD: { TOTAL:0.856,  Gaseosas:0.874, Aguas:0.842, Jugos:0.831, Isotónicos:0.881, Energética:0.738, ANDINA:0.857, EMBONOR:0.854 },
-  SMU:      { TOTAL:0.816,  Gaseosas:0.853, Aguas:0.799, Jugos:0.615, Isotónicos:0.860, Energética:0.802, ANDINA:0.818, EMBONOR:0.813 },
-  WALMART:  { TOTAL:0.803,  Gaseosas:0.784, Aguas:0.840, Jugos:0.825, Isotónicos:0.793, Energética:0.843, ANDINA:0.839, EMBONOR:0.752 },
+  // Febrero 2026
+  CHILE:    { TOTAL:0.8758, Gaseosas:0.8975, Aguas:0.8883, Jugos:0.7775, Isotónicos:0.7824, Energética:0.9052 },
+  ANDINA:   { TOTAL:0.8738, Gaseosas:0.8849, Aguas:0.8863, Jugos:0.8143, Isotónicos:0.7323, Energética:0.9190 },
+  EMBONOR:  { TOTAL:0.8790, Gaseosas:0.9180, Aguas:0.8915, Jugos:0.7375, Isotónicos:0.8611, Energética:0.8323 },
+  TOTTUS:   { TOTAL:0.8773, Gaseosas:0.8804, Aguas:0.9062, Jugos:0.8125, Isotónicos:0.8287, Energética:0.9197, ANDINA:0.8748, EMBONOR:0.8856 },
+  CENCOSUD: { TOTAL:0.9038, Gaseosas:0.9112, Aguas:0.9217, Jugos:0.8403, Isotónicos:0.8492, Energética:0.9178, ANDINA:0.9084, EMBONOR:0.8953 },
+  SMU:      { TOTAL:0.8267, Gaseosas:0.8650, Aguas:0.8146, Jugos:0.6294, Isotónicos:0.7459, Energética:0.8675, ANDINA:0.7977, EMBONOR:0.8623 },
+  WALMART:  { TOTAL:0.8929, Gaseosas:0.9196, Aguas:0.9073, Jugos:0.8088, Isotónicos:0.7740, Energética:0.9176, ANDINA:0.8993, EMBONOR:0.8828 },
 };
 
 // ─── RENDER COMPARATIVO ───────────────────────────────────────────────────────
@@ -830,25 +834,49 @@ function renderComparativo() {
     h += `</div>`;
 
     // ── TOP CARDS ──
-    const cardScope = activeBottler==='ALL'
-      ? [['CHILE','🇨🇱 Total Chile','#E8002D'],['ANDINA','🔵 Andina','#0057A8'],['EMBONOR','🟢 Embonor','#00875A']]
-      : activeBottler==='ANDINA'
-        ? [['ANDINA','🔵 Andina','#0057A8']]
-        : [['EMBONOR','🟢 Embonor','#00875A']];
+    const CHAIN_META = {
+      TOTTUS:   ['🟢 Tottus',  '#22C55E'],
+      CENCOSUD: ['🔵 Cencosud','#38BDF8'],
+      SMU:      ['🔴 SMU',     '#EF4444'],
+      WALMART:  ['🟠 Walmart', '#F97316'],
+    };
+    const singleChain = visChains.length === 1 ? visChains[0] : null;
+
+    let cardScope;
+    if (singleChain) {
+      const [clbl, ccol] = CHAIN_META[singleChain];
+      if (activeBottler==='ALL') {
+        cardScope = [
+          [singleChain, clbl+' — Total',   ccol,      'TOTAL'],
+          [singleChain, clbl+' — Andina',  '#0057A8', 'ANDINA'],
+          [singleChain, clbl+' — Embonor', '#00875A', 'EMBONOR'],
+        ];
+      } else if (activeBottler==='ANDINA') {
+        cardScope = [[singleChain, clbl+' — Andina',  '#0057A8', 'ANDINA']];
+      } else {
+        cardScope = [[singleChain, clbl+' — Embonor', '#00875A', 'EMBONOR']];
+      }
+    } else {
+      cardScope = activeBottler==='ALL'
+        ? [['CHILE','🇨🇱 Total Chile','#E8002D','TOTAL'],['ANDINA','🔵 Andina','#0057A8','TOTAL'],['EMBONOR','🟢 Embonor','#00875A','TOTAL']]
+        : activeBottler==='ANDINA'
+          ? [['ANDINA','🔵 Andina','#0057A8','TOTAL']]
+          : [['EMBONOR','🟢 Embonor','#00875A','TOTAL']];
+    }
 
     h += `<div style="display:grid;grid-template-columns:repeat(${cardScope.length},1fr);gap:14px;margin-bottom:24px">`;
-    cardScope.forEach(([sc,lbl,color]) => {
-      const fr25=D25[sc].TOTAL, fr26=D26[sc].TOTAL, dif=fr26-fr25;
+    cardScope.forEach(([sc,lbl,color,field]) => {
+      const fr25=D25[sc][field]??D25[sc].TOTAL, fr26=D26[sc][field]??D26[sc].TOTAL, dif=fr26-fr25;
       h += `<div style="background:var(--navy-mid);border:1px solid rgba(255,255,255,0.07);border-left:3px solid ${color};border-radius:10px;padding:20px 22px">
         <div style="font-family:'Barlow Condensed',sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gray-500);margin-bottom:12px">${lbl}</div>
         <div style="display:flex;align-items:flex-end;gap:16px;margin-bottom:10px">
           <div>
-            <div style="font-size:0.6rem;color:var(--gray-500);text-transform:uppercase;letter-spacing:1px;margin-bottom:2px">ENE 2025</div>
+            <div style="font-size:0.6rem;color:var(--gray-500);text-transform:uppercase;letter-spacing:1px;margin-bottom:2px">FEB 2025</div>
             <div style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:2rem;color:var(--gray-400)">${fmtP(fr25)}</div>
           </div>
           <div style="color:var(--gray-600);font-size:1.2rem;margin-bottom:8px">→</div>
           <div>
-            <div style="font-size:0.6rem;color:var(--gray-500);text-transform:uppercase;letter-spacing:1px;margin-bottom:2px">ENE 2026</div>
+            <div style="font-size:0.6rem;color:var(--gray-500);text-transform:uppercase;letter-spacing:1px;margin-bottom:2px">FEB 2026</div>
             <div style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:2rem;color:var(--white)">${fmtP(fr26)}</div>
           </div>
         </div>
@@ -926,7 +954,7 @@ function renderComparativo() {
 
     const datasets = [
       {
-        label: 'Ene 2025',
+        label: 'Feb 2025',
         data: visChains.map(ch => +(D25[ch][dataKey]*100).toFixed(1)),
         backgroundColor: visChains.map(ch => CHAIN_COLORS[ch].light),
         borderColor: visChains.map(ch => CHAIN_COLORS[ch].solid),
@@ -935,7 +963,7 @@ function renderComparativo() {
         borderSkipped: false,
       },
       {
-        label: 'Ene 2026',
+        label: 'Feb 2026',
         data: visChains.map(ch => +(D26[ch][dataKey]*100).toFixed(1)),
         backgroundColor: visChains.map(ch => CHAIN_COLORS[ch].solid),
         borderColor: visChains.map(ch => CHAIN_COLORS[ch].solid),
@@ -1061,51 +1089,51 @@ function renderComparativo() {
 // ─── EVOLUCIÓN FILL RATE ─────────────────────────────────────────────────────
 function buildEvolucion() {
   const MESES_2025 = ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
-  const MESES_2026 = ['Ene'];
+  const MESES_2026 = ['Ene','Feb'];
   // DATA: sol/rec mensuales 2025 para YTD acumulado correcto
   // y2026: sol/rec mensuales 2026 (agregar meses a medida que se cargan)
   const DATA = {
     CHILE:   {
       sol2025:[6111318.06,6037159.13,6772349.32,6051094.46,5329658.44,4742340.21,4848973.19,6015914.97,6301720.38,6758869.58,6688919.49,7703950.76],
       rec2025:[5212616.35,5226711.95,5939398.69,5236563.58,4697969.31,4133420.7,4348970.58,5208492.08,5438669.94,5700137.94,5771440.54,6832413.86],
-      sol2026:[null], rec2026:[null], // placeholder — FR directo abajo
-      y2026:[0.820]
+      sol2026:[7705186,6741510], rec2026:[6318085,5903506], // Andina+Embonor Ene+Feb 2026
+      y2026:[0.820,0.8757]
     },
     ANDINA:  {
       sol2025:[3629807.06,3580887.13,4528328.32,3955907.46,3593653.44,3003493.21,3030156.19,4055184.97,4100441.38,4546555.58,4677913.49,4955984.76],
       rec2025:[3170311.35,3114137.95,4021644.69,3468143.58,3171230.31,2631062.45,2724606.58,3575968.08,3533189.94,3812082.94,4000677.54,4406760.86],
-      sol2026:[null], rec2026:[null],
-      y2026:[0.839]
+      sol2026:[4745602,4154727], rec2026:[3981333,3629647],
+      y2026:[0.839,0.8736]
     },
     EMBONOR: {
       sol2025:[2481511,2456272,2244021,2095187,1736005,1738847,1818817,1960730,2201279,2212314,2011006,2747966],
       rec2025:[2042305,2112574,1917754,1768420,1526739,1502358.25,1624364,1632524,1905480,1888055,1770763,2425653],
-      sol2026:[null], rec2026:[null],
-      y2026:[0.790]
+      sol2026:[2959584,2586783], rec2026:[2336752,2273859],
+      y2026:[0.790,0.879]
     },
     TOTTUS:  {
       sol2025:[419835.78,366825.05,381538.29,338504.96,376942.54,350958.25,371005,357423.83,460525.04,481632.16,470734.37,574710.99],
       rec2025:[322977.61,302643.51,328264.29,281774.41,311469.01,284084.92,310363,306756.79,374694.82,388787.38,387577.73,502768.56],
       sol2026:[null], rec2026:[null],
-      y2026:[0.815]
+      y2026:[0.815,0.8768]
     },
     CENCOSUD:{
       sol2025:[1799181.39,1754011.2,2016402.64,1694033.58,1591847.81,1357727.37,1484263.19,1681994.12,1710775.05,1872385.62,1745969.67,2482516.32],
       rec2025:[1607510.88,1544999.89,1726462.69,1518354.11,1432849.53,1227162.52,1399892.58,1518478.55,1525277.73,1666677.7,1560648.18,2194099.68],
       sol2026:[null], rec2026:[null],
-      y2026:[0.856]
+      y2026:[0.856,0.9035]
     },
     SMU:     {
       sol2025:[1338552.29,1317392.11,1546331.88,1244610.24,1075378.99,838139.62,1076617,1108804.11,1275032.85,1489256.31,1545633.06,1509601.92],
       rec2025:[1194908.93,1177308.14,1393334.06,1102745.05,971776.41,707044.35,923284,946705.23,1095205.71,1264783.09,1311806.31,1334459.43],
       sol2026:[null], rec2026:[null],
-      y2026:[0.816]
+      y2026:[0.816,0.8267]
     },
     WALMART: {
       sol2025:[2553748.6,2598930.78,2828076.51,2773945.67,2285489.09,2195514.98,1917088,2867692.91,2855387.44,2915595.49,2926582.39,3137121.52],
       rec2025:[2087218.93,2201760.42,2491337.64,2333690.02,1981874.36,1915128.91,1715430,2436551.51,2443491.67,2379889.76,2511408.33,2801087.19],
       sol2026:[null], rec2026:[null],
-      y2026:[0.803]
+      y2026:[0.803,0.8929]
     },
   };
   // Helper: YTD FR acumulado hasta mes idx (0-based)
@@ -1207,7 +1235,13 @@ function buildEvolucion() {
     var mesLabel  = mesNames[lastIdx26];
     el.innerHTML = keys.map(function(k){
       var ytd25 = ytdFR(k, '2025', lastIdx26);  // suma acumulada sol/rec hasta mismo mes
-      var ytd26 = DATA[k].y2026[lastIdx26];      // FR directo (cuando haya sol2026/rec2026, usar ytdFR)
+      // YTD 2026: usar sol/rec si disponibles, sino FR mensual de Feb (aproximación)
+      var ytd26;
+      if (DATA[k].sol2026 && DATA[k].sol2026[0] && DATA[k].rec2026 && DATA[k].rec2026[0]) {
+        ytd26 = ytdFR(k, '2026', lastIdx26);
+      } else {
+        ytd26 = DATA[k].y2026[lastIdx26]; // solo FR mensual disponible
+      }
       var dif   = ytd26 - ytd25;
       var dc    = dif>=0?'#22C55E':'#EF4444';
       var col   = ALL_COLORS[k];
@@ -1320,9 +1354,11 @@ function buildEvolucion() {
 
 // ─── FILL RATE RACE ──────────────────────────────────────────────────────────
 function buildRace() {
+  // YTD Feb 2026: (rec_ene26 + rec_feb26) / (sol_ene26 + sol_feb26)
+  // Jan 2026 sol estimado desde Jan 2025 (misma estacionalidad)
   const RACERS = [
-    { id:'andina',  name:'Andina',  code:'AND', fr:0.839, color:'#3B82F6', glow:'rgba(59,130,246,0.7)' },
-    { id:'embonor', name:'Embonor', code:'EMB', fr:0.790, color:'#22C55E', glow:'rgba(34,197,94,0.7)'  },
+    { id:'andina',  name:'Andina',  code:'AND', fr:0.8551, color:'#3B82F6', glow:'rgba(59,130,246,0.7)' },
+    { id:'embonor', name:'Embonor', code:'EMB', fr:0.8313, color:'#22C55E', glow:'rgba(34,197,94,0.7)'  },
   ].sort((a,b) => b.fr - a.fr);
 
   const panel = document.getElementById('p-race');
@@ -1419,8 +1455,8 @@ function buildRace() {
   <div id="race-wrap">
     <div class="race-header">
       <div class="f1-badge">F1</div>
-      <div class="race-title">Fill Rate Race 2026</div>
-      <div class="race-period">YTD Enero 2026</div>
+      <div class="race-title">Fill Rate Race 2026 — YTD Feb</div>
+      <div class="race-period">YTD Febrero 2026</div>
       <div class="race-controls">
         <button class="rc-btn" id="rc-1x" onclick="raceSetSpeed(1)">1x</button>
         <button class="rc-btn rc-active" id="rc-2x" onclick="raceSetSpeed(2)">2x</button>
