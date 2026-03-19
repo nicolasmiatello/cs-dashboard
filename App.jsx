@@ -381,10 +381,22 @@ function barFillColor(v) {
   return "#EF4444";
 }
 function dohColor(v) {
-  const dk = V.navy === "#000000";
   if (v == null) return "transparent";
-  if (dk) { if(v<=15)return"rgba(74,222,128,.3)";if(v<=25)return"rgba(22,163,74,.2)";if(v<=35)return"rgba(251,146,60,.18)";if(v<=45)return"rgba(194,65,12,.18)";return"rgba(239,68,68,.25)"; }
-  if(v<=15)return"rgba(34,197,94,.15)";if(v<=25)return"rgba(22,163,74,.1)";if(v<=35)return"rgba(251,146,60,.1)";if(v<=45)return"rgba(194,65,12,.1)";return"rgba(239,68,68,.15)";
+  if (v <= 1) return "rgba(220,38,38,.35)";
+  if (v <= 4) return "rgba(194,65,12,.25)";
+  if (v <= 11) return "rgba(74,222,128,.3)";
+  if (v <= 30) return "rgba(22,163,74,.25)";
+  if (v <= 45) return "rgba(251,146,60,.25)";
+  return "rgba(239,68,68,.3)";
+}
+function dohTextColor(v) {
+  if (v == null) return V.gray700;
+  if (v <= 1) return "#DC2626";
+  if (v <= 4) return "#C2410C";
+  if (v <= 11) return "#4ADE80";
+  if (v <= 30) return "#16A34A";
+  if (v <= 45) return "#FB923C";
+  return "#EF4444";
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
@@ -557,9 +569,9 @@ export default function App() {
           const fmtV = (v) => isPct ? v.toFixed(1) + "%" : v.toFixed(0) + "d";
           let problems, opportunities, bestPerf;
           if (isDoh) {
-            problems = allVals.filter(v => v.val > 40).sort((a, b) => b.val - a.val).slice(0, 3);
-            opportunities = allVals.filter(v => v.val >= 25 && v.val <= 40).sort((a, b) => b.val - a.val).slice(0, 3);
-            bestPerf = allVals.filter(v => v.val < 15).sort((a, b) => a.val - b.val).slice(0, 3);
+            problems = allVals.filter(v => v.val > 45 || v.val <= 1).sort((a, b) => b.val - a.val).slice(0, 3);
+            opportunities = allVals.filter(v => v.val > 30 && v.val <= 45).sort((a, b) => b.val - a.val).slice(0, 3);
+            bestPerf = allVals.filter(v => v.val > 4 && v.val <= 11).sort((a, b) => a.val - b.val).slice(0, 3);
           } else if (isIS) {
             problems = allVals.filter(v => v.val < 87).sort((a, b) => a.val - b.val).slice(0, 3);
             opportunities = allVals.filter(v => v.val >= 87 && v.val < 92).sort((a, b) => a.val - b.val).slice(0, 3);
@@ -722,7 +734,7 @@ export default function App() {
         <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap", padding: "4px 0" }}>
           {(isPct
             ? [{l:"≥95%",c:frColor(96)},{l:"85-95%",c:frColor(90)},{l:"82-85%",c:frColor(83)},{l:"78-82%",c:frColor(80)},{l:"70-78%",c:frColor(74)},{l:"<70%",c:frColor(65)}]
-            : [{l:"≤15d",c:dohColor(10)},{l:"15-25d",c:dohColor(20)},{l:"25-35d",c:dohColor(30)},{l:"35-45d",c:dohColor(40)},{l:">45d",c:dohColor(50)}]
+            : [{l:"0-1d",c:dohColor(0.5)},{l:"1-4d",c:dohColor(3)},{l:"4-11d",c:dohColor(8)},{l:"11-30d",c:dohColor(20)},{l:"30-45d",c:dohColor(35)},{l:">45d",c:dohColor(50)}]
           ).map(lg => (
             <div key={lg.l} style={{ display: "flex", alignItems: "center", gap: 4 }}>
               <div style={{ width: 14, height: 14, borderRadius: 3, background: lg.c, border: "1px solid "+V.brd }} />
