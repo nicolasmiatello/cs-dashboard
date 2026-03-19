@@ -85,7 +85,7 @@ const LS = [
 
 const BAR_DATA = {
   ARG: [{ n: "GDN", a: 84.9, b: 89.9 }, { n: "CRF", a: 85.6, b: 86.7 }, { n: "Cencosud", a: null, b: 87.5 }, { n: "Libertad", a: 82.9, b: 89.2 }, { n: "La Anonima", a: null, b: 84.0 }, { n: "Dia", a: null, b: 85.3 }],
-  FEMSA: [{ n: "GDN", a: 92.5, b: 87.1 }, { n: "CRF", a: 89.2, b: 85.1 }, { n: "Cencosud", a: null, b: 93.6 }, { n: "Libertad", a: null, b: null }, { n: "La Anonima", a: null, b: 77.4 }, { n: "Dia", a: null, b: null }],
+  FEMSA: [{ n: "GDN", a: 92.5, b: 87.1 }, { n: "CRF", a: 89.2, b: 85.1 }, { n: "Cencosud", a: null, b: 93.6 }, { n: "Libertad", a: null, b: null }, { n: "La Anonima", a: null, b: 77.4 }, { n: "Dia", a: null, b: 85.3 }],
   LEE: [{ n: "GDN", a: 88.7, b: 88.5 }, { n: "CRF", a: 87.8, b: 89.0 }, { n: "Cencosud", a: null, b: 84.7 }, { n: "Libertad", a: null, b: null }, { n: "La Anonima", a: null, b: null }, { n: "Dia", a: null, b: null }],
   ANDINA: [{ n: "GDN", a: 81.2, b: 92.6 }, { n: "CRF", a: 78.2, b: 88.2 }, { n: "Cencosud", a: 75.4, b: 89.2 }, { n: "Libertad", a: 74.3, b: 88.3 }, { n: "La Anonima", a: 85.1, b: 84.0 }, { n: "Dia", a: null, b: null }],
   ARCA: [{ n: "GDN", a: 86.4, b: 91.2 }, { n: "CRF", a: 88.0, b: 87.9 }, { n: "Cencosud", a: null, b: 91.8 }, { n: "Libertad", a: 86.5, b: 89.8 }, { n: "La Anonima", a: null, b: 90.1 }, { n: "Dia", a: null, b: null }],
