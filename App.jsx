@@ -351,9 +351,9 @@ let V = mkTheme(true);
 function frColor(v) {
   if (v == null) return "transparent";
   if (v >= 95) return "rgba(34,197,94,.35)";
-  if (v >= 87) return "rgba(22,101,52,.35)";
-  if (v >= 84) return "rgba(251,146,60,.25)";
-  if (v >= 80) return "rgba(194,65,12,.25)";
+  if (v >= 85) return "rgba(22,101,52,.35)";
+  if (v >= 82) return "rgba(251,146,60,.25)";
+  if (v >= 78) return "rgba(194,65,12,.25)";
   if (v >= 70) return "rgba(153,27,27,.3)";
   return "rgba(220,38,38,.35)";
 }
@@ -366,17 +366,17 @@ function frBorder(v) {
 function frTextColor(v) {
   if (v == null) return V.gray700;
   if (v >= 95) return "#22C55E";
-  if (v >= 87) return "#166534";
-  if (v >= 84) return "#FB923C";
-  if (v >= 80) return "#C2410C";
+  if (v >= 85) return "#166534";
+  if (v >= 82) return "#FB923C";
+  if (v >= 78) return "#C2410C";
   if (v >= 70) return "#991B1B";
   return "#EF4444";
 }
 function barFillColor(v) {
   if (v >= 95) return "#22C55E";
-  if (v >= 87) return "#166534";
-  if (v >= 84) return "#FB923C";
-  if (v >= 80) return "#C2410C";
+  if (v >= 85) return "#166534";
+  if (v >= 82) return "#FB923C";
+  if (v >= 78) return "#C2410C";
   if (v >= 70) return "#991B1B";
   return "#EF4444";
 }
@@ -565,8 +565,8 @@ export default function App() {
             opportunities = allVals.filter(v => v.val >= 87 && v.val < 92).sort((a, b) => a.val - b.val).slice(0, 3);
             bestPerf = allVals.filter(v => v.val >= 95).sort((a, b) => b.val - a.val).slice(0, 3);
           } else {
-            problems = allVals.filter(v => v.val < 80).sort((a, b) => a.val - b.val).slice(0, 3);
-            opportunities = allVals.filter(v => v.val >= 80 && v.val < 87).sort((a, b) => a.val - b.val).slice(0, 3);
+            problems = allVals.filter(v => v.val < 78).sort((a, b) => a.val - b.val).slice(0, 3);
+            opportunities = allVals.filter(v => v.val >= 78 && v.val < 85).sort((a, b) => a.val - b.val).slice(0, 3);
             bestPerf = allVals.filter(v => v.val >= 95).sort((a, b) => b.val - a.val).slice(0, 3);
           }
           if (problems.length === 0 && opportunities.length === 0 && bestPerf.length === 0) return null;
@@ -721,7 +721,7 @@ export default function App() {
         {/* Legend */}
         <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap", padding: "4px 0" }}>
           {(isPct
-            ? [{l:"≥95%",c:frColor(96)},{l:"87-95%",c:frColor(90)},{l:"84-87%",c:frColor(85)},{l:"80-84%",c:frColor(82)},{l:"70-80%",c:frColor(75)},{l:"<70%",c:frColor(65)}]
+            ? [{l:"≥95%",c:frColor(96)},{l:"85-95%",c:frColor(90)},{l:"82-85%",c:frColor(83)},{l:"78-82%",c:frColor(80)},{l:"70-78%",c:frColor(74)},{l:"<70%",c:frColor(65)}]
             : [{l:"≤15d",c:dohColor(10)},{l:"15-25d",c:dohColor(20)},{l:"25-35d",c:dohColor(30)},{l:"35-45d",c:dohColor(40)},{l:">45d",c:dohColor(50)}]
           ).map(lg => (
             <div key={lg.l} style={{ display: "flex", alignItems: "center", gap: 4 }}>
