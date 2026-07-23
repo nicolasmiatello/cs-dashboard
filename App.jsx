@@ -27,6 +27,7 @@ const TR = {
     { m: "Mar'26", F: 84.9, L: 90.6, A: 90.4, AR: 88.4, T: 87.5 },
     { m: "Abr'26", F: 86.3, L: 91.4, A: 89.0, AR: 85.5, T: 87.3 },
     { m: "May'26", F: 88.9, L: 89.7, A: 91.9, AR: 86.8, T: 89.8 },
+    { m: "Jun'26", F: 92.1, L: 89.7, A: 91.6, AR: 85.8, T: 90.6 },
   ],
   GDN: [
     { m: "Ene'25", F: 83.5, L: 88.0, A: 82.0, AR: 82.0, T: 83.0 }, { m: "Feb'25", F: 87.0, L: 90.0, A: 84.0, AR: 85.0, T: 85.5 },
@@ -40,6 +41,7 @@ const TR = {
     { m: "Mar'26", F: 88.1, L: 90.7, A: 91.0, AR: 89.2, T: 89.5 },
     { m: "Abr'26", F: 84.8, L: 89.5, A: 87.5, AR: 85.2, T: 85.8 },
     { m: "May'26", F: 86.1, L: 86.2, A: 91.8, AR: 85.1, T: 87.3 },
+    { m: "Jun'26", F: 90.1, L: 87.3, A: 88.1, AR: 87.3, T: 88.2 },
   ],
   CRF: [
     { m: "Ene'25", F: 83.0, L: 87.0, A: 81.0, AR: 71.0, T: 81.6 }, { m: "Feb'25", F: 86.5, L: 89.0, A: 82.0, AR: 75.0, T: 82.5 },
@@ -53,6 +55,7 @@ const TR = {
     { m: "Mar'26", F: 85.1, L: 89.0, A: 88.2, AR: 87.9, T: 86.7 },
     { m: "Abr'26", F: 89.2, L: 88.1, A: 86.6, AR: 87.6, T: 88.2 },
     { m: "May'26", F: 89.3, L: 90.3, A: 91.6, AR: 89.3, T: 90.1 },
+    { m: "Jun'26", F: 91.9, L: 85.6, A: 87.8, AR: 89.7, T: 90.1 },
   ],
   CENCOSUD: [
     { m: "Ene'25", F: 88.0, L: 88.0, A: 76.0, AR: 78.0, T: 82.7 }, { m: "Jun'25", F: 93.5, L: 93.5, A: 83.0, AR: 84.5, T: 89.5 },
@@ -62,17 +65,18 @@ const TR = {
     { m: "Mar'26", F: 94.8, L: 89.9, A: 92.7, AR: 89.5, T: 92.8 },
     { m: "Abr'26", F: 91.4, L: 85.1, A: 92.0, AR: 92.7, T: 90.8 },
     { m: "May'26", F: 88.9, L: 89.1, A: 90.8, AR: 88.1, T: 89.6 },
+    { m: "Jun'26", F: 93.6, L: 92.8, A: 96.2, AR: 89.8, T: 94.0 },
   ],
-  "LA ANONIMA": [{ m: "Ene'25", F: null, L: null, A: 76.0, AR: null, T: 76.0 }, { m: "Ene'26", F: 97.8, L: null, A: 78.3, AR: null, T: 78.4 }, { m: "Feb'26", F: 77.4, L: null, A: 84.0, AR: 90.1, T: 84.0 }, { m: "Mar'26", F: 90.2, L: null, A: 89.5, AR: 90.1, T: 89.5 }, { m: "Abr'26", F: 96.7, L: null, A: 87.1, AR: 74.0, T: 86.3 }, { m: "May'26", F: 84.5, L: null, A: 93.1, AR: 61.8, T: 93.1 }],
-  DIA: [{ m: "Ene'26", F: 84.7, L: null, A: null, AR: null, T: 84.7 }, { m: "Feb'26", F: 85.3, L: null, A: null, AR: null, T: 85.3 }, { m: "Mar'26", F: 77.7, L: 94.2, A: null, AR: null, T: 79.3 }, { m: "Abr'26", F: 77.7, L: 94.2, A: null, AR: null, T: 79.3 }, { m: "May'26", F: null, L: 90.7, A: null, AR: null, T: 90.7 }],
+  "LA ANONIMA": [{ m: "Ene'25", F: null, L: null, A: 76.0, AR: null, T: 76.0 }, { m: "Ene'26", F: 97.8, L: null, A: 78.3, AR: null, T: 78.4 }, { m: "Feb'26", F: 77.4, L: null, A: 84.0, AR: 90.1, T: 84.0 }, { m: "Mar'26", F: 90.2, L: null, A: 89.5, AR: 90.1, T: 89.5 }, { m: "Abr'26", F: 96.7, L: null, A: 87.1, AR: 74.0, T: 86.3 }, { m: "May'26", F: 84.5, L: null, A: 93.1, AR: 61.8, T: 93.1 }, { m: "Jun'26", F: 90.6, L: null, A: 93.9, AR: 53.7, T: 88.6 }],
+  DIA: [{ m: "Ene'26", F: 84.7, L: null, A: null, AR: null, T: 84.7 }, { m: "Feb'26", F: 85.3, L: null, A: null, AR: null, T: 85.3 }, { m: "Mar'26", F: 77.7, L: 94.2, A: null, AR: null, T: 79.3 }, { m: "Abr'26", F: 77.7, L: 94.2, A: null, AR: null, T: 79.3 }, { m: "May'26", F: null, L: 90.7, A: null, AR: null, T: 90.7 }, { m: "Jun'26", F: null, L: 93.8, A: null, AR: null, T: 93.8 }],
 };
 
 const YTD = {
-  "TOTAL CANAL": { F: 86.5, L: 90.2, A: 87.5, AR: 85.8, T: 86.9 },
-  GDN: { F: 86.5, L: 89.2, A: 89.3, AR: 87.7, T: 87.7 },
-  CRF: { F: 86.5, L: 89.1, A: 88.3, AR: 84.4, T: 87.0 },
-  CENCOSUD: { F: 92.4, L: 86.1, A: 88.0, AR: 90.5, T: 89.5 },
-  "LA ANONIMA": { F: 76.2, A: 85.9, AR: 79.2, T: 85.5 },
+  "TOTAL CANAL": { F: 87.1, L: 90.1, A: 88.1, AR: 85.6, T: 87.4 },
+  GDN: { F: 86.9, L: 88.8, A: 89.1, AR: 87.6, T: 87.8 },
+  CRF: { F: 87.4, L: 88.6, A: 88.2, AR: 85.2, T: 87.5 },
+  CENCOSUD: { F: 92.6, L: 87.6, A: 89.1, AR: 90.4, T: 90.2 },
+  "LA ANONIMA": { F: 79.7, A: 87.1, AR: 65.2, T: 86.1 },
   DIA: { F: 81.9, L: 93.8, T: 82.6 },
 };
 
@@ -85,35 +89,35 @@ const LS = [
 ];
 
 const BAR_DATA = {
-  ARG: [{ n: "GDN", a: 88.0, b: 87.3 }, { n: "CRF", a: 88.7, b: 90.1 }, { n: "Cencosud", a: 91.4, b: 89.6 }, { n: "La Anonima", a: 81.8, b: 93.1 }, { n: "Dia", a: null, b: 90.7 }],
-  FEMSA: [{ n: "GDN", a: 92.0, b: 86.1 }, { n: "CRF", a: 88.9, b: 89.3 }, { n: "Cencosud", a: null, b: 88.9 }, { n: "La Anonima", a: null, b: 84.5 }, { n: "Dia", a: null, b: null }],
-  LEE: [{ n: "GDN", a: 96.4, b: 86.2 }, { n: "CRF", a: 91.1, b: 90.3 }, { n: "Cencosud", a: null, b: 89.1 }, { n: "La Anonima", a: null, b: null }, { n: "Dia", a: null, b: 90.7 }],
-  ANDINA: [{ n: "GDN", a: 86.5, b: 91.8 }, { n: "CRF", a: 89.1, b: 91.6 }, { n: "Cencosud", a: 91.0, b: 90.8 }, { n: "La Anonima", a: 81.8, b: 93.1 }, { n: "Dia", a: null, b: null }],
-  ARCA: [{ n: "GDN", a: 86.6, b: 85.1 }, { n: "CRF", a: 84.4, b: 89.3 }, { n: "Cencosud", a: 92.2, b: 88.1 }, { n: "La Anonima", a: null, b: 61.8 }, { n: "Dia", a: null, b: null }],
+  ARG: [{ n: "GDN", a: 88.3, b: 88.2 }, { n: "CRF", a: 91.2, b: 90.1 }, { n: "Cencosud", a: null, b: 94.0 }, { n: "La Anonima", a: 83.8, b: 88.6 }, { n: "Dia", a: null, b: 93.8 }],
+  FEMSA: [{ n: "GDN", a: 94.1, b: 90.1 }, { n: "CRF", a: 93.7, b: 91.9 }, { n: "Cencosud", a: null, b: 93.6 }, { n: "La Anonima", a: null, b: 90.6 }, { n: "Dia", a: null, b: null }],
+  LEE: [{ n: "GDN", a: 90.2, b: 87.3 }, { n: "CRF", a: 92.3, b: 85.6 }, { n: "Cencosud", a: null, b: 92.8 }, { n: "La Anonima", a: null, b: null }, { n: "Dia", a: null, b: 93.8 }],
+  ANDINA: [{ n: "GDN", a: 85.2, b: 88.1 }, { n: "CRF", a: 89.2, b: 87.8 }, { n: "Cencosud", a: 94.8, b: 96.2 }, { n: "La Anonima", a: 83.8, b: 93.9 }, { n: "Dia", a: null, b: null }],
+  ARCA: [{ n: "GDN", a: 87.2, b: 87.3 }, { n: "CRF", a: 84.5, b: 89.7 }, { n: "Cencosud", a: 93.9, b: 89.8 }, { n: "La Anonima", a: null, b: 53.7 }, { n: "Dia", a: null, b: null }],
 };
 
 const RNK = [
-  { c: "Cencosud", f: 89.6, p: 91.4, b: { Femsa: 88.9, Andina: 90.8, Lee: 89.1, Arca: 88.1 } },
-  { c: "La Anonima", f: 93.1, p: 81.8, b: { Femsa: 84.5, Andina: 93.1, Arca: 61.8 } },
-  { c: "CRF", f: 90.1, p: 88.7, b: { Femsa: 89.3, Andina: 91.6, Lee: 90.3, Arca: 89.3 } },
-  { c: "GDN", f: 87.3, p: 88.0, b: { Femsa: 86.1, Andina: 91.8, Lee: 86.2, Arca: 85.1 } },
-  { c: "Dia", f: 90.7, p: null, b: { Lee: 90.7 } },
+  { c: "Cencosud", f: 94.0, p: null, b: { Femsa: 93.6, Andina: 96.2, Lee: 92.8, Arca: 89.8 } },
+  { c: "La Anonima", f: 88.6, p: 83.8, b: { Femsa: 90.6, Andina: 93.9, Arca: 53.7 } },
+  { c: "CRF", f: 90.1, p: 91.2, b: { Femsa: 91.9, Andina: 87.8, Lee: 85.6, Arca: 89.7 } },
+  { c: "GDN", f: 88.2, p: 88.3, b: { Femsa: 90.1, Andina: 88.1, Lee: 87.3, Arca: 87.3 } },
+  { c: "Dia", f: 93.8, p: null, b: { Lee: 93.8 } },
 ].sort((a, b) => b.f - a.f);
 
-const DLT = [{ n: "Andina", d: 5.8, c: BOTTLER_COLORS.andina }, { n: "ARG", d: 2.5, c: BOTTLER_COLORS.arg }, { n: "Arca", d: 0.5, c: BOTTLER_COLORS.arca }, { n: "Femsa", d: -0.3, c: BOTTLER_COLORS.femsa }, { n: "Lee", d: -2.3, c: BOTTLER_COLORS.lee }];
+const DLT = [{ n: "Andina", d: 3.7, c: BOTTLER_COLORS.andina }, { n: "ARG", d: 0.6, c: BOTTLER_COLORS.arg }, { n: "Femsa", d: -1.7, c: BOTTLER_COLORS.femsa }, { n: "Arca", d: -3.6, c: BOTTLER_COLORS.arca }, { n: "Lee", d: -2.3, c: BOTTLER_COLORS.lee }];
 
 const BYTD = [
-  { n: "Reg. Lee", v: 90.2, c: BOTTLER_COLORS.lee, s: { GDN: 89.2, CRF: 89.1, Cencosud: 86.1, Dia: 93.8 } },
-  { n: "Andina", v: 87.5, c: BOTTLER_COLORS.andina, s: { GDN: 89.3, CRF: 88.3, Cencosud: 88.0, "La An.": 85.9 } },
-  { n: "ARG Total", v: 86.9, c: BOTTLER_COLORS.arg, s: { GDN: 87.7, CRF: 87.0, Cencosud: 89.5, "La An.": 85.5, Dia: 82.6 } },
-  { n: "Femsa", v: 86.5, c: BOTTLER_COLORS.femsa, s: { GDN: 86.5, CRF: 86.5, Cencosud: 92.4, "La An.": 76.2, Dia: 81.9 } },
-  { n: "Arca", v: 85.8, c: BOTTLER_COLORS.arca, s: { GDN: 87.7, CRF: 84.4, Cencosud: 90.5, "La An.": 79.2 } },
+  { n: "Reg. Lee", v: 90.1, c: BOTTLER_COLORS.lee, s: { GDN: 88.8, CRF: 88.6, Cencosud: 87.6, Dia: 93.8 } },
+  { n: "Andina", v: 88.1, c: BOTTLER_COLORS.andina, s: { GDN: 89.1, CRF: 88.2, Cencosud: 89.1, "La An.": 87.1 } },
+  { n: "ARG Total", v: 87.4, c: BOTTLER_COLORS.arg, s: { GDN: 87.8, CRF: 87.5, Cencosud: 90.2, "La An.": 86.1, Dia: 82.6 } },
+  { n: "Femsa", v: 87.1, c: BOTTLER_COLORS.femsa, s: { GDN: 86.9, CRF: 87.4, Cencosud: 92.6, "La An.": 79.7, Dia: 81.9 } },
+  { n: "Arca", v: 85.6, c: BOTTLER_COLORS.arca, s: { GDN: 87.6, CRF: 85.2, Cencosud: 90.4, "La An.": 65.2 } },
 ];
 const CYTD = [
-  { n: "Cencosud", v: 89.5, c: "#E8002D", s: { Femsa: 92.4, Andina: 88.0, Lee: 86.1, Arca: 90.5 } },
-  { n: "GDN", v: 87.7, c: "#E8002D", s: { Femsa: 86.5, Andina: 89.3, Lee: 89.2, Arca: 87.7 } },
-  { n: "CRF", v: 87.0, c: "#E8002D", s: { Femsa: 86.5, Andina: 88.3, Lee: 89.1, Arca: 84.4 } },
-  { n: "La Anonima", v: 85.5, c: "#E8002D", s: { Femsa: 76.2, Andina: 85.9, Arca: 79.2 } },
+  { n: "Cencosud", v: 90.2, c: "#E8002D", s: { Femsa: 92.6, Andina: 89.1, Lee: 87.6, Arca: 90.4 } },
+  { n: "GDN", v: 87.8, c: "#E8002D", s: { Femsa: 86.9, Andina: 89.1, Lee: 88.8, Arca: 87.6 } },
+  { n: "CRF", v: 87.5, c: "#E8002D", s: { Femsa: 87.4, Andina: 88.2, Lee: 88.6, Arca: 85.2 } },
+  { n: "La Anonima", v: 86.1, c: "#E8002D", s: { Femsa: 79.7, Andina: 87.1, Arca: 65.2 } },
   { n: "Dia", v: 82.6, c: "#E8002D", s: { Femsa: 81.9, Lee: 93.8 } },
 ];
 
@@ -155,6 +159,12 @@ const CAT_FR = {
       Femsa:  { AP: 88.7, AS: 90.5, EN: 89.0, GA: 88.8, IS: 91.9, JU: 88.3 },
       Lee:    { AP: 92.8, AS: 93.3, EN: 97.4, GA: 88.6, IS: 78.0, JU: 77.4 },
     },
+    jun: {
+      Andina: { AP: 98.0, AS: 94.6, EN: 96.6, GA: 96.4, IS: 93.9, JU: 95.0 },
+      Arca:   { AP: 92.9, AS: 82.8, EN: 98.5, GA: 93.3, IS: 93.4, JU: 92.8 },
+      Femsa:  { AP: 93.4, AS: 94.9, EN: 97.4, GA: 93.3, IS: 95.6, JU: 93.5 },
+      Lee:    { AP: 97.3, AS: 99.5, EN: 95.6, GA: 91.4, IS: 72.7, JU: 66.1 },
+    },
   },
   GDN: {
     ene: {
@@ -186,6 +196,12 @@ const CAT_FR = {
       Andina: { AP: 80.3, AS: 90.3, EN: 92.5, GA: 91.8, IS: 89.0, JU: 93.2 },
       Lee:    { AP: 82.9, AS: 69.1, EN: 84.8, GA: 91.4, IS: 74.9, JU: 66.4 },
       Arca:   { AP: 97.7, AS: 83.4, EN: 97.5, GA: 83.8, IS: 82.0, JU: 84.0 },
+    },
+    jun: {
+      Femsa:  { AP: 90.9, AS: 91.1, EN: 97.7, GA: 87.8, IS: 98.6, JU: 91.8 },
+      Andina: { AP: 93.5, AS: 94.8, EN: 94.4, GA: 89.4, IS: 92.5, JU: 95.1 },
+      Lee:    { AP: 94.0, AS: 95.4, EN: 100.0, GA: 88.9, IS: 70.3, JU: 69.3 },
+      Arca:   { AP: 94.5, AS: 95.1, EN: 93.0, GA: 85.0, IS: 94.7, JU: 87.9 },
     },
   },
   CRF: {
@@ -219,6 +235,12 @@ const CAT_FR = {
       Lee:    { AP: 92.8, AS: 96.7, EN: 90.7, GA: 91.8, IS: 72.0, JU: 95.7 },
       Arca:   { AP: 93.3, AS: 87.9, EN: 89.1, GA: 90.9, IS: 84.5, JU: 98.4 },
     },
+    jun: {
+      Femsa:  { AP: 91.9, AS: 96.9, EN: 95.1, GA: 91.3, IS: 94.5, JU: 83.7 },
+      Andina: { AP: 90.9, AS: 90.5, EN: 53.1, GA: 88.8, IS: 84.9, JU: 90.1 },
+      Lee:    { AP: 78.6, AS: 72.5, EN: 94.8, GA: 89.4, IS: 64.5, JU: 64.6 },
+      Arca:   { AP: 95.5, AS: 91.2, EN: 97.0, GA: 88.1, IS: 93.2, JU: 91.6 },
+    },
   },
   "La Anonima": {
     ene: {
@@ -245,6 +267,11 @@ const CAT_FR = {
       Femsa:  { AP: 97.0, AS: 57.3, EN: 100.0, GA: 88.1, IS: 100.0, JU: 31.2 },
       Andina: { AP: 88.6, AS: 95.1, EN: 94.5,  GA: 90.6, IS: 83.7,  JU: 92.8 },
       Arca:   { AP: 81.3, AS: 74.3, EN: 88.3,  GA: 57.9, IS: 78.4,  JU: 74.4 },
+    },
+    jun: {
+      Femsa:  { AP: 94.9, AS: 81.7, EN: 100.0, GA: 93.6, IS: 100.0, JU: 78.4 },
+      Andina: { AP: 90.2, AS: 93.7, EN: 94.3,  GA: 90.1, IS: 89.2,  JU: 90.1 },
+      Arca:   { AP: 69.2, AS: 44.6, EN: 47.7,  GA: 55.0, IS: 30.5,  JU: 61.2 },
     },
   },
 }
@@ -283,6 +310,12 @@ const CAT_IS = {
       Femsa:  { AP: 91.0, AS: 88.9, EN: 94.4, GA: 88.8, IS: 95.4, JU: 90.4 },
       Lee:    { AP: 87.1, AS: 91.8, EN: 88.2, GA: 89.1, IS: 90.6, JU: 88.9 },
     },
+    jun: {
+      Andina: { AP: 95.2, AS: 94.1, EN: 94.5, GA: 92.6, IS: 97.9, JU: 93.1 },
+      Arca:   { AP: 95.3, AS: 93.3, EN: 97.4, GA: 90.0, IS: 97.8, JU: 91.6 },
+      Femsa:  { AP: 93.3, AS: 91.8, EN: 95.5, GA: 92.6, IS: 96.1, JU: 90.1 },
+      Lee:    { AP: 88.8, AS: 97.4, EN: 90.8, GA: 93.6, IS: 90.1, JU: 89.8 },
+    },
   },
   GDN: {
     ene: {
@@ -314,6 +347,12 @@ const CAT_IS = {
       Andina: { AP: 93.4, AS: 99.4, EN: 98.0, GA: 92.2, IS: 90.8, JU: 97.9 },
       Lee:    { AP: 100.0, AS: 97.8, EN: 97.3, GA: 95.5, IS: 100.0, JU: 89.7 },
       Arca:   { AP: 98.8, AS: 89.9, EN: 99.9, GA: 88.1, IS: 92.8, JU: 96.8 },
+    },
+    jun: {
+      Femsa:  { AP: 89.3, AS: 91.3, EN: 98.3, GA: 86.2, IS: 96.9, JU: 92.1 },
+      Andina: { AP: 97.6, AS: 99.7, EN: 99.8, GA: 93.8, IS: 97.7, JU: 98.7 },
+      Lee:    { AP: 98.8, AS: 100.0, EN: 100.0, GA: 95.8, IS: 99.0, JU: 90.8 },
+      Arca:   { AP: 99.3, AS: 89.9, EN: 99.8, GA: 85.0, IS: 98.3, JU: 98.5 },
     },
   },
   CRF: {
@@ -347,6 +386,12 @@ const CAT_IS = {
       Lee:    { AP: 95.5, AS: 94.9, EN: 90.4, GA: 87.8, IS: 96.3, JU: 85.6 },
       Arca:   { AP: 96.7, AS: 96.5, EN: 94.9, GA: 88.0, IS: 97.4, JU: 94.7 },
     },
+    jun: {
+      Femsa:  { AP: 85.2, AS: 95.1, EN: 92.4, GA: 89.4, IS: 96.6, JU: 84.1 },
+      Andina: { AP: 95.7, AS: 96.6, EN: 91.3, GA: 88.6, IS: 93.2, JU: 92.6 },
+      Lee:    { AP: 96.9, AS: 95.8, EN: 92.4, GA: 89.7, IS: 97.7, JU: 87.2 },
+      Arca:   { AP: 96.6, AS: 94.7, EN: 93.4, GA: 86.2, IS: 95.8, JU: 94.8 },
+    },
   },
   "La Anonima": {
     ene: {
@@ -373,6 +418,11 @@ const CAT_IS = {
       Femsa:  { AP: 93.2, AS: 90.0, EN: 96.3, GA: 99.0, IS: 97.6, JU: 96.4 },
       Andina: { AP: 98.5, AS: 99.4, EN: 97.2, GA: 96.2, IS: 97.2, JU: 82.8 },
       Arca:   { AP: 98.1, AS: 95.1, EN: 97.2, GA: 96.1, IS: 97.4, JU: 97.4 },
+    },
+    jun: {
+      Femsa:  { AP: 97.2, AS: 100.0, EN: 90.0, GA: 94.2, IS: 100.0, JU: 98.2 },
+      Andina: { AP: 98.4, AS: 96.0,  EN: 96.4, GA: 95.1, IS: 96.2,  JU: 95.3 },
+      Arca:   { AP: 95.6, AS: 96.9,  EN: 98.7, GA: 94.0, IS: 97.6,  JU: 96.4 },
     },
   },
 };
@@ -411,6 +461,12 @@ const CAT_DOH = {
       Femsa:  { AP: 22.9, AS: 28.7, EN: 64.2, GA: 17.2, IS: 54.0, JU: 33.0 },
       Lee:    { AP: 49.4, AS: 29.8, EN: 85.5, GA: 20.8, IS: 64.3, JU: 40.7 },
     },
+    jun: {
+      Andina: { AP: 64.5, AS: 40.4, EN: 66.4, GA: 18.7, IS: 73.2, JU: 49.4 },
+      Arca:   { AP: 15.6, AS: 16.8, EN: 50.2, GA: 10.5, IS: 59.7, JU: 28.7 },
+      Femsa:  { AP: 25.2, AS: 24.9, EN: 63.5, GA: 17.2, IS: 43.1, JU: 30.5 },
+      Lee:    { AP: 46.8, AS: 27.5, EN: 78.4, GA: 18.6, IS: 53.1, JU: 37.8 },
+    },
   },
   GDN: {
     ene: {
@@ -442,6 +498,12 @@ const CAT_DOH = {
       Andina: { AP: 90.2, AS: 40.8, EN: 37.9, GA: 23.7, IS: 42.8, JU: 31.4 },
       Lee:    { AP: 78.6, AS: 30.5, EN: 78.7, GA: 29.7, IS: 58.4, JU: 38.9 },
       Arca:   { AP: 20.5, AS: 23.3, EN: 37.0, GA: 14.9, IS: 35.5, JU: 23.8 },
+    },
+    jun: {
+      Femsa:  { AP: 46.6, AS: 34.3, EN: 33.0, GA: 22.1, IS: 40.6, JU: 35.6 },
+      Andina: { AP: 99.9, AS: 35.1, EN: 30.0, GA: 20.1, IS: 45.2, JU: 27.8 },
+      Lee:    { AP: 69.9, AS: 26.9, EN: 64.3, GA: 27.4, IS: 60.1, JU: 40.6 },
+      Arca:   { AP: 17.6, AS: 20.5, EN: 32.3, GA: 11.8, IS: 31.5, JU: 20.2 },
     },
   },
   CRF: {
@@ -475,6 +537,12 @@ const CAT_DOH = {
       Lee:    { AP: 52.2, AS: 32.0, EN: 48.1, GA: 27.4, IS: 69.8, JU: 35.2 },
       Arca:   { AP: 19.1, AS: 22.1, EN: 38.6, GA: 12.9, IS: 27.4, JU: 16.8 },
     },
+    jun: {
+      Femsa:  { AP: 16.3, AS: 19.4, EN: 23.5, GA: 12.0, IS: 38.8, JU: 29.9 },
+      Andina: { AP: 42.1, AS: 29.2, EN: 45.6, GA: 15.0, IS: 30.6, JU: 18.7 },
+      Lee:    { AP: 51.7, AS: 32.1, EN: 42.1, GA: 24.6, IS: 47.8, JU: 26.8 },
+      Arca:   { AP: 16.0, AS: 19.0, EN: 36.8, GA: 13.0, IS: 27.0, JU: 15.1 },
+    },
   },
   "La Anonima": {
     ene: {
@@ -491,6 +559,21 @@ const CAT_DOH = {
       Femsa:  { AP: 35.6, AS: 26.7, EN: 31.9, GA: 21.5, IS: 59.5, JU: 46.6 },
       Andina: { AP: 27.7, AS: 18.2, EN: 27.5, GA: 15.5, IS: 20.4, JU: 14.5 },
       Arca:   { AP: 34.5, AS: 37.5, EN: 35.3, GA: 18.6, IS: 102.8, JU: 49.2 },
+    },
+    abr: {
+      Femsa:  { AP: 14.2, AS: 18.7, EN: 24.0, GA: 36.9, IS: 18.9, JU: 23.3 },
+      Andina: { AP: 33.7, AS: 22.7, EN: 25.0, GA: 102.4, IS: 21.1, JU: 28.1 },
+      Arca:   { AP: 13.7, AS: 22.7, EN: 19.3, GA: 33.7,  IS: 38.1, JU: 29.7 },
+    },
+    may: {
+      Femsa:  { AP: 15.5, AS: 9.2,  EN: 16.3, GA: 34.0, IS: 22.4, JU: 22.2 },
+      Andina: { AP: 34.0, AS: 20.5, EN: 20.2, GA: 17.4, IS: 24.4, JU: 18.7 },
+      Arca:   { AP: 24.1, AS: 31.5, EN: 33.1, GA: 22.7, IS: 67.6, JU: 34.4 },
+    },
+    jun: {
+      Femsa:  { AP: 12.1, AS: 44.2, EN: 10.6, GA: 10.1, IS: 25.1, JU: 26.2 },
+      Andina: { AP: 37.0, AS: 12.5, EN: 18.1, GA: 10.6, IS: 22.3, JU: 15.4 },
+      Arca:   { AP: 20.3, AS: 28.6, EN: 28.5, GA: 18.3, IS: 40.9, JU: 25.7 },
     },
   },
 }
@@ -515,10 +598,10 @@ function getF1HTML(dk) {
   return `<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 <style>*{margin:0;padding:0;box-sizing:border-box}body{background:${bg};color:${htxt};font-family:'Barlow Condensed',sans-serif;overflow:hidden}.header{background:${hbg};padding:12px 24px;display:flex;align-items:center;justify-content:space-between;border-bottom:3px solid #E8002D;position:relative}.header::before{content:'';position:absolute;left:0;right:0;height:3px;background:repeating-linear-gradient(90deg,${chkA} 0,${chkA} 8px,${chkB} 8px,${chkB} 16px);top:0}.header h1{font-size:22px;font-weight:900;letter-spacing:4px;text-transform:uppercase;color:${htxt}}.header .sub{font-size:10px;color:${hsub};letter-spacing:3px}canvas#raceCanvas{display:block;width:100%}.controls{background:${cbg};border-top:1px solid ${cbrdr};padding:12px 20px;display:flex;align-items:center;gap:8px;justify-content:center}.btn{background:${btnbg};border:1.5px solid ${btnbrdr};border-radius:8px;color:${btntxt};font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;padding:8px 16px;cursor:pointer;transition:all .15s;letter-spacing:1px;text-transform:uppercase}.btn:hover{border-color:#E8002D;color:${dk?'#fff':'#E8002D'}}.btn.active{background:rgba(232,0,45,${dk?'.2':'.1'});border-color:#E8002D;color:${dk?'#ff3333':'#E8002D'}}.btn.primary{background:#E8002D;border-color:#E8002D;color:#fff;font-size:14px;padding:8px 24px}.btn.primary:hover{background:#ff1744}.speed-btns{display:flex;gap:2px;background:${spdbg};border:1px solid ${btnbrdr};border-radius:6px;padding:2px}.speed-btns .btn{border:none;border-radius:4px;padding:5px 10px;font-size:10px}.speed-btns .btn.active{background:#E8002D;color:#fff}</style></head><body>
-<div class="header"><div><h1>🏁 Fill Rate Grand Prix · Argentina</h1><div class="sub">Coca-Cola · Temporada 2026 · <span id="lapLabel" style="color:${lapCol}">YTD May'26</span></div></div><div style="font-size:28px;color:${f1txt};letter-spacing:6px;font-weight:900">F1</div></div>
+<div class="header"><div><h1>🏁 Fill Rate Grand Prix · Argentina</h1><div class="sub">Coca-Cola · Temporada 2026 · <span id="lapLabel" style="color:${lapCol}">YTD Jun'26</span></div></div><div style="font-size:28px;color:${f1txt};letter-spacing:6px;font-weight:900">F1</div></div>
 <div><div><canvas id="raceCanvas" width="1060" height="380"></canvas><div class="controls"><button class="btn" onclick="doReset()">↺ RESET</button><button class="btn" onclick="prevLap()">◀</button><button class="btn primary" id="btnPlay" onclick="togglePlay()">▶ START</button><button class="btn" onclick="nextLap()">▶</button><div class="speed-btns"><button class="btn active" onclick="setSpeed(1500,this)">1x</button><button class="btn" onclick="setSpeed(800,this)">2x</button><button class="btn" onclick="setSpeed(350,this)">5x</button></div></div></div></div>
 <script>
-const RACE_DATA=[{mes:"Ene'26",FEMSA:86.5,LEE:89.2,ANDINA:81.6,ARCA:79.0},{mes:"Feb'26",FEMSA:86.7,LEE:89.5,ANDINA:84.3,ARCA:84.0},{mes:"Mar'26",FEMSA:86.1,LEE:89.9,ANDINA:86.1,ARCA:85.6},{mes:"Abr'26",FEMSA:86.1,LEE:90.2,ANDINA:86.7,ARCA:85.6},{mes:"May'26",FEMSA:86.5,LEE:90.2,ANDINA:87.5,ARCA:85.8}];
+const RACE_DATA=[{mes:"Ene'26",FEMSA:86.5,LEE:89.2,ANDINA:81.6,ARCA:79.0},{mes:"Feb'26",FEMSA:86.7,LEE:89.5,ANDINA:84.3,ARCA:84.0},{mes:"Mar'26",FEMSA:86.1,LEE:89.9,ANDINA:86.1,ARCA:85.6},{mes:"Abr'26",FEMSA:86.1,LEE:90.2,ANDINA:86.7,ARCA:85.6},{mes:"May'26",FEMSA:86.5,LEE:90.2,ANDINA:87.5,ARCA:85.8},{mes:"Jun'26",FEMSA:87.1,LEE:90.1,ANDINA:88.1,ARCA:85.6}];
 const CARS=[{key:"FEMSA",label:"Femsa",color:"#E03E52",accent:"#f06070",num:"04"},{key:"LEE",label:"Reginald Lee",color:"#CDC4AA",accent:"#ddd6c0",num:"01"},{key:"ANDINA",label:"Andina",color:"#E10600",accent:"#ff3330",num:"11"},{key:"ARCA",label:"Arca",color:"#E87722",accent:"#f09050",num:"44"}];
 const canvas=document.getElementById('raceCanvas'),ctx=canvas.getContext('2d');let CW,CH;function resize(){const w=canvas.parentElement.clientWidth;CW=w;CH=Math.round(w*0.40);canvas.width=CW;canvas.height=CH;canvas.style.height=CH+'px'}resize();window.addEventListener('resize',()=>{resize();drawScene()});let currentLap=0,playing=false,playInterval=null,speed=1500,carPositions={},targetPositions={},animFrame=null;CARS.forEach(c=>{carPositions[c.key]=0;targetPositions[c.key]=0});const ML=0.16,MR=0.05,LANE_TOP=0.18,LANE_TOTAL=0.64;function getLaneY(i){const h=CH*LANE_TOTAL/4;return CH*LANE_TOP+i*h+h/2}function getX(p){return CW*ML+p*CW*(1-ML-MR)}function frToProgress(fr){return Math.max(0,Math.min(1,(fr-65)/35))}function drawScene(){ctx.clearRect(0,0,CW,CH);drawGrandstands();drawRoad();drawStartLine();drawFinishLine();drawGridLines();drawCars()}
 function drawGrandstands(){const rows=4,h=CH*LANE_TOP;for(let r=0;r<rows;r++){const rh=h/rows,y=r*rh;ctx.fillStyle=r%2===0?'${gsA}':'${gsB}';ctx.fillRect(0,y,CW,rh-1);ctx.fillStyle='${gsDot}';for(let x=8;x<CW;x+=16){ctx.beginPath();ctx.arc(x,y+rh/2,2,0,Math.PI*2);ctx.fill()}}const bTop=CH*(LANE_TOP+LANE_TOTAL),bH=CH-bTop;for(let r=0;r<3;r++){const rh=bH/3;ctx.fillStyle=r%2===0?'${gsA}':'${gsB}';ctx.fillRect(0,bTop+r*rh,CW,rh-1);ctx.fillStyle='${gsDot}';for(let x=12;x<CW;x+=16){ctx.beginPath();ctx.arc(x,bTop+r*rh+rh/2,2,0,Math.PI*2);ctx.fill()}}ctx.save();ctx.font='bold '+CW*0.06+'px Barlow Condensed,sans-serif';ctx.fillStyle='${wm}';ctx.textAlign='center';ctx.fillText('COCA-COLA',CW*0.5,CH*0.55);ctx.restore()}
@@ -531,7 +614,7 @@ function startRaceAnimation(){const d=RACE_DATA[currentLap];document.getElementB
 function togglePlay(){if(animating){animating=false;playing=false;cancelAnimationFrame(animFrame);document.getElementById('btnPlay').innerHTML='▶ START';return}CARS.forEach(c=>{carPositions[c.key]=0;displayValues[c.key]=0});drawScene();playing=true;document.getElementById('btnPlay').innerHTML='⏸ PAUSA';startRaceAnimation()}
 function nextLap(){if(currentLap<RACE_DATA.length-1){currentLap++;startRaceAnimation()}}
 function prevLap(){if(currentLap>0){currentLap--;startRaceAnimation()}}
-function doReset(){playing=false;animating=false;clearInterval(playInterval);cancelAnimationFrame(animFrame);currentLap=0;CARS.forEach(c=>{carPositions[c.key]=0;targetPositions[c.key]=0;displayValues[c.key]=0});document.getElementById('btnPlay').innerHTML='▶ START';document.getElementById('lapLabel').textContent="YTD May'26";drawScene();window.parent.postMessage({type:'f1-race-values',values:{FEMSA:0,LEE:0,ANDINA:0,ARCA:0}},'*')}
+function doReset(){playing=false;animating=false;clearInterval(playInterval);cancelAnimationFrame(animFrame);currentLap=0;CARS.forEach(c=>{carPositions[c.key]=0;targetPositions[c.key]=0;displayValues[c.key]=0});document.getElementById('btnPlay').innerHTML='▶ START';document.getElementById('lapLabel').textContent="YTD Jun'26";drawScene();window.parent.postMessage({type:'f1-race-values',values:{FEMSA:0,LEE:0,ANDINA:0,ARCA:0}},'*')}
 function setSpeed(s,btn){speed=s;document.querySelectorAll('.speed-btns .btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active')}
 CARS.forEach(c=>{carPositions[c.key]=0;displayValues[c.key]=0});drawScene();
 function reportHeight(){window.parent.postMessage({type:'f1-race-height',height:document.documentElement.scrollHeight},'*')}
@@ -704,7 +787,7 @@ export default function App() {
   const [raceH, setRaceH] = useState(620);
   const [mainTab, setMainTab] = useState("overview");
   const [catClient, setCatClient] = useState("ALL");
-  const [catMes, setCatMes] = useState("may");
+  const [catMes, setCatMes] = useState("jun");
   const [catBot, setCatBot] = useState("ALL");
   const [activeCats, setActiveCats] = useState(new Set(["AP","AS","EN","GA","IS","JU"]));
   const toggleCat = (ck) => setActiveCats(prev => { const n = new Set(prev); n.has(ck) ? n.delete(ck) : n.add(ck); return n; });
@@ -775,7 +858,7 @@ export default function App() {
               ))}
             </div>
             <div style={{ display: "flex", gap: 2, background: V.navyLight, borderRadius: 8, padding: 2 }}>
-              {[{ k: "ene", l: "ENE'26" }, { k: "feb", l: "FEB'26" }, { k: "mar", l: "MAR'26" }, { k: "abr", l: "ABR'26" }, { k: "may", l: "MAY'26" }, { k: "both", l: "EVOLUCIÓN" }].map(m => (
+              {[{ k: "ene", l: "ENE'26" }, { k: "feb", l: "FEB'26" }, { k: "mar", l: "MAR'26" }, { k: "abr", l: "ABR'26" }, { k: "may", l: "MAY'26" }, { k: "jun", l: "JUN'26" }, { k: "both", l: "EVOLUCIÓN" }].map(m => (
                 <button key={m.k} onClick={() => setCatMes(m.k)} style={tabBtnStyle(catMes === m.k)}>{m.l}</button>
               ))}
             </div>
@@ -799,8 +882,8 @@ export default function App() {
           const allVals = [];
           clients.forEach(cl => {
             const clData = src[cl] || {};
-            const mesKey = catMes === "both" ? "may" : catMes;
-            const mesData = clData[mesKey] || clData.may || clData.abr || clData.mar || clData.feb || clData.ene || {};
+            const mesKey = catMes === "both" ? "jun" : catMes;
+            const mesData = clData[mesKey] || clData.jun || clData.may || clData.abr || clData.mar || clData.feb || clData.ene || {};
             Object.entries(mesData).forEach(([bot, cats]) => {
               if (botFilter !== "ALL" && bot !== botFilter) return;
               Object.entries(cats).forEach(([cat, val]) => {
@@ -851,15 +934,16 @@ export default function App() {
 
         {/* Line charts when "EVOLUCIÓN" */}
         {catMes === "both" && (() => {
-          const MESES = ["Ene'26", "Feb'26", "Mar'26", "Abr'26", "May'26"];
+          const MESES = ["Ene'26", "Feb'26", "Mar'26", "Abr'26", "May'26", "Jun'26"];
           return clients.map(cl => {
             const eneData = (src[cl] || {}).ene || {};
             const febData = (src[cl] || {}).feb || {};
             const marData = (src[cl] || {}).mar || {};
             const abrData = (src[cl] || {}).abr || {};
             const mayData = (src[cl] || {}).may || {};
+            const junData = (src[cl] || {}).jun || {};
             const VALID_BOTS = ["Femsa", "Andina", "Lee", "Arca"];
-            const allBots = Object.keys({ ...eneData, ...febData, ...marData, ...abrData, ...mayData }).filter(b => VALID_BOTS.includes(b) && (botFilter === "ALL" || b === botFilter));
+            const allBots = Object.keys({ ...eneData, ...febData, ...marData, ...abrData, ...mayData, ...junData }).filter(b => VALID_BOTS.includes(b) && (botFilter === "ALL" || b === botFilter));
             if (allBots.length === 0) return (
               <div key={cl} style={{ background: V.navyMid, border: "1px solid "+V.brd, borderRadius: 12, padding: 20, boxShadow: "0 2px 8px rgba(0,0,0,.3)" }}>
                 <div style={{ fontFamily: V.font, fontSize: 14, fontWeight: 800, letterSpacing: 2, textTransform: "uppercase" }}>{cl.toUpperCase()}</div>
@@ -872,7 +956,7 @@ export default function App() {
               const fD = febData[bot] || {};
               const mD = marData[bot] || {};
               const chartData = MESES.map((m, mi) => {
-                const abrD = abrData[bot] || {}; const mayD = mayData[bot] || {}; const d = mi === 0 ? eD : mi === 1 ? fD : mi === 2 ? mD : mi === 3 ? abrD : mayD;
+                const abrD = abrData[bot] || {}; const mayD = mayData[bot] || {}; const junD = junData[bot] || {}; const d = mi === 0 ? eD : mi === 1 ? fD : mi === 2 ? mD : mi === 3 ? abrD : mi === 4 ? mayD : junD;
                 const row = { mes: m };
                 CAT_ORDER.forEach(ck => { if (d[ck] != null) row[ck] = d[ck]; });
                 return row;
@@ -884,7 +968,7 @@ export default function App() {
                     <div style={{ width: 8, height: 8, borderRadius: "50%", background: botColor, flexShrink: 0 }} />
                     <span style={{ fontFamily: V.font, fontSize: 15, fontWeight: 900, letterSpacing: 2, textTransform: "uppercase" }}>{cl.toUpperCase()}</span>
                     <span style={{ fontSize: 12, fontWeight: 700, color: botColor }}>· {bot}</span>
-                    <span style={{ fontSize: 10, color: V.gray500, marginLeft: "auto", letterSpacing: 2, textTransform: "uppercase" }}>Ene → Feb → Mar → Abr → May 2026</span>
+                    <span style={{ fontSize: 10, color: V.gray500, marginLeft: "auto", letterSpacing: 2, textTransform: "uppercase" }}>Ene → Feb → Mar → Abr → May → Jun 2026</span>
                   </div>
                   {/* Category filter pills */}
                   <ResponsiveContainer width="100%" height={220}>
@@ -919,7 +1003,7 @@ export default function App() {
           if (!mesData) return (
             <div key={cl} style={{ background: V.navyMid, border: "1px solid "+V.brd, borderRadius: 12, padding: 20, boxShadow: "0 2px 8px rgba(0,0,0,.3)" }}>
               <div style={{ fontFamily: V.font, fontSize: 14, fontWeight: 800, letterSpacing: 2, textTransform: "uppercase", marginBottom: 8 }}>{cl.toUpperCase()}</div>
-              <div style={{ color: V.gray500, fontSize: 12 }}>Sin datos para {catMes === "ene" ? "Enero" : catMes === "feb" ? "Febrero" : catMes === "mar" ? "Marzo" : catMes === "abr" ? "Abril" : "Mayo"} 2026</div>
+              <div style={{ color: V.gray500, fontSize: 12 }}>Sin datos para {catMes === "ene" ? "Enero" : catMes === "feb" ? "Febrero" : catMes === "mar" ? "Marzo" : catMes === "abr" ? "Abril" : catMes === "may" ? "Mayo" : "Junio"} 2026</div>
             </div>
           );
           const bots = Object.keys(mesData).filter(b => botFilter === "ALL" || b === botFilter).sort((a, b) => {
@@ -937,7 +1021,7 @@ export default function App() {
             <div key={cl} style={{ background: V.navyMid, border: "1px solid "+V.brd, borderRadius: 12, overflow: "hidden" }}>
               <div style={{ background: V.navyLight, padding: "12px 18px", borderBottom: "2px solid " + V.red }}>
                 <span style={{ fontFamily: V.font, fontSize: 15, fontWeight: 900, letterSpacing: 2, textTransform: "uppercase" }}>{cl.toUpperCase()}</span>
-                <span style={{ fontSize: 10, color: V.gray500, marginLeft: 10, letterSpacing: 2, textTransform: "uppercase" }}>{catMes === "ene" ? "Enero" : catMes === "feb" ? "Febrero" : catMes === "mar" ? "Marzo" : catMes === "abr" ? "Abril" : "Mayo"} 2026</span>
+                <span style={{ fontSize: 10, color: V.gray500, marginLeft: 10, letterSpacing: 2, textTransform: "uppercase" }}>{catMes === "ene" ? "Enero" : catMes === "feb" ? "Febrero" : catMes === "mar" ? "Marzo" : catMes === "abr" ? "Abril" : catMes === "may" ? "Mayo" : "Junio"} 2026</span>
               </div>
               <div style={{ overflowX: "auto" }}>
                 <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 13 }}>
@@ -1009,7 +1093,7 @@ export default function App() {
           <h1 style={{ fontFamily: V.font, fontSize: "2rem", fontWeight: 900, textTransform: "uppercase", letterSpacing: 2, margin: 0 }}>
             Dashboard <span style={{ color: "#5BA8FF" }}>Argentina</span> — Customer Service
           </h1>
-          <p style={{ fontSize: 12, color: V.white, letterSpacing: 3, textTransform: "uppercase", marginTop: 3, fontFamily: V.font }}>Mayo 2026 · Coca-Cola</p>
+          <p style={{ fontSize: 12, color: V.white, letterSpacing: 3, textTransform: "uppercase", marginTop: 3, fontFamily: V.font }}>Junio 2026 · Coca-Cola</p>
         </div>
       </div>
 
@@ -1025,24 +1109,30 @@ export default function App() {
         <div style={{ padding: "28px 36px", display: "flex", flexDirection: "column", gap: 20 }}>
 
           {/* KPI Cards */}
-          <SecLabel>Resumen Ejecutivo — Mayo 2026</SecLabel>
+          <SecLabel>Resumen Ejecutivo — Junio 2026</SecLabel>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(5,1fr)", gap: 12 }}>
             {[
-              { lb: "ARG Total", v: "89.8%", s: "May'26", c: BOTTLER_COLORS.arg, d: "+2.5pp", up: true },
-              { lb: "Femsa", v: "88.9%", s: "May'26", c: BOTTLER_COLORS.femsa, d: "-0.3pp", up: false },
-              { lb: "Reginald Lee", v: "89.7%", s: "May'26", c: BOTTLER_COLORS.lee, d: "-2.3pp", up: false },
-              { lb: "Andina", v: "91.9%", s: "May'26", c: BOTTLER_COLORS.andina, d: "+5.8pp", up: true },
-              { lb: "Arca", v: "86.8%", s: "May'26", c: BOTTLER_COLORS.arca, d: "+0.5pp", up: true },
+              { lb: "ARG Total", v: "90.6%", s: "Jun'26", c: BOTTLER_COLORS.arg, d: "+0.6pp", up: true, record: true },
+              { lb: "Femsa", v: "92.1%", s: "Jun'26", c: BOTTLER_COLORS.femsa, d: "-1.7pp", up: false },
+              { lb: "Reginald Lee", v: "89.7%", s: "Jun'26", c: BOTTLER_COLORS.lee, d: "-2.3pp", up: false },
+              { lb: "Andina", v: "91.6%", s: "Jun'26", c: BOTTLER_COLORS.andina, d: "+3.7pp", up: true },
+              { lb: "Arca", v: "85.8%", s: "Jun'26", c: BOTTLER_COLORS.arca, d: "-3.6pp", up: false },
             ].map((k, i) => {
               const dc = k.up ? V.gn : V.rd;
               return (
-                <div key={i} style={{ background: V.navyMid, border: "1px solid "+V.brd, borderRadius: 12, padding: "16px 18px", borderTop: "3px solid " + k.c, boxShadow: "0 2px 8px rgba(0,0,0,.3)" }}>
-                  <div style={{ fontFamily: V.font, fontSize: 11, fontWeight: 700, letterSpacing: 2, textTransform: "uppercase", color: V.gray500, marginBottom: 4 }}>{k.lb}</div>
+                <div key={i} style={{ background: V.navyMid, border: "1px solid "+(k.record ? "rgba(255,215,0,.4)" : V.brd), borderRadius: 12, padding: "16px 18px", borderTop: "3px solid " + k.c, boxShadow: k.record ? "0 2px 16px rgba(255,215,0,.15)" : "0 2px 8px rgba(0,0,0,.3)" }}>
+                  <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 4 }}>
+                    <div style={{ fontFamily: V.font, fontSize: 11, fontWeight: 700, letterSpacing: 2, textTransform: "uppercase", color: V.gray500 }}>{k.lb}</div>
+                    {k.record && <div style={{ display: "flex", alignItems: "center", gap: 4, background: "rgba(255,215,0,.12)", border: "1px solid rgba(255,215,0,.3)", borderRadius: 6, padding: "3px 9px" }}>
+                      <span style={{ fontSize: 14 }}>🏆</span>
+                      <span style={{ fontFamily: V.font, fontSize: 11, fontWeight: 800, letterSpacing: 1, color: "#FFD700", textTransform: "uppercase" }}>Record Histórico</span>
+                    </div>}
+                  </div>
                   <div style={{ fontFamily: V.font, fontSize: "2.4rem", fontWeight: 900, lineHeight: 1, color: V.white }}>{k.v}</div>
                   <div style={{ fontSize: 10, color: V.gray500, marginTop: 3, marginBottom: 6 }}>{k.s}</div>
                   <div style={{ display: "flex", alignItems: "center", gap: 4 }}>
                     <span style={{ fontSize: 14, color: dc, lineHeight: 1 }}>{k.up ? "▲" : "▼"}</span>
-                    <span style={{ fontFamily: V.font, fontSize: 13, fontWeight: 800, color: dc }}>{k.d.replace(/^[+-]/, "")} vs May 25</span>
+                    <span style={{ fontFamily: V.font, fontSize: 13, fontWeight: 800, color: dc }}>{k.d.replace(/^[+-]/, "")} vs Jun 25</span>
                   </div>
                 </div>
               );
@@ -1090,7 +1180,7 @@ export default function App() {
             {/* Bar chart */}
             <div style={{ background: V.navyMid, border: "1px solid "+V.brd, borderRadius: 12, padding: "16px 20px", boxShadow: "0 2px 8px rgba(0,0,0,.3)" }}>
               <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 10 }}>
-                <SecLabel>Fill Rate por Cliente — May'26 vs May'25</SecLabel>
+                <SecLabel>Fill Rate por Cliente — Jun'26 vs Jun'25</SecLabel>
                 <div style={{ display: "flex", gap: 3, flexWrap: "wrap" }}>
                   {[{ k: "ARG", l: "ARG", c: BOTTLER_COLORS.arg }, { k: "FEMSA", l: "Femsa", c: BOTTLER_COLORS.femsa }, { k: "LEE", l: "Lee", c: BOTTLER_COLORS.lee }, { k: "ANDINA", l: "Andina", c: BOTTLER_COLORS.andina }, { k: "ARCA", l: "Arca", c: BOTTLER_COLORS.arca }].map(b => (
                     <button key={b.k} onClick={() => setBflt(b.k)} style={pillBtn(bflt === b.k, b.c)}>{b.l}</button>
@@ -1123,7 +1213,7 @@ export default function App() {
 
             {/* Delta */}
             <div style={{ background: V.navyMid, border: "1px solid "+V.brd, borderRadius: 12, padding: "16px 18px", boxShadow: "0 2px 8px rgba(0,0,0,.3)" }}>
-              <SecLabel>Delta May'26 vs May'25</SecLabel>
+              <SecLabel>Delta Jun'26 vs Jun'25</SecLabel>
               {DLT.map((row, i) => {
                 const ip = row.d >= 0; const lc = ip ? V.gn : V.rd; const maxD = Math.max(...DLT.map(r => Math.abs(r.d))); const bp = Math.min(48, (Math.abs(row.d) / maxD) * 45);
                 return (
@@ -1143,8 +1233,8 @@ export default function App() {
 
             {/* InStock */}
             <div style={{ background: V.navyMid, border: "1px solid "+V.brd, borderRadius: 12, padding: "16px 18px", boxShadow: "0 2px 8px rgba(0,0,0,.3)" }}>
-              <SecLabel>Instock — May'26</SecLabel>
-              {[{ n: "Femsa", v: 90.5, c: BOTTLER_COLORS.femsa }, { n: "Reg. Lee", v: 91.7, c: BOTTLER_COLORS.lee }, { n: "Andina", v: 94.2, c: BOTTLER_COLORS.andina }, { n: "Arca", v: 93.6, c: BOTTLER_COLORS.arca }].map((e, i) => {
+              <SecLabel>Instock — Jun'26</SecLabel>
+              {[{ n: "Femsa", v: 92.1, c: BOTTLER_COLORS.femsa }, { n: "Reg. Lee", v: 93.5, c: BOTTLER_COLORS.lee }, { n: "Andina", v: 94.3, c: BOTTLER_COLORS.andina }, { n: "Arca", v: 92.9, c: BOTTLER_COLORS.arca }].map((e, i) => {
                 const w = ((e.v - 68) / 32) * 100;
                 return (
                   <div key={i} style={{ padding: "10px 0", borderBottom: i < 3 ? "1px solid "+V.brd2+"" : "none" }}>
@@ -1163,7 +1253,7 @@ export default function App() {
 
           {/* Ranking */}
           <div style={{ background: V.navyMid, border: "1px solid "+V.brd, borderRadius: 12, padding: "16px 20px", boxShadow: "0 2px 8px rgba(0,0,0,.3)" }}>
-            <SecLabel>Ranking Clientes — May 2026</SecLabel>
+            <SecLabel>Ranking Clientes — Jun 2026</SecLabel>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 10 }}>
               {RNK.map((row, i) => {
                 const d = row.p != null ? +(row.f - row.p).toFixed(1) : null;
