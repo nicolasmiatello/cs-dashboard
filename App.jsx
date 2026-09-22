@@ -29,7 +29,7 @@ const TR = {
     { m: "May'26", F: 88.9, L: 89.7, A: 91.9, AR: 86.8, T: 89.8 },
     { m: "Jun'26", F: 92.1, L: 89.7, A: 91.6, AR: 85.8, T: 90.6 },
     { m: "Jul'26", F: 90.9, L: 90.6, A: 90.7, AR: 87.6, T: 90.3 },
-    { m: "Ago'26", F: 89.8, L: 92.1, A: 92.3, AR: 86.7, T: 90.3 },
+    { m: "Ago'26", F: 89.8, L: 92.3, A: 92.1, AR: 86.7, T: 90.3 },
   ],
   GDN: [
     { m: "Ene'25", F: 83.5, L: 88.0, A: 82.0, AR: 82.0, T: 83.0 }, { m: "Feb'25", F: 87.0, L: 90.0, A: 84.0, AR: 85.0, T: 85.5 },
@@ -820,6 +820,7 @@ function nofrText(v) {
 const BOT_LOSS = {
   Andina: {
     month: "Agosto 2026",
+    frExcel: 92.1,
     base: 100,
     cols: [
       { k: "fd", lb: "Falta Disp." },
@@ -870,6 +871,7 @@ const BOT_LOSS = {
   },
   Lee: {
     month: "Agosto 2026",
+    frExcel: 92.3,
     base: 100,
     cols: [
       { k: "fd", lb: "Falta Disp." },
@@ -911,6 +913,7 @@ const BOT_LOSS = {
   },
   Arca: {
     month: "Agosto 2026",
+    frExcel: 86.7,
     base: 100,
     cols: [
       { k: "fd", lb: "Falta Disp." },
@@ -959,6 +962,7 @@ const BOT_LOSS = {
   },
   Femsa: {
     month: "Agosto 2026",
+    frExcel: 89.8,
     base: 100,
     cols: [
       { k: "pa", lb: "Ped. Anul." },
@@ -1559,7 +1563,7 @@ export default function App() {
         {/* KPI row */}
         <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 12 }}>
           {[
-            { lb: "Fill Rate", v: D.total.fr.toFixed(1) + "%", c: col, tc: V.white },
+            { lb: "Fill Rate", v: (D.frExcel != null ? D.frExcel : D.total.fr).toFixed(1) + "%", c: col, tc: V.white },
             { lb: "No Fill Rate", v: D.total.nofr.toFixed(1) + "%", c: V.rd, tc: V.white },
             { lb: "Bultos no entregados", v: fmtN(D.total.bne), c: V.white, tc: V.white },
             { lb: "Bultos pedidos", v: fmtN(D.total.bp), c: V.white, tc: V.white },
@@ -1754,8 +1758,8 @@ export default function App() {
             {[
               { lb: "ARG Total", v: "90.3%", s: "Ago'26", c: BOTTLER_COLORS.arg, d: "+0.1pp", up: true, record: false },
               { lb: "Femsa", v: "89.8%", s: "Ago'26", c: BOTTLER_COLORS.femsa, d: "+1.3pp", up: true },
-              { lb: "Reginald Lee", v: "92.1%", s: "Ago'26", c: BOTTLER_COLORS.lee, d: "-0.4pp", up: false },
-              { lb: "Andina", v: "92.3%", s: "Ago'26", c: BOTTLER_COLORS.andina, d: "+1.4pp", up: true },
+              { lb: "Reginald Lee", v: "92.3%", s: "Ago'26", c: BOTTLER_COLORS.lee, d: "-0.4pp", up: false },
+              { lb: "Andina", v: "92.1%", s: "Ago'26", c: BOTTLER_COLORS.andina, d: "+1.4pp", up: true },
               { lb: "Arca", v: "86.7%", s: "Ago'26", c: BOTTLER_COLORS.arca, d: "-4.1pp", up: false },
             ].map((k, i) => {
               const dc = k.up ? V.gn : V.rd;
