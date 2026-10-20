@@ -30,6 +30,7 @@ const TR = {
     { m: "Jun'26", F: 92.1, L: 89.7, A: 91.6, AR: 85.8, T: 90.6 },
     { m: "Jul'26", F: 90.9, L: 90.6, A: 90.7, AR: 87.6, T: 90.3 },
     { m: "Ago'26", F: 89.8, L: 92.3, A: 92.1, AR: 86.7, T: 90.3 },
+    { m: "Sep'26", F: 87.1, L: 91.2, A: 89.1, AR: 91.0, T: 88.7 },
   ],
   GDN: [
     { m: "Ene'25", F: 83.5, L: 88.0, A: 82.0, AR: 82.0, T: 83.0 }, { m: "Feb'25", F: 87.0, L: 90.0, A: 84.0, AR: 85.0, T: 85.5 },
@@ -46,6 +47,7 @@ const TR = {
     { m: "Jun'26", F: 90.1, L: 87.3, A: 88.1, AR: 87.3, T: 88.2 },
     { m: "Jul'26", F: 86.7, L: 86.8, A: 92.4, AR: 86.5, T: 88.7 },
     { m: "Ago'26", F: 86.5, L: 93.7, A: 91.6, AR: 88.8, T: 89.3 },
+    { m: "Sep'26", F: 85.1, L: 93.7, A: 87.8, AR: 86.7, T: 87.0 },
   ],
   CRF: [
     { m: "Ene'25", F: 83.0, L: 87.0, A: 81.0, AR: 71.0, T: 81.6 }, { m: "Feb'25", F: 86.5, L: 89.0, A: 82.0, AR: 75.0, T: 82.5 },
@@ -62,6 +64,7 @@ const TR = {
     { m: "Jun'26", F: 91.9, L: 85.6, A: 87.8, AR: 89.7, T: 90.1 },
     { m: "Jul'26", F: 85.2, L: 91.4, A: 88.9, AR: 89.0, T: 87.1 },
     { m: "Ago'26", F: 86.5, L: 93.7, A: 91.6, AR: 88.8, T: 89.3 },
+    { m: "Sep'26", F: 85.4, L: 91.6, A: 83.4, AR: 91.8, T: 85.6 },
   ],
   CENCOSUD: [
     { m: "Ene'25", F: 88.0, L: 88.0, A: 76.0, AR: 78.0, T: 82.7 }, { m: "Jun'25", F: 93.5, L: 93.5, A: 83.0, AR: 84.5, T: 89.5 },
@@ -74,18 +77,19 @@ const TR = {
     { m: "Jun'26", F: 93.6, L: 92.8, A: 96.2, AR: 89.8, T: 94.0 },
     { m: "Jul'26", F: 94.6, L: 90.8, A: 90.3, AR: 88.6, T: 91.5 },
     { m: "Ago'26", F: 93.8, L: 89.7, A: 93.7, AR: 92.9, T: 91.7 },
+    { m: "Sep'26", F: 94.5, L: 93.4, A: 96.2, AR: 95.4, T: 94.8 },
   ],
-  "LA ANONIMA": [{ m: "Ene'25", F: null, L: null, A: 76.0, AR: null, T: 76.0 }, { m: "Ene'26", F: 97.8, L: null, A: 78.3, AR: null, T: 78.4 }, { m: "Feb'26", F: 77.4, L: null, A: 84.0, AR: 90.1, T: 84.0 }, { m: "Mar'26", F: 90.2, L: null, A: 89.5, AR: 90.1, T: 89.5 }, { m: "Abr'26", F: 96.7, L: null, A: 87.1, AR: 74.0, T: 86.3 }, { m: "May'26", F: 84.5, L: null, A: 93.1, AR: 61.8, T: 93.1 }, { m: "Jun'26", F: 90.6, L: null, A: 93.9, AR: 53.7, T: 88.6 }, { m: "Jul'26", F: 94.3, L: null, A: 92.4, AR: 76.2, T: 92.4 }, { m: "Ago'26", F: 90.2, L: null, A: 91.9, AR: 78.5, T: 91.9 }],
-  DIA: [{ m: "Ene'26", F: 84.7, L: null, A: null, AR: null, T: 84.7 }, { m: "Feb'26", F: 85.3, L: null, A: null, AR: null, T: 85.3 }, { m: "Mar'26", F: 77.7, L: 94.2, A: null, AR: null, T: 79.3 }, { m: "Abr'26", F: 77.7, L: 94.2, A: null, AR: null, T: 79.3 }, { m: "May'26", F: null, L: 90.7, A: null, AR: null, T: 90.7 }, { m: "Jun'26", F: null, L: 93.8, A: null, AR: null, T: 93.8 }, { m: "Jul'26", F: null, L: 91.9, A: null, AR: null, T: 91.9 }, { m: "Ago'26", F: null, L: 94.6, A: null, AR: null, T: 94.6 }],
+  "LA ANONIMA": [{ m: "Ene'25", F: null, L: null, A: 76.0, AR: null, T: 76.0 }, { m: "Ene'26", F: 97.8, L: null, A: 78.3, AR: null, T: 78.4 }, { m: "Feb'26", F: 77.4, L: null, A: 84.0, AR: 90.1, T: 84.0 }, { m: "Mar'26", F: 90.2, L: null, A: 89.5, AR: 90.1, T: 89.5 }, { m: "Abr'26", F: 96.7, L: null, A: 87.1, AR: 74.0, T: 86.3 }, { m: "May'26", F: 84.5, L: null, A: 93.1, AR: 61.8, T: 93.1 }, { m: "Jun'26", F: 90.6, L: null, A: 93.9, AR: 53.7, T: 88.6 }, { m: "Jul'26", F: 94.3, L: null, A: 92.4, AR: 76.2, T: 92.4 }, { m: "Ago'26", F: 90.2, L: null, A: 91.9, AR: 78.5, T: 91.9 }, { m: "Sep'26", F: 91.4, L: null, A: 91.1, AR: 92.7, T: 91.1 }],
+  DIA: [{ m: "Ene'26", F: 84.7, L: null, A: null, AR: null, T: 84.7 }, { m: "Feb'26", F: 85.3, L: null, A: null, AR: null, T: 85.3 }, { m: "Mar'26", F: 77.7, L: 94.2, A: null, AR: null, T: 79.3 }, { m: "Abr'26", F: 77.7, L: 94.2, A: null, AR: null, T: 79.3 }, { m: "May'26", F: null, L: 90.7, A: null, AR: null, T: 90.7 }, { m: "Jun'26", F: null, L: 93.8, A: null, AR: null, T: 93.8 }, { m: "Jul'26", F: null, L: 91.9, A: null, AR: null, T: 91.9 }, { m: "Ago'26", F: null, L: 94.6, A: null, AR: null, T: 94.6 }, { m: "Sep'26", F: null, L: 83.0, A: null, AR: null, T: 83.0 }],
 };
 
 const YTD = {
-  "TOTAL CANAL": { F: 87.7, L: 90.4, A: 88.9, AR: 86.1, T: 88.0 },
-  GDN: { F: 86.8, L: 88.9, A: 89.7, AR: 87.6, T: 88.0 },
-  CRF: { F: 87.9, L: 89.3, A: 88.7, AR: 85.4, T: 87.9 },
-  CENCOSUD: { F: 92.9, L: 88.3, A: 89.8, AR: 90.4, T: 90.6 },
-  "LA ANONIMA": { F: 80.0, A: 88.3, AR: 70.1, T: 87.1 },
-  DIA: { F: 81.9, L: 93.6, T: 83.2 },
+  "TOTAL CANAL": { F: 87.6, L: 90.4, A: 88.9, AR: 86.6, T: 88.1 },
+  GDN: { F: 86.7, L: 89.6, A: 89.5, AR: 87.5, T: 87.9 },
+  CRF: { F: 87.6, L: 89.5, A: 88.1, AR: 86.0, T: 87.7 },
+  CENCOSUD: { F: 93.0, L: 89.1, A: 90.4, AR: 90.9, T: 91.0 },
+  "LA ANONIMA": { F: 80.4, A: 88.7, AR: 70.5, T: 87.6 },
+  DIA: { F: 81.9, L: 92.5, T: 83.2 },
 };
 
 const LS = [
@@ -97,36 +101,37 @@ const LS = [
 ];
 
 const BAR_DATA = {
-  ARG: [{ n: "GDN", a: 89.3, b: 88.7 }, { n: "CRF", a: 89.3, b: 87.1 }, { n: "Cencosud", a: 91.7, b: 91.5 }, { n: "La Anonima", a: 91.9, b: 92.4 }, { n: "Dia", a: 94.6, b: 91.9 }],
-  FEMSA: [{ n: "GDN", a: 86.5, b: 86.7 }, { n: "CRF", a: 86.5, b: 85.2 }, { n: "Cencosud", a: 93.8, b: 94.6 }, { n: "La Anonima", a: 90.2, b: 94.3 }, { n: "Dia", a: null, b: null }],
-  LEE: [{ n: "GDN", a: 93.7, b: 86.8 }, { n: "CRF", a: 93.7, b: 91.4 }, { n: "Cencosud", a: 89.7, b: 90.8 }, { n: "La Anonima", a: null, b: null }, { n: "Dia", a: 94.6, b: 91.9 }],
-  ANDINA: [{ n: "GDN", a: 91.6, b: 92.4 }, { n: "CRF", a: 91.6, b: 88.9 }, { n: "Cencosud", a: 93.7, b: 90.3 }, { n: "La Anonima", a: 91.9, b: 92.4 }, { n: "Dia", a: null, b: null }],
-  ARCA: [{ n: "GDN", a: 88.8, b: 86.5 }, { n: "CRF", a: 88.8, b: 89.0 }, { n: "Cencosud", a: 92.9, b: 88.6 }, { n: "La Anonima", a: 78.5, b: 76.2 }, { n: "Dia", a: null, b: null }],
+  // a = Sep'25 (PY baseline), b = Sep'26 (current). null = Sep'25 not available for that chain, or chain not applicable to that bottler.
+  ARG: [{ n: "GDN", a: 85.0, b: 87.0 }, { n: "CRF", a: 84.0, b: 85.6 }, { n: "Cencosud", a: 85.5, b: 94.8 }, { n: "La Anonima", a: 89.9, b: 91.1 }, { n: "Dia", a: null, b: 83.0 }],
+  FEMSA: [{ n: "GDN", a: 83.0, b: 85.1 }, { n: "CRF", a: 83.5, b: 85.4 }, { n: "Cencosud", a: 88.5, b: 94.5 }, { n: "La Anonima", a: null, b: 91.4 }, { n: "Dia", a: null, b: null }],
+  LEE: [{ n: "GDN", a: 92.0, b: 93.7 }, { n: "CRF", a: 90.0, b: 91.6 }, { n: "Cencosud", a: 92.0, b: 93.4 }, { n: "La Anonima", a: null, b: null }, { n: "Dia", a: null, b: 83.0 }],
+  ANDINA: [{ n: "GDN", a: 82.0, b: 87.8 }, { n: "CRF", a: 82.5, b: 83.4 }, { n: "Cencosud", a: 79.5, b: 96.2 }, { n: "La Anonima", a: 89.9, b: 91.1 }, { n: "Dia", a: null, b: null }],
+  ARCA: [{ n: "GDN", a: 89.5, b: 86.7 }, { n: "CRF", a: 80.0, b: 91.8 }, { n: "Cencosud", a: 84.0, b: 95.4 }, { n: "La Anonima", a: null, b: 92.7 }, { n: "Dia", a: null, b: null }],
 };
 
 const RNK = [
-  { c: "Cencosud", f: 91.7, p: 91.5, b: { Femsa: 93.8, Andina: 93.7, Lee: 89.7, Arca: 92.9 } },
-  { c: "La Anonima", f: 91.9, p: 92.4, b: { Femsa: 90.2, Andina: 91.9, Arca: 78.5 } },
-  { c: "Dia", f: 94.6, p: 91.9, b: { Lee: 94.6 } },
-  { c: "GDN", f: 89.3, p: 88.7, b: { Femsa: 86.5, Andina: 91.6, Lee: 93.7, Arca: 88.8 } },
-  { c: "CRF", f: 89.3, p: 87.1, b: { Femsa: 86.5, Andina: 91.6, Lee: 93.7, Arca: 88.8 } },
+  { c: "Cencosud", f: 94.8, p: 91.7, b: { Femsa: 94.5, Andina: 96.2, Lee: 93.4, Arca: 95.4 } },
+  { c: "La Anonima", f: 91.1, p: 91.9, b: { Femsa: 91.4, Andina: 91.1, Arca: 92.7 } },
+  { c: "GDN", f: 87.0, p: 89.3, b: { Femsa: 85.1, Andina: 87.8, Lee: 93.7, Arca: 86.7 } },
+  { c: "CRF", f: 85.6, p: 89.3, b: { Femsa: 85.4, Andina: 83.4, Lee: 91.6, Arca: 91.8 } },
+  { c: "Dia", f: 83.0, p: 94.6, b: { Lee: 83.0 } },
 ].sort((a, b) => b.f - a.f);
 
-const DLT = [{ n: "Andina", d: 1.4, c: BOTTLER_COLORS.andina }, { n: "Femsa", d: 1.3, c: BOTTLER_COLORS.femsa }, { n: "ARG", d: 0.1, c: BOTTLER_COLORS.arg }, { n: "Lee", d: -0.4, c: BOTTLER_COLORS.lee }, { n: "Arca", d: -4.1, c: BOTTLER_COLORS.arca }];
+const DLT = [{ n: "Arca", d: 4.3, c: BOTTLER_COLORS.arca }, { n: "Lee", d: -1.1, c: BOTTLER_COLORS.lee }, { n: "ARG", d: -1.6, c: BOTTLER_COLORS.arg }, { n: "Femsa", d: -2.7, c: BOTTLER_COLORS.femsa }, { n: "Andina", d: -3.0, c: BOTTLER_COLORS.andina }];
 
 const BYTD = [
-  { n: "Reg. Lee", v: 90.4, c: BOTTLER_COLORS.lee, s: { GDN: 88.9, CRF: 89.3, Cencosud: 88.3, Dia: 93.6 } },
-  { n: "Andina", v: 88.9, c: BOTTLER_COLORS.andina, s: { GDN: 89.7, CRF: 88.7, Cencosud: 89.8, "La An.": 88.3 } },
-  { n: "ARG Total", v: 88.0, c: BOTTLER_COLORS.arg, s: { GDN: 88.0, CRF: 87.9, Cencosud: 90.6, "La An.": 87.1, Dia: 83.2 } },
-  { n: "Femsa", v: 87.7, c: BOTTLER_COLORS.femsa, s: { GDN: 86.8, CRF: 87.9, Cencosud: 92.9, "La An.": 80.0, Dia: 81.9 } },
-  { n: "Arca", v: 86.1, c: BOTTLER_COLORS.arca, s: { GDN: 87.6, CRF: 85.4, Cencosud: 90.4, "La An.": 70.1 } },
+  { n: "Reg. Lee", v: 90.4, py: 90.4, c: BOTTLER_COLORS.lee, s: { GDN: 89.6, CRF: 89.5, Cencosud: 89.1, Dia: 92.5 } },
+  { n: "Andina", v: 88.9, py: 82.5, c: BOTTLER_COLORS.andina, s: { GDN: 89.5, CRF: 88.1, Cencosud: 90.4, "La An.": 88.7 } },
+  { n: "ARG Total", v: 88.1, py: 85.4, c: BOTTLER_COLORS.arg, s: { GDN: 87.9, CRF: 87.7, Cencosud: 91.0, "La An.": 87.6, Dia: 83.2 } },
+  { n: "Femsa", v: 87.6, py: 88.2, c: BOTTLER_COLORS.femsa, s: { GDN: 86.7, CRF: 87.6, Cencosud: 93.0, "La An.": 80.4 } },
+  { n: "Arca", v: 86.6, py: 87.5, c: BOTTLER_COLORS.arca, s: { GDN: 87.5, CRF: 86.0, Cencosud: 90.9, "La An.": 70.5 } },
 ];
 const CYTD = [
-  { n: "Cencosud", v: 90.6, c: "#E8002D", s: { Femsa: 92.9, Andina: 89.8, Lee: 88.3, Arca: 90.4 } },
-  { n: "GDN", v: 88.0, c: "#E8002D", s: { Femsa: 86.8, Andina: 89.7, Lee: 88.9, Arca: 87.6 } },
-  { n: "CRF", v: 87.9, c: "#E8002D", s: { Femsa: 87.9, Andina: 88.7, Lee: 89.3, Arca: 85.4 } },
-  { n: "La Anonima", v: 87.1, c: "#E8002D", s: { Femsa: 80.0, Andina: 88.3, Arca: 70.1 } },
-  { n: "Dia", v: 83.2, c: "#E8002D", s: { Femsa: 81.9, Lee: 93.6 } },
+  { n: "Cencosud", v: 91.0, c: "#E8002D", s: { Femsa: 93.0, Andina: 90.4, Lee: 89.1, Arca: 90.9 } },
+  { n: "GDN", v: 87.9, c: "#E8002D", s: { Femsa: 86.7, Andina: 89.5, Lee: 89.6, Arca: 87.5 } },
+  { n: "CRF", v: 87.7, c: "#E8002D", s: { Femsa: 87.6, Andina: 88.1, Lee: 89.5, Arca: 86.0 } },
+  { n: "La Anonima", v: 87.6, c: "#E8002D", s: { Femsa: 80.4, Andina: 88.7, Arca: 70.5 } },
+  { n: "Dia", v: 83.2, c: "#E8002D", s: { Lee: 92.5 } },
 ];
 
 // Category data
@@ -185,6 +190,12 @@ const CAT_FR = {
       Femsa:  { AP: 97.9, AS: 95.0, EN: 97.8, GA: 92.6, IS: 95.5, JU: 93.7, TOT: 93.8, ISv: 94.3, DOH: 20.0 },
       Lee:    { AP: 81.1, AS: 98.1, EN: 99.3, GA: 93.7, IS: 92.6, JU: 86.2, TOT: 89.7, ISv: 91.3, DOH: 22.8 },
     },
+    sep: {
+      Andina: { AP: 96.5, AS: 99.1, EN: 97.9, GA: 96.4, IS: 91.9, JU: 95.6, TOT: 96.2, ISv: 93.1, DOH: 21.5 },
+      Arca:   { AP: 91.7, AS: 86.0, EN: 94.4, GA: 94.9, IS: 86.4, JU: 86.6, TOT: 93.4, ISv: 92.5, DOH: 13.3 },
+      Femsa:  { AP: 97.6, AS: 90.7, EN: 86.8, GA: 94.2, IS: 90.4, JU: 97.7, TOT: 94.5, ISv: 93.6, DOH: 19.9 },
+      Lee:    { AP: 93.6, AS: 99.4, EN: 99.6, GA: 95.2, IS: 88.6, JU: 95.1, TOT: 95.3, ISv: 94.5, DOH: 21.9 },
+    },
   },
   GDN: {
     ene: {
@@ -234,6 +245,12 @@ const CAT_FR = {
       Andina: { AP: 94.4, AS: 90.8, EN: 96.2, GA: 90.9, IS: 82.9, JU: 94.2, TOT: 91.6, ISv: 94.8, DOH: 25.5 },
       Lee:    { AP: 94.5, AS: 93.7, EN: 95.9, GA: 93.7, IS: 97.6, JU: 91.6, TOT: 93.7, ISv: 94.4, DOH: 23.3 },
       Arca:   { AP: 98.4, AS: 83.5, EN: 96.9, GA: 89.1, IS: 78.9, JU: 84.3, TOT: 88.8, ISv: 94.6, DOH: 14.9 },
+    },
+    sep: {
+      Femsa:  { AP: 86.7, AS: 91.0, EN: 94.5, GA: 81.6, IS: 77.4, JU: 79.8, TOT: 85.1, ISv: 88.9, DOH: 42.0 },
+      Andina: { AP: 78.2, AS: 86.8, EN: 93.1, GA: 88.3, IS: 78.3, JU: 88.0, TOT: 87.8, ISv: 84.9, DOH: 39.6 },
+      Lee:    { AP: 78.6, AS: 92.6, EN: 99.3, GA: 97.3, IS: 92.8, JU: 75.1, TOT: 93.7, ISv: 93.3, DOH: 42.6 },
+      Arca:   { AP: 97.5, AS: 96.6, EN: 53.6, GA: 85.1, IS: 80.0, JU: 90.8, TOT: 86.7, ISv: 92.5, DOH: 21.0 },
     },
   },
   CRF: {
@@ -285,6 +302,12 @@ const CAT_FR = {
       Lee:    { AP: 76.9, AS: 91.6, EN: 95.7, GA: 93.7, IS: 95.7, JU: 76.7, TOT: 93.7, ISv: 93.1, DOH: 30.6 },
       Arca:   { AP: 94.9, AS: 83.7, EN: 92.2, GA: 79.9, IS: 74.8, JU: 82.9, TOT: 88.8, ISv: 89.5, DOH: 17.0 },
     },
+    sep: {
+      Femsa:  { AP: 93.6, AS: 82.0, EN: 90.7, GA: 93.3, IS: 66.8, JU: 74.7, TOT: 85.4, ISv: 91.4, DOH: 15.3 },
+      Andina: { AP: 90.6, AS: 89.5, EN: 94.6, GA: 90.3, IS: 84.7, JU: 92.2, TOT: 83.4, ISv: 87.3, DOH: 15.4 },
+      Lee:    { AP: 90.1, AS: 91.6, EN: 98.4, GA: 92.8, IS: 83.0, JU: 80.8, TOT: 91.6, ISv: 92.4, DOH: 28.8 },
+      Arca:   { AP: 91.1, AS: 85.5, EN: 91.0, GA: 93.2, IS: 91.8, JU: 85.6, TOT: 91.8, ISv: 84.4, DOH: 15.8 },
+    },
   },
   "La Anonima": {
     ene: {
@@ -326,6 +349,11 @@ const CAT_FR = {
       Femsa:  { AP: 94.3, AS: 69.9, EN: 94.6, GA: 100.0, IS: 81.3, JU: 45.7, TOT: 90.2, ISv: 97.7, DOH: 13.7 },
       Andina: { AP: 83.3, AS: 90.4, EN: 86.9, GA:  84.4, IS: 68.3, JU: 79.7, TOT: 91.9, ISv: 96.4, DOH: 13.5 },
       Arca:   { AP: 82.7, AS: 84.6, EN: 84.0, GA:  79.7, IS: 57.8, JU: 65.9, TOT: 78.5, ISv: 98.0, DOH: 22.8 },
+    },
+    sep: {
+      Femsa:  { AP: 87.9, AS: 66.3, EN: 100.0, GA: 88.6, IS: 82.4, JU: 80.0, TOT: 85.3, ISv: 96.0, DOH: 14.2 },
+      Andina: { AP: 87.0, AS: 94.2, EN: 93.9,  GA: 91.8, IS: 66.4, JU: 84.6, TOT: 89.8, ISv: 93.3, DOH: 11.9 },
+      Arca:   { AP: 95.2, AS: 89.4, EN: 96.2,  GA: 90.3, IS: 72.2, JU: 85.0, TOT: 90.1, ISv: 96.5, DOH: 20.6 },
     },
   },
 }
@@ -382,6 +410,12 @@ const CAT_IS = {
       Femsa:  { AP: 94.3, AS: 94.3, EN: 96.5, GA: 94.0, IS: 95.2, JU: 93.5, TOT: 94.3 },
       Lee:    { AP: 92.7, AS: 97.2, EN: 93.4, GA: 95.2, IS: 90.2, JU: 93.1, TOT: 91.3 },
     },
+    sep: {
+      Andina: { AP: 95.7, AS: 95.1, EN: 95.0, GA: 91.9, IS: 95.4, JU: 91.7, TOT: 93.1 },
+      Arca:   { AP: 90.8, AS: 92.6, EN: 96.1, GA: 90.8, IS: 94.1, JU: 93.8, TOT: 92.5 },
+      Femsa:  { AP: 95.7, AS: 93.2, EN: 95.9, GA: 93.4, IS: 91.5, JU: 93.5, TOT: 93.6 },
+      Lee:    { AP: 97.0, AS: 96.4, EN: 95.4, GA: 95.8, IS: 90.0, JU: 90.1, TOT: 94.5 },
+    },
   },
   GDN: {
     ene: {
@@ -431,6 +465,12 @@ const CAT_IS = {
       Andina: { AP: 96.3, AS: 97.4, EN: 98.0, GA: 92.3, IS: 97.8, JU: 91.6, TOT: 94.8 },
       Lee:    { AP: 95.1, AS: 98.4, EN: 98.0, GA: 91.4, IS: 100.0, JU: 90.2, TOT: 94.4 },
       Arca:   { AP: 98.3, AS: 91.7, EN: 97.3, GA: 93.2, IS: 97.9, JU: 97.5, TOT: 94.6 },
+    },
+    sep: {
+      Femsa:  { AP: 94.6, AS: 93.3, EN: 93.0, GA: 85.6, IS: 91.6, JU: 88.6, TOT: 88.9 },
+      Andina: { AP: 81.7, AS: 82.7, EN: 87.3, GA: 81.5, IS: 90.5, JU: 91.8, TOT: 84.9 },
+      Lee:    { AP: 95.7, AS: 89.7, EN: 99.0, GA: 91.3, IS: 98.3, JU: 95.1, TOT: 93.3 },
+      Arca:   { AP: 98.1, AS: 87.7, EN: 93.5, GA: 83.0, IS: 93.9, JU: 87.2, TOT: 92.5 },
     },
   },
   CRF: {
@@ -482,6 +522,12 @@ const CAT_IS = {
       Lee:    { AP: 95.1, AS: 95.2, EN: 98.4, GA: 91.7, IS: 98.3, JU: 88.4, TOT: 93.1 },
       Arca:   { AP: 84.4, AS: 88.4, EN: 95.5, GA: 86.6, IS: 98.1, JU: 91.5, TOT: 89.5 },
     },
+    sep: {
+      Femsa:  { AP: 95.4, AS: 92.2, EN: 91.5, GA: 92.9, IS: 74.5, JU: 92.3, TOT: 91.4 },
+      Andina: { AP: 88.9, AS: 95.2, EN: 91.2, GA: 84.3, IS: 92.2, JU: 86.0, TOT: 87.3 },
+      Lee:    { AP: 98.7, AS: 96.1, EN: 96.5, GA: 92.2, IS: 96.5, JU: 82.0, TOT: 92.4 },
+      Arca:   { AP: 78.5, AS: 85.0, EN: 94.1, GA: 84.2, IS: 89.7, JU: 81.1, TOT: 84.4 },
+    },
   },
   "La Anonima": {
     ene: {
@@ -523,6 +569,11 @@ const CAT_IS = {
       Femsa:  { AP: 100.0, AS: 100.0, EN: 100.0, GA: 96.6, IS: 100.0, JU: 95.7, TOT: 97.7 },
       Andina: { AP:  96.8, AS:  96.8, EN:  95.7, GA: 96.5, IS:  97.3, JU: 95.9, TOT: 96.4 },
       Arca:   { AP:  99.1, AS:  98.9, EN:  98.3, GA: 96.7, IS:  98.4, JU: 98.7, TOT: 98.0 },
+    },
+    sep: {
+      Femsa:  { AP:  80.0, AS: 92.6, EN: 100.0, GA: 98.0, IS: 100.0, JU: 93.8, TOT: 96.0 },
+      Andina: { AP:  90.1, AS: 94.1, EN:  93.8, GA: 94.9, IS:  88.4, JU: 90.0, TOT: 93.3 },
+      Arca:   { AP:  94.6, AS: 98.1, EN:  99.4, GA: 96.1, IS:  95.2, JU: 96.2, TOT: 96.5 },
     },
   },
 };
@@ -579,6 +630,12 @@ const CAT_DOH = {
       Femsa:  { AP: 22.1, AS: 28.0, EN: 58.1, GA: 16.6, IS: 50.2, JU: 32.0, TOT: 20.0 },
       Lee:    { AP: 42.8, AS: 24.7, EN: 72.1, GA: 19.0, IS: 54.3, JU: 32.2, TOT: 22.8 },
     },
+    sep: {
+      Andina: { AP: 56.0, AS: 35.9, EN: 43.9, GA: 18.7, IS: 35.8, JU: 20.6, TOT: 21.5 },
+      Arca:   { AP: 14.9, AS: 12.4, EN: 29.4, GA: 10.8, IS: 25.1, JU: 21.7, TOT: 13.3 },
+      Femsa:  { AP: 24.5, AS: 26.7, EN: 56.1, GA: 16.8, IS: 31.8, JU: 30.9, TOT: 19.9 },
+      Lee:    { AP: 42.2, AS: 23.7, EN: 83.9, GA: 18.3, IS: 29.0, JU: 31.8, TOT: 21.9 },
+    },
   },
   GDN: {
     ene: {
@@ -628,6 +685,12 @@ const CAT_DOH = {
       Andina: { AP: 33.6, AS: 31.8, EN: 47.6, GA: 21.3, IS: 42.2, JU: 24.7, TOT: 25.5 },
       Lee:    { AP: 26.3, AS: 26.3, EN: 39.2, GA: 20.5, IS: 34.2, JU: 23.3, TOT: 23.3 },
       Arca:   { AP: 33.6, AS: 16.6, EN: 21.1, GA: 16.8, IS: 47.6, JU: 13.1, TOT: 14.9 },
+    },
+    sep: {
+      Femsa:  { AP: 91.3, AS: 50.2, EN: 58.2, GA: 37.5, IS: 50.4, JU: 47.8, TOT: 42.0 },
+      Andina: { AP: 33.0, AS: 124.0, EN: 28.0, GA: 23.6, IS: 42.7, JU: 40.6, TOT: 39.6 },
+      Lee:    { AP: 50.1, AS: 39.3, EN: 51.0, GA: 40.8, IS: 48.0, JU: 58.8, TOT: 42.6 },
+      Arca:   { AP: 17.4, AS: 28.8, EN: 24.9, GA: 19.4, IS: 47.0, JU: 23.9, TOT: 21.0 },
     },
   },
   CRF: {
@@ -679,6 +742,12 @@ const CAT_DOH = {
       Lee:    { AP: 59.2, AS: 29.0, EN: 33.0, GA: 28.7, IS: 54.4, JU: 27.9, TOT: 30.6 },
       Arca:   { AP: 14.2, AS: 16.9, EN: 25.2, GA: 13.3, IS: 89.7, JU: 19.8, TOT: 17.0 },
     },
+    sep: {
+      Femsa:  { AP: 18.4, AS: 15.3, EN: 21.9, GA: 13.0, IS: 22.1, JU: 24.1, TOT: 15.3 },
+      Andina: { AP: 25.9, AS: 26.0, EN: 30.6, GA: 13.2, IS: 18.7, JU: 15.8, TOT: 15.4 },
+      Lee:    { AP: 67.3, AS: 31.5, EN: 35.4, GA: 26.0, IS: 35.2, JU: 29.0, TOT: 28.8 },
+      Arca:   { AP: 12.5, AS: 21.6, EN: 23.8, GA: 13.7, IS: 43.7, JU: 16.4, TOT: 15.8 },
+    },
   },
   "La Anonima": {
     ene: {
@@ -720,6 +789,11 @@ const CAT_DOH = {
       Femsa:  { AP: 25.6, AS: 11.1, EN: 27.3, GA: 11.6, IS: 32.3, JU: 34.0, TOT: 13.7 },
       Andina: { AP: 20.2, AS: 15.9, EN: 13.5, GA: 14.8, IS: 21.6, JU: 16.7, TOT: 13.5 },
       Arca:   { AP: 19.7, AS: 47.6, EN: 52.2, GA: 16.5, IS: 70.9, JU: 39.8, TOT: 22.8 },
+    },
+    sep: {
+      Femsa:  { AP: 4.9,  AS: 7.3,  EN: 10.8, GA: 16.8, IS: 8.0,  JU: 6.7,  TOT: 14.2 },
+      Andina: { AP: 10.5, AS: 10.9, EN: 13.9, GA: 12.8, IS: 8.6,  JU: 8.9,  TOT: 11.9 },
+      Arca:   { AP: 14.8, AS: 26.6, EN: 33.2, GA: 20.1, IS: 17.5, JU: 21.9, TOT: 20.6 },
     },
   },
 }
@@ -778,7 +852,7 @@ function computeBotSuggestions(name) {
   const bc = catEntries.length ? catEntries.reduce((a, b) => (b.v > a.v ? b : a)) : null;
 
   const points = [];
-  points.push({ id: "p0", src: "auto", text: `FR Ago'26: ${frJun.toFixed(1)}%${dltObj ? ` (${dltObj.d >= 0 ? "+" : ""}${dltObj.d}pp vs Ago'25)` : ""}. YTD 2026: ${frYTD.toFixed(1)}%.` });
+  points.push({ id: "p0", src: "auto", text: `FR Sep'26: ${frJun.toFixed(1)}%${dltObj ? ` (${dltObj.d >= 0 ? "+" : ""}${dltObj.d}pp vs Ago'26)` : ""}. YTD 2026: ${frYTD.toFixed(1)}%.` });
   if (best) points.push({ id: "p1", src: "auto", text: `Mejor cliente: ${best.n} ${best.b.toFixed(1)}%.` });
   if (worst) points.push({ id: "p2", src: "auto", text: `Cliente a atender: ${worst.n} ${worst.b.toFixed(1)}%.` });
   if (wc && bc) points.push({ id: "p3", src: "auto", text: `Categoría más baja: ${CAT_KEYS[wc.ck]} ${wc.v.toFixed(1)}% · más alta: ${CAT_KEYS[bc.ck]} ${bc.v.toFixed(1)}%.` });
@@ -819,8 +893,9 @@ function nofrText(v) {
 
 const BOT_LOSS = {
   Andina: {
-    month: "Agosto 2026",
-    frExcel: 92.1,
+    sep: {
+    month: "Septiembre 2026",
+    frExcel: 89.1,
     base: 100,
     cols: [
       { k: "fd", lb: "Falta Disp." },
@@ -830,90 +905,101 @@ const BOT_LOSS = {
       { k: "ot", lb: "Otros" },
       { k: "sk", lb: "SKU N/D" },
     ],
-    total: { fr: 89.9, nofr: 10.1, bne: 83043, bp: 819614, be: 736571 },
+    total: { fr: 88.6, nofr: 11.4, bne: 106123, bp: 926879, be: 820757 },
     reasons: [
-      { lb: "Falta de Disponibilidad", short: "Falta Disp.", key: "fd", bne: 33171, nofr: 4.0 },
-      { lb: "Pedido Anulado/Rechazado", short: "Ped. Anul.", key: "pa", bne: 14892, nofr: 1.8 },
-      { lb: "Planificación/Transporte", short: "Planif/Transp.", key: "pt", bne: 14882, nofr: 1.8 },
-      { lb: "Otros", short: "Otros", key: "ot", bne: 11877, nofr: 1.4 },
-      { lb: "Lista de Precios", short: "Lista Prec.", key: "lp", bne: 8220, nofr: 1.0 },
+      { lb: "Falta de Disponibilidad", short: "Falta Disp.", key: "fd", bne: 33352, nofr: 3.6 },
+      { lb: "Otros", short: "Otros", key: "ot", bne: 32134, nofr: 3.5 },
+      { lb: "Planificación/Transporte", short: "Planif/Transp.", key: "pt", bne: 16896, nofr: 1.8 },
+      { lb: "Lista de Precios", short: "Lista Prec.", key: "lp", bne: 14530, nofr: 1.6 },
+      { lb: "Pedido Anulado/Rechazado", short: "Ped. Anul.", key: "pa", bne: 9211, nofr: 1.0 },
       { lb: "SKU No disponible", short: "SKU N/D", key: "sk", bne: 0, nofr: 0.0 },
     ],
     chains: [
-      { lb: "La Anónima", color: "#9E9E9E", fr: 84.1, nofr: 15.9, bne: 40379, bp: 253310, r: { fd: 7.8, pa: 3.8, lp: 0.3, pt: 2.8, ot: 1.2, sk: 0.0 } },
-      { lb: "Carrefour", color: "#5BA8FF", fr: 91.9, nofr: 8.1, bne: 24216, bp: 298154, r: { fd: 2.6, pa: 1.6, lp: 0.3, pt: 1.0, ot: 2.6, sk: 0.0 } },
-      { lb: "Chango Más", color: "#E8802D", fr: 91.6, nofr: 8.4, bne: 5904, bp: 70225, r: { fd: 2.0, pa: 0.7, lp: 0.1, pt: 4.2, ot: 1.4, sk: 0.0 } },
-      { lb: "Cencosud", color: "#7CB342", fr: 93.7, nofr: 6.3, bne: 12544, bp: 197925, r: { fd: 2.1, pa: 0.0, lp: 3.3, pt: 0.9, ot: 0.0, sk: 0.0 } },
+      { lb: "Carrefour", color: "#5BA8FF", fr: 83.4, nofr: 16.6, bne: 57090, bp: 343952, be: 286862, r: { fd: 2.0, pa: 1.3, lp: 2.9, pt: 2.2, ot: 8.2, sk: 0.0 } },
+      { lb: "La Anónima", color: "#9E9E9E", fr: 89.8, nofr: 10.2, bne: 31385, bp: 307130, be: 275745, r: { fd: 6.3, pa: 0.9, lp: 0.5, pt: 1.5, ot: 1.0, sk: 0.0 } },
+      { lb: "Chango Más", color: "#E8802D", fr: 87.8, nofr: 12.2, bne: 10442, bp: 85895, be: 75453, r: { fd: 3.9, pa: 2.3, lp: 0.9, pt: 4.1, ot: 1.0, sk: 0.0 } },
+      { lb: "Cencosud", color: "#7CB342", fr: 96.2, nofr: 3.8, bne: 7205, bp: 189902, be: 182697, r: { fd: 2.0, pa: 0.0, lp: 1.2, pt: 0.6, ot: 0.0, sk: 0.0 } },
     ],
     topSku: {
       reason: "Falta de Disponibilidad",
-      note: "Mayor impacto: Benedictino 1.5lt x4, el SKU con mayor BNE del mes. TOP 10 concentra ~32% del BNE por disponibilidad.",
+      note: "TOP 10 de los SKU con más BNE por este motivo, liderado por Ades Tropical 200cc retornable.",
       items: [
-        { ean: "7790895651250", mat: "BENEDICTINO S/G 1.5L 1X4", bne: 1072, pct: 3.37 },
-        { ean: "8412598007767", mat: "EG TOSTADA 0,0 330ML X6 LATA", bne: 981, pct: 3.08 },
-        { ean: "7790895648687", mat: "POWERADE UVA 500X6", bne: 924, pct: 2.90 },
-        { ean: "7790895643903", mat: "SCHWP POM.S/AZU.LAT310X6", bne: 916, pct: 2.88 },
-        { ean: "7790895643804", mat: "(*) ADES ANANA 1LX8 RTRS", bne: 784, pct: 2.46 },
-        { ean: "7790895649264", mat: "CEPITA HF MANDARINA ANANA 1L X 6", bne: 740, pct: 2.32 },
-        { ean: "7790895651441", mat: "FANTA XBOX Carmesí 354X6", bne: 693, pct: 2.18 },
-        { ean: "7790895068164", mat: "Coca-Cola RED RET 2,5L 1x8", bne: 679, pct: 2.13 },
-        { ean: "7790895067556", mat: "CC SIN AZÚCAR 1.5LT X 6", bne: 653, pct: 2.05 },
-        { ean: "7790895067587", mat: "COCA-COLA ZERO LATA 354X6", bne: 640, pct: 2.01 },
+        { ean: "7790895643767", mat: "(*) ADES TROPICAL 200X6 RTRS", bne: 1394, pct: 3.93 },
+        { ean: "7790895005794", mat: "COCA COLA PET 2500X6 RED", bne: 1064, pct: 3.00 },
+        { ean: "7790895643729", mat: "(*) ADES DURAZNO 200X6 RTRS", bne: 1000, pct: 2.82 },
+        { ean: "7790895000997", mat: "COCA COLA PET 2250X6 RED", bne: 735, pct: 2.07 },
+        { ean: "7790895000720", mat: "CEPITA MANZANA 200X6", bne: 685, pct: 1.93 },
+        { ean: "7790895005312", mat: "COCA COLA LIGHT PET 2250 X 6", bne: 640, pct: 1.80 },
+        { ean: "7790895002304", mat: "FANTA NAR SIN AZUC 1,5X6", bne: 635, pct: 1.79 },
+        { ean: "7790895641596", mat: "CEPITA NARANJA 200X6", bne: 628, pct: 1.77 },
+        { ean: "7790895651489", mat: "POWERADE COOL CITRUS 500X6", bne: 601, pct: 1.69 },
+        { ean: "7790895648687", mat: "POWERADE UVA 500X6", bne: 598, pct: 1.68 },
       ],
     },
     points: [
-      { tag: "Falta de Disponibilidad", color: "#EF4444", title: "Principal motivo — 4.0pp · 33.171 bultos", text: "5 SKUs representan el 30% del motivo: CCO RET 2.5lt (10%), CCO RET VID 1.25lt (9%), Powerade Uva 500ml (5%), Schweppes Ginger Ale 310ml (4%) y Fanta Carmesí 354ml (3%)." },
-      { tag: "Otros — Retornables · CRF", color: "#A78BFA", title: "Carrefour — 'Otros' por solicitud de retornables vacíos", text: "El motivo 'Otros' corresponde a solicitudes de retornables vacíos que las tiendas no tienen disponibles. Andina elimina manualmente estas líneas para evitar rechazos y problemas logísticos; los SKUs más impactados son CC O 2.5lt, la CCZero y Original 2lt." },
-      { tag: "Pedido Rechazado · CRF", color: "#FB923C", title: "Carrefour — rechazos y Planif/Transp. en Chango Más", text: "En CRF impactaron rechazos por sobre stock en formatos express y market, o compras forzadas que las tiendas no querían recibir en Hiper y Maxi. En Chango Más, las OC fuera de calendarización generaron el BNE por Planificación/Transporte (4.2pp)." },
-      { tag: "Lista de Precios · Cencosud", color: "#FB923C", title: "Cencosud — 3.3pp por Lista de Precios", text: "Cencosud tomó la lista 2 días después de la fecha acordada. 6.496 BNE sin entregar por este motivo." },
-      { tag: "La Anónima", color: "#9E9E9E", title: "La Anónima — 15.9pp de NO FR", text: "La cadena con mayor impacto del mes: falta de disponibilidad (7.8pp) y pedidos anulados/rechazados (3.8pp) concentraron el 73% del NO FR. Planificación/Transporte sumó 2.8pp adicionales." },
+      { tag: "Falta de Disponibilidad", color: "#EF4444", title: "Principal motivo del mes — 3.6pp · 33.352 bultos", text: "Ades Tropical 200cc retornable (3.93%), Coca-Cola PET 2.5lt (3.00%) y Ades Durazno 200cc retornable (2.82%) lideran el TOP 10 de SKUs con más BNE por disponibilidad." },
+      { tag: "Otros · CRF", color: "#A78BFA", title: "Carrefour — 8.2pp por problemas de Crosschannel", text: "El segundo motivo del mes fue 'Otros', donde está contemplado el crosschannel detectado en Carrefour, principalmente en tiendas Hiper y algunos Maxi (12 tiendas). Esto derivó en acciones por parte de Andina para limitar la entrega de unos 10 SKUs en esas 12 tiendas, con una gran cantidad de volumen sin entregar." },
+      { tag: "Lista de Precios · CRF", color: "#FB923C", title: "Carrefour — 2.9pp por Lista de Precios", text: "La aprobación demoró solo un día, pero el cambio fue parcial: mucho volumen de formatos grandes y algún forzado táctico derivaron en entregas parciales. CCO Ret 2.5lt (15%), CCO Ret 2lt (14%), CCO 1.25lt (13%) y CCZero 2lt (6%) conforman ~60% del motivo." },
+      { tag: "La Anónima", color: "#9E9E9E", title: "La Anónima — 10.2pp de NO FR", text: "Falta de disponibilidad (6.3pp) es el motivo dominante en la cadena, seguido por planificación/transporte (1.5pp) y pedidos anulados/rechazados (0.9pp)." },
+      { tag: "Planif/Transp. · Chango Más", color: "#FB923C", title: "Chango Más — 4.1pp por Planificación/Transporte", text: "El mayor impacto estuvo en Planificación/Transporte (3.522 BNE), seguido por falta de disponibilidad (3.313 BNE), principalmente en Ades Tropical 200x6 RTRS, Coca-Cola PET 2.5lt x6 RED y Ades Durazno 200x6 RTRS." },
+      { tag: "⚠ Cross Channel · Cencosud", color: "#EF4444", title: "Cencosud — Cross Channel no contemplado en el FR oficial", text: "El FR de Andina en Cencosud (96.2%) se reporta sin Cross Channel. Aunque no se tiene en cuenta en el cálculo oficial, este mes el mayor motivo real de NO FR en la cadena es Cross Channel por la tienda mayorista: 12.150 BNE, que equivaldrían a 5.8% de NO FR si se incluyera." },
+      { tag: "Mejora · Cencosud", color: "#7CB342", title: "Cencosud — +2.6pp de FR% vs mes anterior", text: "El mayor motivo de NO FR (dentro del cálculo oficial) es Falta de Disponibilidad, con 3.811 BNE. Los faltantes se concentran mayormente en Ades 200cc y Schweppes Tónica Zero 354cc." },
     ],
+    },
   },
   Lee: {
-    month: "Agosto 2026",
-    frExcel: 92.3,
+    sep: {
+    month: "Septiembre 2026",
+    frExcel: 91.2,
     base: 100,
     cols: [
       { k: "fd", lb: "Falta Disp." },
       { k: "pa", lb: "Ped. Anul." },
-      { k: "co", lb: "Créditos/Otros" },
+      { k: "lp", lb: "Lista Prec." },
       { k: "pt", lb: "Planif/Transp." },
+      { k: "co", lb: "Créditos/Otros" },
     ],
-    total: { fr: 92.9, nofr: 7.1, bne: 8219, bp: 116298, be: 108079 },
+    total: { fr: 91.1, nofr: 8.9, bne: 10682, bp: 120645, be: 109963 },
     reasons: [
-      { lb: "Falta de Disponibilidad", short: "Falta Disp.", key: "fd", bne: 4629, nofr: 4.0 },
-      { lb: "Pedido Anulado/Rechazado", short: "Ped. Anul.", key: "pa", bne: 2320, nofr: 2.0 },
-      { lb: "Planificación/Transporte", short: "Planif/Transp.", key: "pt", bne: 991, nofr: 0.9 },
-      { lb: "Créditos/Otros", short: "Créditos/Otros", key: "co", bne: 279, nofr: 0.2 },
+      { lb: "Pedido Anulado/Rechazado", short: "Ped. Anul.", key: "pa", bne: 6026, nofr: 5.0 },
+      { lb: "Falta de Disponibilidad", short: "Falta Disp.", key: "fd", bne: 3265, nofr: 2.7 },
+      { lb: "Lista de Precios", short: "Lista Prec.", key: "lp", bne: 1261, nofr: 1.0 },
+      { lb: "Planificación/Transporte", short: "Planif/Transp.", key: "pt", bne: 130, nofr: 0.1 },
     ],
     chains: [
-      { lb: "Carrefour", color: "#5BA8FF", fr: 90.7, nofr: 9.3, bne: 5706, bp: 61325, r: { fd: 4.2, pa: 3.1, co: 1.1, pt: 0.9 } },
-      { lb: "Cencosud", color: "#7CB342", fr: 92.9, nofr: 7.1, bne: 1951, bp: 27294, r: { fd: 5.4, pa: 1.0, co: 0.3, pt: 0.5 } },
-      { lb: "GDN · Chango Más", color: "#E8802D", fr: 93.7, nofr: 6.3, bne: 439, bp: 6986, r: { fd: 1.2, pa: 1.7, co: 0.8, pt: 2.6 } },
-      { lb: "Dia Argentina", color: "#E1122A", fr: 94.6, nofr: 5.4, bne: 1045, bp: 19416, r: { fd: 5.4, pa: 0.0, co: 0.0, pt: 0.0 } },
+      { lb: "Carrefour", color: "#5BA8FF", fr: 91.6, nofr: 8.4, bne: 4991, bp: 59375, be: 54384, r: { fd: 2.7, pa: 5.3, lp: 0.2, pt: 0.2, co: 0.0 } },
+      { lb: "Dia Argentina", color: "#E1122A", fr: 83.0, nofr: 17.0, bne: 3698, bp: 21804, be: 18106, r: { fd: 3.1, pa: 10.4, lp: 3.5, pt: 0.0, co: 0.0 } },
+      { lb: "Cencosud", color: "#7CB342", fr: 95.3, nofr: 4.7, bne: 1422, bp: 30544, be: 29122, r: { fd: 2.5, pa: 1.2, lp: 0.9, pt: 0.0, co: 0.0 } },
+      { lb: "GDN · Chango Más", color: "#E8802D", fr: 93.7, nofr: 6.3, bne: 562, bp: 8913, be: 8351, r: { fd: 2.5, pa: 1.1, lp: 0.0, pt: 0.0, co: 2.7 } },
     ],
     topSku: {
       reason: "Falta de Disponibilidad",
-      note: "5 SKUs concentran el ~43% del BNE por disponibilidad, liderado por Duopack CCO-SPO 2250 X8.",
+      note: "Problemas principalmente con artículos de Ades. 6 SKUs concentran el 49.6% del BNE por disponibilidad.",
       items: [
-        { ean: "7790895000997", mat: "DUOPACK CCO-SPO 2250 X8", pct: 10.9 },
-        { ean: "7790895006418", mat: "CEPITA NARANJA 1000CC PETX6", pct: 9.1 },
-        { ean: "7790895067587", mat: "COCA COLA ZERO 2250CC PETX6", pct: 7.8 },
-        { ean: "7790895007057", mat: "SPRITE LIMA LIMON 1500CC PETX8", pct: 7.3 },
-        { ean: "7790895000447", mat: "BENEDIC MIN 3000 P6", pct: 7.1 },
+        { ean: "7790895064173", mat: "SPRITE ZERO LIMA LIMON 1500CC PETX8 (solo Día)", bne: null, pct: 11.8 },
+        { ean: "7790895643712", mat: "ADES ANANA 200CC TETRAX6", bne: null, pct: 11.4 },
+        { ean: "7790895000447", mat: "SPRITE LIMA LIMON 1500CC PETX8 (solo Día)", bne: null, pct: 8.9 },
+        { ean: "7790895007057", mat: "DUOPACK CCO-SPO 2250 X8", bne: null, pct: 6.0 },
+        { ean: "7790895643729", mat: "ADES DURAZNO 200CC TETRAX6", bne: null, pct: 5.9 },
+        { ean: "7790895649806", mat: "ADES ALMENDRA 1000CC TETRAX8", bne: null, pct: 5.6 },
       ],
     },
     points: [
-      { tag: "Falta de Disponibilidad", color: "#EF4444", title: "Principal motivo — 4.0pp · Lee CRF y Cenco", text: "La disponibilidad fue lo que afectó principalmente a Lee. 5 SKUs concentran más del 50% del BNE: Pack CCO+Sprite 2.25lt (18%), Cepita Naranja 1lt (12%), Aquarius Pera 2.25lt (10%), Benedictino C/S gas 2.25lt (8% ambas). En Cencosud: CC2 2.25lt 17%, BENEDICTINO 3lt 13.9%, CEP NARANJA 1lt 10.4%." },
-      { tag: "Pedido Rechazado · Fechas Cortas", color: "#FB923C", title: "Rechazos — 2.0pp · principalmente fechas cortas de vencimiento", text: "Los rechazos se dividen en dos causas: fechas cortas de vencimiento en varios SKUs que no se pudieron entregar, y sobre stock en tiendas que generó compras tácticas o rechazos parciales. Carrefour concentra 3.1pp y Cencosud mejora 4.2pp vs mes anterior." },
-      { tag: "Planif/Transp. · CH+", color: "#FB923C", title: "Chango Más — Planif/Transporte por OC bajo drop", text: "El principal motivo en GDN/Chango Más fue planificación y transporte: grandes problemas con órdenes de compra de bajos drop que llegan con muy bajo volumen y no se terminan entregando." },
-      { tag: "Dia Argentina", color: "#E1122A", title: "Día — 5.4pp exclusivamente por falta de disponibilidad", text: "El único motivo de NO FR en Día fue falta de disponibilidad (1.045 BNE). Sin rechazos ni problemas logísticos en el mes." },
-      { tag: "La Anónima", color: "#9E9E9E", title: "La Anónima — Disponibilidad: Pack CCO+Sprite y CC Zero 2.25lt", text: "Los faltantes en La Anónima responden a alta demanda de Pack CCO+Sprite 2.25lt y Benedictino Con y Sin gas 2.25lt, que concentran los principales BNE por disponibilidad." },
+      { tag: "Pedido Anulado/Rechazado", color: "#EF4444", title: "Principal motivo del mes — 5.0pp · 6.026 bultos", text: "Rechazos generales explican el 45.7% del motivo, seguido por vencimiento corto (31.3%) y pedidos a pedido del cliente (23.0%)." },
+      { tag: "Falta de Disponibilidad", color: "#FB923C", title: "Segundo motivo — 2.7pp, problemas con Ades", text: "6 SKUs concentran el 49.6% del BNE por disponibilidad, encabezados por Sprite Zero Lima Limón 1.5lt (11.8%) y Ades Ananá 200cc (11.4%). Dos de los SKUs del TOP corresponden exclusivamente a Día." },
+      { tag: "Dia Argentina", color: "#E1122A", title: "Día — FR 83.0%, la cadena con peor desempeño", text: "Pedido Anulado/Rechazado (10.4pp) es el motivo dominante, seguido por Lista de Precios (3.5pp) y Falta de Disponibilidad (3.1pp)." },
+      { tag: "GDN · Chango Más", color: "#E8802D", title: "Chango Más — FR 93.7%, Créditos/Otros destaca", text: "Pedidos anulados/rechazados (241 BNE) y falta de disponibilidad (223 BNE) son los principales problemas, concentrados en Sprite Zero Lima Limón 1.5lt, Ades Ananá 200cc Tetrax6 y Sprite Lima Limón 1.5lt PETx8." },
+      { tag: "Pedido Rechazado · CRF", color: "#FB923C", title: "Carrefour — rechazos por compras tácticas", text: "El principal problema en Lee fueron los pedidos rechazados, por compras tácticas comerciales que generan problemas de recepción/capacidad en las tiendas (hoy en alineación con los puntos). CCZero 2.25lt (15%), CCO 2.25lt (11%), CCZero 1.5lt (7%) y CCO 500cc (7%) son los que más BNE representan." },
+      { tag: "Falta de Disponibilidad · CRF", color: "#EF4444", title: "Carrefour — disponibilidad en línea Ades", text: "El segundo problema fue la falta de disponibilidad, con la línea Ades como la más complicada: Ades Ananá 200cc (23%), Ades Durazno 200cc (12%), Ades Almendra 1lt (11%) y Agua Benedictino 2.25lt (8%) son los SKUs con más BNE." },
+      { tag: "Mejora · Cencosud", color: "#7CB342", title: "Cencosud — +2.5pp de FR% vs mes anterior", text: "Los rechazos en la cadena son en su mayoría por 'fecha corta de vencimiento'. El mayor motivo de NO FR es Disponibilidad (758 BNE), que representa 1.2pp del 4.7pp de NO FR total de la cadena." },
+      { tag: "Falta de Disponibilidad · Cencosud", color: "#EF4444", title: "Cencosud — 62% del BNE por disponibilidad en 5 SKUs", text: "Duopack CC-SP 2.25lt (22.3%), Schweppes Tónica Zero 354cc (12.0%), Coca-Cola 1lt PET X8 (11.3%), Sprite Zero 354cc (9.1%) y Coca-Cola Light 2.25lt (7.3%) concentran el 62% del BNE por este motivo." },
     ],
+    },
   },
   Arca: {
-    month: "Agosto 2026",
-    frExcel: 86.7,
+    sep: {
+    month: "Septiembre 2026",
+    frExcel: 91.0,
     base: 100,
     cols: [
       { k: "fd", lb: "Falta Disp." },
@@ -922,85 +1008,97 @@ const BOT_LOSS = {
       { k: "co", lb: "Créd/Otros" },
       { k: "pt", lb: "Planif/Transp." },
     ],
-    total: { fr: 86.7, nofr: 13.3, bne: 54757, bp: 412150, be: 357393 },
+    total: { fr: 90.9, nofr: 9.1, bne: 38042, bp: 418274, be: 380233 },
     reasons: [
-      { lb: "Falta de Disponibilidad", short: "Falta Disp.", key: "fd", bne: 24829, nofr: 6.0 },
-      { lb: "Pedido Anulado/Rechazado", short: "Ped. Anul.", key: "pa", bne: 14440, nofr: 3.5 },
-      { lb: "Lista de Precios", short: "Lista Prec.", key: "lp", bne: 11943, nofr: 2.9 },
-      { lb: "Créditos/Otros", short: "Créd/Otros", key: "co", bne: 2317, nofr: 0.6 },
-      { lb: "Planificación/Transporte", short: "Planif/Transp.", key: "pt", bne: 1228, nofr: 0.3 },
+      { lb: "Falta de Disponibilidad", short: "Falta Disp.", key: "fd", bne: 15508, nofr: 3.7 },
+      { lb: "Lista de Precios", short: "Lista Prec.", key: "lp", bne: 11037, nofr: 2.6 },
+      { lb: "Pedido Anulado/Rechazado", short: "Ped. Anul.", key: "pa", bne: 7902, nofr: 1.9 },
+      { lb: "Planificación/Transporte", short: "Planif/Transp.", key: "pt", bne: 2488, nofr: 0.6 },
+      { lb: "Créditos/Otros", short: "Créd/Otros", key: "co", bne: 1106, nofr: 0.3 },
     ],
     chains: [
-      { lb: "La Anónima", color: "#9E9E9E", fr: 78.5, nofr: 21.5, bne: 7125, bp: 33184, r: { fd: 8.6, pa: 5.7, lp: 0.0, co: 3.5, pt: 3.7 } },
-      { lb: "Carrefour", color: "#5BA8FF", fr: 82.3, nofr: 17.7, bne: 18828, bp: 106613, r: { fd: 5.8, pa: 5.4, lp: 5.8, co: 0.7, pt: 0.0 } },
-      { lb: "Chango Más", color: "#E8802D", fr: 88.8, nofr: 11.2, bne: 9289, bp: 82896, r: { fd: 3.4, pa: 3.2, lp: 4.1, co: 0.5, pt: 0.0 } },
-      { lb: "Cencosud", color: "#7CB342", fr: 89.7, nofr: 10.3, bne: 19515, bp: 189457, r: { fd: 6.9, pa: 2.2, lp: 1.2, co: 0.0, pt: 0.0 } },
+      { lb: "Chango Más", color: "#E8802D", fr: 86.7, nofr: 13.3, bne: 15525, bp: 116401, be: 100876, r: { fd: 4.2, pa: 1.7, lp: 4.9, co: 0.4, pt: 2.1 } },
+      { lb: "Cencosud", color: "#7CB342", fr: 93.4, nofr: 6.6, bne: 11743, bp: 176746, be: 165003, r: { fd: 3.5, pa: 1.9, lp: 1.2, co: 0.0, pt: 0.0 } },
+      { lb: "Carrefour", color: "#5BA8FF", fr: 91.8, nofr: 8.2, bne: 7794, bp: 94927, be: 87133, r: { fd: 3.5, pa: 2.4, lp: 1.7, co: 0.6, pt: 0.0 } },
+      { lb: "La Anónima", color: "#9E9E9E", fr: 90.1, nofr: 9.9, bne: 2980, bp: 30201, be: 27221, r: { fd: 3.7, pa: 0.7, lp: 5.3, co: 0.2, pt: 0.0 } },
     ],
     topSku: {
       reason: "Falta de Disponibilidad",
-      note: "El TOP 10 concentra ~50% del BNE por disponibilidad. Dualpacks y CC 375ml lideran los faltantes.",
+      note: "TOP 10 productos con más bultos sin entregar, liderado por Fanta Pomelo NF 2.5lt. Concentra ~52% del BNE por disponibilidad.",
       items: [
-        { ean: "7790895002656", mat: "Coca-Cola 375 ml NR Pet 6B", bne: 4348, pct: 16.62 },
-        { ean: "7790895643743", mat: "AdeS Manzana F 200ml TB 6B", bne: 1290, pct: 4.93 },
-        { ean: "7790895000829", mat: "Sprite F LS 500 ml NR Pet 6B", bne: 1205, pct: 4.61 },
-        { ean: "7790895006890", mat: "Dualpack Coca-Cola+Sprite F 2.25L Pet6B", bne: 1106, pct: 4.23 },
-        { ean: "7790895651380", mat: "Dual Coca-Cola+Fanta Nar 3L NR Pet 6B", bne: 1037, pct: 3.96 },
-        { ean: "7790895647925", mat: "Fanta Pomelo NF 2.5 Lts. NR Pet 6B", bne: 888, pct: 3.39 },
-        { ean: "7790895641794", mat: "Cepita Naranja 300ml NR Pet 6B", bne: 874, pct: 3.34 },
-        { ean: "7790895643750", mat: "AdeS Naranja F 200ml TB 6B", bne: 849, pct: 3.24 },
-        { ean: "7790895648915", mat: "Dualpack Coca-Cola+Coca Zero 2.25L Pet6B", bne: 793, pct: 3.03 },
-        { ean: "7790895003288", mat: "Aquarius Pomelo 2.25 Lts. NR Pet 6B", bne: 646, pct: 2.47 },
+        { ean: "7790895647925", mat: "Fanta Pomelo NF 2.5 Lts. NR Pet 6B", bne: 1015, pct: 7.48 },
+        { ean: "7790895648915", mat: "Dualpack Coca-Cola+Coca Zero 2.25L Pet6B", bne: 1011, pct: 7.45 },
+        { ean: "7790895006890", mat: "Dualpack Coca-Cola+Sprite F 2.25L Pet6B", bne: 900, pct: 6.64 },
+        { ean: "7790895651397", mat: "Dual Coca-Cola+Sprite 3L NR Pet 6B", bne: 789, pct: 5.82 },
+        { ean: "7790895643729", mat: "AdeS Durazno F 200ml TB 6B", bne: 698, pct: 5.15 },
+        { ean: "7790895647536", mat: "Dualpack Coca-Cola+Coca Zero 2.25L Pet6B", bne: 603, pct: 4.45 },
+        { ean: "7790895007057", mat: "Dualpack Coca-Cola+Sprite F 2.25L Pet6B", bne: 595, pct: 4.39 },
+        { ean: "7790895002656", mat: "Coca-Cola 375 ml NR Pet 6B", bne: 526, pct: 3.88 },
+        { ean: "7790895643750", mat: "AdeS Naranja F 200ml TB 6B", bne: 441, pct: 3.25 },
+        { ean: "7790895642104", mat: "Coca-Cola Zero 220ml NR 6 Latas", bne: 419, pct: 3.09 },
       ],
     },
     points: [
-      { tag: "Lista de Precios — principal motivo", color: "#A78BFA", title: "Lista de Precios — retrasos en aprobaciones + Cepitas y pack 375", text: "El principal motivo del mes fue lista de precios: retrasos en aprobaciones y problemas para subir lista de Cepitas (problema de región en sistema cadena) y pack 375. Los SKUs que más impactan y representan más del 60% del BNE son: CC 375ml, Cepita naranja y durazno 1lt, Cepita naranja 300ml y pack CCO+Benedictino 3lt." },
-      { tag: "Falta de Disponibilidad", color: "#EF4444", title: "Disponibilidad — 6.0pp · CC 375ml lidera (16.6%)", text: "La falta de disponibilidad es el segundo motivo del mes. 5 SKUs abarcan casi el 35% del BNE: CC 600ml (10%), Pack CC+Sprite 2.25lt (7%), Aq Pomelo 2.25lt (6%), CCZero 600ml (6%) y Fanta Manzana 2.5lt (6%). En Cencosud: 13.016 BNE absolutos, con CC 375ml (4.196 BNE), Cepita 300cc y Ades 200cc sumando 1.484 BNE." },
-      { tag: "Pedido Rechazado · CRF", color: "#FB923C", title: "Carrefour — 5.4pp por rechazos + 5.8pp por Lista de Precios", text: "Carrefour es la cadena más afectada en ambos motivos. Los rechazos se deben a sobre stock en formatos express/market y compras forzadas que las tiendas no querían recibir. La lista de precios generó 6.184 BNE adicionales por diferencias en la toma." },
-      { tag: "Lista de Precios · CH+", color: "#A78BFA", title: "Chango Más — nueva política: no ser primera en tomar lista", text: "Por política nueva de Chango Más, no quieren ser la primera cadena en tomar la lista de precios en el mercado. Esto genera demoras estructurales en el motivo lista de precios mes a mes." },
-      { tag: "La Anónima", color: "#9E9E9E", title: "La Anónima — FR 78.5%, impacto multimotivo", text: "La Anónima concentró el peor FR del mes con falta de disponibilidad (8.6pp — Fanta Pomelo NF 2.5L, CC 375ml, Dualpacks), rechazos por fechas cortas (5.7pp) y planif/transporte (3.7pp)." },
+      { tag: "Falta de Disponibilidad", color: "#EF4444", title: "Principal motivo del mes — 3.7pp · 15.508 bultos", text: "Fanta Pomelo NF 2.5lt (7.48%), Dualpack CC+CCZero 2.25lt (7.45%) y Dualpack CC+Sprite 2.25lt (6.64%) lideran el TOP 10, que concentra ~52% del BNE por este motivo." },
+      { tag: "Lista de Precios", color: "#A78BFA", title: "Segundo motivo — 2.6pp por activaciones y actualización de costos", text: "El segundo motivo con mayor impacto es Lista de Precios, debido a las activaciones de productos nuevos y a las políticas de actualización de costos de cada cadena." },
+      { tag: "Lista de Precios · Chango Más", color: "#A78BFA", title: "Chango Más — 4.9pp, el motivo más fuerte de la cadena", text: "En Chango Más, Lista de Precios supera incluso a falta de disponibilidad (4.2pp) como principal motivo de NO FR, con 5.704 BNE." },
+      { tag: "Lista de Precios · La Anónima", color: "#A78BFA", title: "La Anónima — 5.3pp, motivo dominante de la cadena", text: "La Anónima concentra su mayor impacto en Lista de Precios (1.590 BNE), por encima de falta de disponibilidad (3.7pp)." },
+      { tag: "Planif/Transp. · Chango Más", color: "#FB923C", title: "Chango Más — 2.1pp por Planificación/Transporte", text: "Chango Más es la única cadena con BNE relevante por este motivo (2.488 bultos); el resto de las cadenas no registró impacto." },
+      { tag: "Mejora · Cencosud", color: "#7CB342", title: "Cencosud — +3.7pp de FR% vs mes anterior", text: "El mayor motivo de NO FR en la cadena es Falta de Disponibilidad, con 6.180 BNE. Top faltantes: Duopack CC-CCZ 2.25lt (8.7%), Coca-Cola 375cc (8.5%), Fanta Pomelo 2.5lt (7.4%), Ades Durazno 200cc (6.2%) y Sprite 500cc (5.1%)." },
+      { tag: "Pedido Anulado · Cencosud", color: "#FB923C", title: "Cencosud — rechazos de tiendas, 38% del motivo", text: "El mayor motivo de rechazos en la cadena fueron los rechazos de tiendas, por 3.434 BNE (equivalen al 38% del motivo Pedido Anulado/Rechazado)." },
+      { tag: "Falta de Disponibilidad · CRF", color: "#EF4444", title: "Carrefour — problemas de disponibilidad puntuales", text: "Los de mayor impacto fueron Dual CC+Sprite 3lt (30%), CC Zero lata 220cc (8%) y Soda Benedictino 2lt (4%)." },
+      { tag: "Pedido Rechazado · CRF", color: "#FB923C", title: "Carrefour — rechazos por fecha corta y de tiendas", text: "Una parte importante por SKU con fecha corta y otra por rechazos desde las tiendas. CCO 2.25lt (22%) y el pack CCO 375ml (17%) representan casi el 40% de este motivo." },
     ],
+    },
   },
   Femsa: {
-    month: "Agosto 2026",
-    frExcel: 89.8,
+    sep: {
+    month: "Septiembre 2026",
+    frExcel: 87.1,
     base: 100,
     cols: [
-      { k: "pa", lb: "Ped. Anul." },
       { k: "fd", lb: "Falta Disp." },
+      { k: "pa", lb: "Ped. Anul." },
       { k: "pt", lb: "Planif/Transp." },
       { k: "sk", lb: "SKU N/D" },
+      { k: "ot", lb: "Otros" },
     ],
-    total: { fr: 89.7, nofr: 10.3, bne: 75931, bp: 740570, be: 664638 },
+    total: { fr: 87.1, nofr: 12.9, bne: 112536, bp: 869569, be: 757033 },
     reasons: [
-      { lb: "Pedido Anulado/Rechazado", short: "Ped. Anul.", key: "pa", bne: 42114, nofr: 5.9 },
-      { lb: "Falta de Disponibilidad", short: "Falta Disp.", key: "fd", bne: 19121, nofr: 2.7 },
-      { lb: "Planificación/Transporte", short: "Planif/Transp.", key: "pt", bne: 14163, nofr: 2.0 },
-      { lb: "SKU No Disponible", short: "SKU N/D", key: "sk", bne: 533, nofr: 0.1 },
+      { lb: "Falta de Disponibilidad", short: "Falta Disp.", key: "fd", bne: 50528, nofr: 6.3 },
+      { lb: "Pedido Anulado/Rechazado", short: "Ped. Anul.", key: "pa", bne: 42541, nofr: 5.3 },
+      { lb: "Planificación/Transporte", short: "Planif/Transp.", key: "pt", bne: 18718, nofr: 2.3 },
+      { lb: "SKU No Disponible", short: "SKU N/D", key: "sk", bne: 653, nofr: 0.1 },
+      { lb: "Otros", short: "Otros", key: "ot", bne: 96, nofr: 0.0 },
     ],
     chains: [
-      { lb: "Carrefour", color: "#5BA8FF", fr: 88.9, nofr: 11.1, bne: 59070, bp: 532790, be: 473720, r: { fd: 3.1, pa: 5.9, pt: 2.0, sk: 0.1 } },
-      { lb: "GDN · Chango Más", color: "#E8802D", fr: 86.5, nofr: 13.5, bne: 7393, bp: 54689, be: 47296, r: { fd: 4.1, pa: 4.6, pt: 4.8, sk: 0.0 } },
-      { lb: "Cencosud", color: "#7CB342", fr: 93.8, nofr: 6.2, bne: 9469, bp: 153091, be: 143622, r: { fd: 0.3, pa: 5.3, pt: 0.6, sk: 0.0 } },
-      { lb: "La Anónima", color: "#9E9E9E", fr: 90.3, nofr: 9.7, bne: 67, bp: 688, be: 621, r: { fd: 9.7, pa: 0.0, pt: 0.0, sk: 0.0 } },
+      { lb: "Carrefour", color: "#5BA8FF", fr: 85.4, nofr: 14.6, bne: 95461, bp: 653390, be: 557929, r: { fd: 6.8, pa: 5.3, pt: 2.4, sk: 0.1, ot: 0.0 } },
+      { lb: "Cencosud", color: "#7CB342", fr: 94.1, nofr: 5.9, bne: 8995, bp: 162098, be: 153104, r: { fd: 1.7, pa: 3.5, pt: 0.6, sk: 0.0, ot: 0.1 } },
+      { lb: "GDN · Chango Más", color: "#E8802D", fr: 85.1, nofr: 14.9, bne: 8080, bp: 54081, be: 46001, r: { fd: 6.4, pa: 4.7, pt: 3.8, sk: 0.0, ot: 0.0 } },
+      { lb: "La Anónima", color: "#9E9E9E", fr: 85.3, nofr: 14.7, bne: 97, bp: 662, be: 565, r: { fd: 7.1, pa: 3.1, pt: 4.5, sk: 0.0, ot: 0.0 } },
     ],
     topSku: {
       reason: "Falta de Disponibilidad",
-      note: "TOP 5 SKUs concentran ~61% del BNE por disponibilidad. SP FX 237ml X8 lidera con amplio margen (25.5%).",
+      note: "TOP 5 SKUs con más faltantes del bottler (42.9% del BNE total por disponibilidad). CC Zero lata 220x8 lidera (13.1%).",
       items: [
-        { ean: "7790895651090", mat: "SP FX 237MLX8", bne: null, pct: 25.5 },
-        { ean: "7790895651069", mat: "CCSO 237MLX8", bne: null, pct: 12.5 },
-        { ean: "7790895004971", mat: "AQ. POM RO 2.25X6", bne: null, pct: 8.9 },
-        { ean: "7798339251134", mat: "Pampa Brewing Amber Ale 473x6", bne: null, pct: 7.7 },
-        { ean: "7790895000997", mat: "CEPITA DURAZNO HF 995X6 (7P)", bne: null, pct: 6.7 },
+        { ean: "7790895642104", mat: "CC ZERO LAT 220X8", bne: null, pct: 13.1 },
+        { ean: "7790895006029", mat: "POW M.BLAST HF 995X6", bne: null, pct: 9.4 },
+        { ean: "7790895012273", mat: "CC ZERO PET 1.25X12", bne: null, pct: 7.1 },
+        { ean: "7790895646027", mat: "SW591X6 C/G (6P)", bne: null, pct: 6.7 },
+        { ean: "7790895643507", mat: "HI-C NARANJA 2.25 X 6", bne: null, pct: 6.5 },
       ],
     },
     points: [
-      { tag: "Ped. Rechazado — principal motivo", color: "#EF4444", title: "Pedido Anulado/Rechazado — 5.9pp · temporada baja y buen venta", text: "Nuevamente durante este mes, por temporada baja y muy buen venta, el bottler tuvo problemas de rechazos debido a fechas cortas de vencimiento impactando en mayor medida en los CDs. Los SKUs más impactados representan cerca del 60% del BNE: Cepita naranja y durazno 995ml, CCZero 1.75lt, CCO 1.75lt y Sprite 2.25lt." },
-      { tag: "Falta de Disponibilidad · CRF", color: "#FB923C", title: "Disponibilidad — 2.7pp · SP FX 237ml lidera (25.5%)", text: "En segundo lugar, los problemas de disponibilidad fueron los que más afectaron al bottler: SP FX 237MLX8 (25.5%), CCSO 237MLX8 (12.5%) y Aq Pomelo 2.25lt (8.9%). Solo estos 3 SKUs concentran el ~47% del BNE por disponibilidad." },
-      { tag: "GDN · Chango Más", color: "#EF4444", title: "Chango Más — FR 86.5% · triple impacto", text: "Planif/Transporte (4.8pp) por grandes problemas con OC de bajos drop, Pedidos rechazados (4.6pp) por fechas cortas de vencimiento, y Falta de disponibilidad (4.1pp). Es la cadena con el peor FR del mes y el único canal con doble dígito en más de un motivo." },
-      { tag: "Pedido Rechazado · Cencosud", color: "#EF4444", title: "Cencosud — 5.3pp por rechazos · 6.150 BNE por fecha corta", text: "El motivo de NO FR más fuerte en Cencosud fue Pedido Anulado/Rechazado con 8.164 BNE totales. El 75.3% de ese BNE (6.150 BNE) corresponde a 'Fecha corta de vencimientos'. Aunque no se refleja en los datos, Cross Channel fue el mayor motivo por tienda mayorista: 12.150 BNE = 5.8% NO FR." },
-      { tag: "La Anónima", color: "#9E9E9E", title: "La Anónima — 67 BNE, solo disponibilidad", text: "El único problema en La Anónima fue falta de disponibilidad (9.7% = 67 bultos), atribuible a SKUs puntuales: MONSTER ULTRA 473X6, AQ. POM RO 2.25X6 y SCH POM ZERO 2L X9." },
+      { tag: "Falta de Disponibilidad", color: "#EF4444", title: "Principal motivo del mes — 6.3pp · 50.528 bultos", text: "CCSO 600cc X6 (8.81%), CC Zero lata 220cc X8 (8.06%) y CC Zero PET 1.25lt X12 (6.94%) lideran el TOP 10 de SKUs con más BNE por disponibilidad." },
+      { tag: "Pedido Rechazado", color: "#FB923C", title: "Segundo motivo — 5.3pp por vencimientos cortos", text: "El segundo problema en el bottler fueron los rechazos, debido en gran parte a vencimientos cortos, impactando principalmente en Carrefour por el gran volumen perdido en los CDs, y en Cencosud." },
+      { tag: "Falta de Disponibilidad · CRF", color: "#EF4444", title: "Carrefour — 6.8pp, el motivo más fuerte de la cadena", text: "Carrefour concentra el mayor BNE por disponibilidad (44.531 bultos), afectando especialmente a los CDs/Express. Varios SKU activos también en CDs/Express generaron mucho volumen sin entrega: CC Zero lata 220cc (15%), Pow M.Blast 995cc (10%), Monster Mango (7%) y Cepita Durazno 995cc (7%) suman ~40% del BNE del motivo." },
+      { tag: "Pedido Rechazado · CRF", color: "#FB923C", title: "Carrefour — rechazos por fecha corta de vencimiento", text: "El motivo impactó sobre todo en los CDs. CC Zero lata 220cc (14%), CCO 600cc (7%), CC Zero 2.25lt (7%) y Sprite 2.25lt (7%) representan casi el 35% del BNE del motivo." },
+      { tag: "Pedido Rechazado · Cencosud", color: "#FB923C", title: "Cencosud — 3.5pp por rechazos, principal motivo de la cadena", text: "En Cencosud, Pedido Anulado/Rechazado (5.303 BNE) es el motivo dominante, por encima de falta de disponibilidad (2.636 BNE). El 52.8% (2.802 BNE) de los rechazos es por 'fecha corta de vencimiento'." },
+      { tag: "Mejora · Cencosud", color: "#7CB342", title: "Cencosud — +0.6pp de FR% vs mes anterior", text: "Buen mes en grandes rasgos para la cadena, con pocos problemas durante el período." },
+      { tag: "GDN · Chango Más", color: "#EF4444", title: "Chango Más — FR 85.1%, la cadena con peor desempeño", text: "Falta de disponibilidad (3.461 BNE) — principalmente CC Zero lata 220x8, Pow M.Blast HF 995x6 y CC Zero PET 1.25x12 — y pedidos anulados/rechazados (2.542 BNE), por problemas operativos, concentran el 75% del NO FR de la cadena." },
+      { tag: "La Anónima", color: "#9E9E9E", title: "La Anónima — 97 BNE, impacto multimotivo", text: "Volumen bajo (662 pedidos) pero NO FR alto (14.7%): falta de disponibilidad (7.1pp) y planificación/transporte (4.5pp) concentran la mayor parte." },
     ],
+    },
   },
 };
 
@@ -1021,10 +1119,10 @@ function getF1HTML(dk) {
   return `<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 <style>*{margin:0;padding:0;box-sizing:border-box}body{background:${bg};color:${htxt};font-family:'Barlow Condensed',sans-serif;overflow:hidden}.header{background:${hbg};padding:12px 24px;display:flex;align-items:center;justify-content:space-between;border-bottom:3px solid #E8002D;position:relative}.header::before{content:'';position:absolute;left:0;right:0;height:3px;background:repeating-linear-gradient(90deg,${chkA} 0,${chkA} 8px,${chkB} 8px,${chkB} 16px);top:0}.header h1{font-size:22px;font-weight:900;letter-spacing:4px;text-transform:uppercase;color:${htxt}}.header .sub{font-size:10px;color:${hsub};letter-spacing:3px}canvas#raceCanvas{display:block;width:100%}.controls{background:${cbg};border-top:1px solid ${cbrdr};padding:12px 20px;display:flex;align-items:center;gap:8px;justify-content:center}.btn{background:${btnbg};border:1.5px solid ${btnbrdr};border-radius:8px;color:${btntxt};font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;padding:8px 16px;cursor:pointer;transition:all .15s;letter-spacing:1px;text-transform:uppercase}.btn:hover{border-color:#E8002D;color:${dk?'#fff':'#E8002D'}}.btn.active{background:rgba(232,0,45,${dk?'.2':'.1'});border-color:#E8002D;color:${dk?'#ff3333':'#E8002D'}}.btn.primary{background:#E8002D;border-color:#E8002D;color:#fff;font-size:14px;padding:8px 24px}.btn.primary:hover{background:#ff1744}.speed-btns{display:flex;gap:2px;background:${spdbg};border:1px solid ${btnbrdr};border-radius:6px;padding:2px}.speed-btns .btn{border:none;border-radius:4px;padding:5px 10px;font-size:10px}.speed-btns .btn.active{background:#E8002D;color:#fff}</style></head><body>
-<div class="header"><div><h1>🏁 Fill Rate Grand Prix · Argentina</h1><div class="sub">Coca-Cola · Temporada 2026 · <span id="lapLabel" style="color:${lapCol}">YTD Ago'26</span></div></div><div style="font-size:28px;color:${f1txt};letter-spacing:6px;font-weight:900">F1</div></div>
+<div class="header"><div><h1>🏁 Fill Rate Grand Prix · Argentina</h1><div class="sub">Coca-Cola · Temporada 2026 · <span id="lapLabel" style="color:${lapCol}">YTD Sep'26</span></div></div><div style="font-size:28px;color:${f1txt};letter-spacing:6px;font-weight:900">F1</div></div>
 <div><div><canvas id="raceCanvas" width="1060" height="380"></canvas><div class="controls"><button class="btn" onclick="doReset()">↺ RESET</button><button class="btn" onclick="prevLap()">◀</button><button class="btn primary" id="btnPlay" onclick="togglePlay()">▶ START</button><button class="btn" onclick="nextLap()">▶</button><div class="speed-btns"><button class="btn active" onclick="setSpeed(1500,this)">1x</button><button class="btn" onclick="setSpeed(800,this)">2x</button><button class="btn" onclick="setSpeed(350,this)">5x</button></div></div></div></div>
 <script>
-const RACE_DATA=[{mes:"Ene'26",FEMSA:86.5,LEE:89.2,ANDINA:81.6,ARCA:79.0},{mes:"Feb'26",FEMSA:86.7,LEE:89.5,ANDINA:84.3,ARCA:84.0},{mes:"Mar'26",FEMSA:86.1,LEE:89.9,ANDINA:86.1,ARCA:85.6},{mes:"Abr'26",FEMSA:86.1,LEE:90.2,ANDINA:86.7,ARCA:85.6},{mes:"May'26",FEMSA:86.5,LEE:90.2,ANDINA:87.5,ARCA:85.8},{mes:"Jun'26",FEMSA:87.1,LEE:90.1,ANDINA:88.1,ARCA:85.6},{mes:"Jul'26",FEMSA:87.3,LEE:90.1,ANDINA:88.5,ARCA:86.0},{mes:"Ago'26",FEMSA:87.7,LEE:90.4,ANDINA:88.9,ARCA:86.1}];
+const RACE_DATA=[{mes:"Ene'26",FEMSA:86.5,LEE:89.2,ANDINA:81.6,ARCA:79.0},{mes:"Feb'26",FEMSA:86.7,LEE:89.5,ANDINA:84.3,ARCA:84.0},{mes:"Mar'26",FEMSA:86.1,LEE:89.9,ANDINA:86.1,ARCA:85.6},{mes:"Abr'26",FEMSA:86.1,LEE:90.2,ANDINA:86.7,ARCA:85.6},{mes:"May'26",FEMSA:86.5,LEE:90.2,ANDINA:87.5,ARCA:85.8},{mes:"Jun'26",FEMSA:87.1,LEE:90.1,ANDINA:88.1,ARCA:85.6},{mes:"Jul'26",FEMSA:87.3,LEE:90.1,ANDINA:88.5,ARCA:86.0},{mes:"Ago'26",FEMSA:87.7,LEE:90.4,ANDINA:88.9,ARCA:86.1},{mes:"Sep'26",FEMSA:87.6,LEE:90.4,ANDINA:88.9,ARCA:86.6}];
 const CARS=[{key:"FEMSA",label:"Femsa",color:"#E03E52",accent:"#f06070",num:"04"},{key:"LEE",label:"Reginald Lee",color:"#CDC4AA",accent:"#ddd6c0",num:"01"},{key:"ANDINA",label:"Andina",color:"#F59E0B",accent:"#FBBF24",num:"11"},{key:"ARCA",label:"Arca",color:"#E87722",accent:"#f09050",num:"44"}];
 const canvas=document.getElementById('raceCanvas'),ctx=canvas.getContext('2d');let CW,CH;function resize(){const w=canvas.parentElement.clientWidth;CW=w;CH=Math.round(w*0.40);canvas.width=CW;canvas.height=CH;canvas.style.height=CH+'px'}resize();window.addEventListener('resize',()=>{resize();drawScene()});let currentLap=0,playing=false,playInterval=null,speed=1500,carPositions={},targetPositions={},animFrame=null;CARS.forEach(c=>{carPositions[c.key]=0;targetPositions[c.key]=0});const ML=0.16,MR=0.05,LANE_TOP=0.18,LANE_TOTAL=0.64;function getLaneY(i){const h=CH*LANE_TOTAL/4;return CH*LANE_TOP+i*h+h/2}function getX(p){return CW*ML+p*CW*(1-ML-MR)}function frToProgress(fr){return Math.max(0,Math.min(1,(fr-65)/35))}function drawScene(){ctx.clearRect(0,0,CW,CH);drawGrandstands();drawRoad();drawStartLine();drawFinishLine();drawGridLines();drawCars()}
 function drawGrandstands(){const rows=4,h=CH*LANE_TOP;for(let r=0;r<rows;r++){const rh=h/rows,y=r*rh;ctx.fillStyle=r%2===0?'${gsA}':'${gsB}';ctx.fillRect(0,y,CW,rh-1);ctx.fillStyle='${gsDot}';for(let x=8;x<CW;x+=16){ctx.beginPath();ctx.arc(x,y+rh/2,2,0,Math.PI*2);ctx.fill()}}const bTop=CH*(LANE_TOP+LANE_TOTAL),bH=CH-bTop;for(let r=0;r<3;r++){const rh=bH/3;ctx.fillStyle=r%2===0?'${gsA}':'${gsB}';ctx.fillRect(0,bTop+r*rh,CW,rh-1);ctx.fillStyle='${gsDot}';for(let x=12;x<CW;x+=16){ctx.beginPath();ctx.arc(x,bTop+r*rh+rh/2,2,0,Math.PI*2);ctx.fill()}}ctx.save();ctx.font='bold '+CW*0.06+'px Barlow Condensed,sans-serif';ctx.fillStyle='${wm}';ctx.textAlign='center';ctx.fillText('COCA-COLA',CW*0.5,CH*0.55);ctx.restore()}
@@ -1037,7 +1135,7 @@ function startRaceAnimation(){const d=RACE_DATA[currentLap];document.getElementB
 function togglePlay(){if(animating){animating=false;playing=false;cancelAnimationFrame(animFrame);document.getElementById('btnPlay').innerHTML='▶ START';return}CARS.forEach(c=>{carPositions[c.key]=0;displayValues[c.key]=0});drawScene();playing=true;document.getElementById('btnPlay').innerHTML='⏸ PAUSA';startRaceAnimation()}
 function nextLap(){if(currentLap<RACE_DATA.length-1){currentLap++;startRaceAnimation()}}
 function prevLap(){if(currentLap>0){currentLap--;startRaceAnimation()}}
-function doReset(){playing=false;animating=false;clearInterval(playInterval);cancelAnimationFrame(animFrame);currentLap=0;CARS.forEach(c=>{carPositions[c.key]=0;targetPositions[c.key]=0;displayValues[c.key]=0});document.getElementById('btnPlay').innerHTML='▶ START';document.getElementById('lapLabel').textContent="YTD Ago'26";drawScene();window.parent.postMessage({type:'f1-race-values',values:{FEMSA:0,LEE:0,ANDINA:0,ARCA:0}},'*')}
+function doReset(){playing=false;animating=false;clearInterval(playInterval);cancelAnimationFrame(animFrame);currentLap=0;CARS.forEach(c=>{carPositions[c.key]=0;targetPositions[c.key]=0;displayValues[c.key]=0});document.getElementById('btnPlay').innerHTML='▶ START';document.getElementById('lapLabel').textContent="YTD Sep'26";drawScene();window.parent.postMessage({type:'f1-race-values',values:{FEMSA:0,LEE:0,ANDINA:0,ARCA:0}},'*')}
 function setSpeed(s,btn){speed=s;document.querySelectorAll('.speed-btns .btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active')}
 CARS.forEach(c=>{carPositions[c.key]=0;displayValues[c.key]=0});drawScene();
 function reportHeight(){window.parent.postMessage({type:'f1-race-height',height:document.documentElement.scrollHeight},'*')}
@@ -1296,7 +1394,7 @@ export default function App() {
               ))}
             </div>
             <div style={{ display: "flex", gap: 2, background: V.navyLight, borderRadius: 8, padding: 2 }}>
-              {[{ k: "ene", l: "ENE'26" }, { k: "feb", l: "FEB'26" }, { k: "mar", l: "MAR'26" }, { k: "abr", l: "ABR'26" }, { k: "may", l: "MAY'26" }, { k: "jun", l: "JUN'26" }, { k: "jul", l: "JUL'26" }, { k: "ago", l: "AGO'26" }, { k: "both", l: "EVOLUCIÓN" }].map(m => (
+              {[{ k: "ene", l: "ENE'26" }, { k: "feb", l: "FEB'26" }, { k: "mar", l: "MAR'26" }, { k: "abr", l: "ABR'26" }, { k: "may", l: "MAY'26" }, { k: "jun", l: "JUN'26" }, { k: "jul", l: "JUL'26" }, { k: "ago", l: "AGO'26" }, { k: "sep", l: "SEP'26" }, { k: "both", l: "EVOLUCIÓN" }].map(m => (
                 <button key={m.k} onClick={() => setCatMes(m.k)} style={tabBtnStyle(catMes === m.k)}>{m.l}</button>
               ))}
             </div>
@@ -1372,7 +1470,7 @@ export default function App() {
 
         {/* Line charts when "EVOLUCIÓN" */}
         {catMes === "both" && (() => {
-          const MESES = ["Ene'26", "Feb'26", "Mar'26", "Abr'26", "May'26", "Jun'26", "Jul'26", "Ago'26"];
+          const MESES = ["Ene'26", "Feb'26", "Mar'26", "Abr'26", "May'26", "Jun'26", "Jul'26", "Ago'26", "Sep'26"];
           return clients.map(cl => {
             const eneData = (src[cl] || {}).ene || {};
             const febData = (src[cl] || {}).feb || {};
@@ -1382,8 +1480,9 @@ export default function App() {
             const junData = (src[cl] || {}).jun || {};
             const julData = (src[cl] || {}).jul || {};
             const agoData = (src[cl] || {}).ago || {};
+            const sepData = (src[cl] || {}).sep || {};
             const VALID_BOTS = ["Femsa", "Andina", "Lee", "Arca"];
-            const allBots = Object.keys({ ...eneData, ...febData, ...marData, ...abrData, ...mayData, ...junData, ...julData, ...agoData }).filter(b => VALID_BOTS.includes(b) && (botFilter === "ALL" || b === botFilter));
+            const allBots = Object.keys({ ...eneData, ...febData, ...marData, ...abrData, ...mayData, ...junData, ...julData, ...agoData, ...sepData }).filter(b => VALID_BOTS.includes(b) && (botFilter === "ALL" || b === botFilter));
             if (allBots.length === 0) return (
               <div key={cl} style={{ background: V.navyMid, border: "1px solid "+V.brd, borderRadius: 12, padding: 20, boxShadow: "0 2px 8px rgba(0,0,0,.3)" }}>
                 <div style={{ fontFamily: V.font, fontSize: 14, fontWeight: 800, letterSpacing: 2, textTransform: "uppercase" }}>{cl.toUpperCase()}</div>
@@ -1396,7 +1495,7 @@ export default function App() {
               const fD = febData[bot] || {};
               const mD = marData[bot] || {};
               const chartData = MESES.map((m, mi) => {
-                const abrD = abrData[bot] || {}; const mayD = mayData[bot] || {}; const junD = junData[bot] || {}; const julD = julData[bot] || {}; const agoD = agoData[bot] || {}; const d = mi === 0 ? eD : mi === 1 ? fD : mi === 2 ? mD : mi === 3 ? abrD : mi === 4 ? mayD : mi === 5 ? junD : mi === 6 ? julD : agoD;
+                const abrD = abrData[bot] || {}; const mayD = mayData[bot] || {}; const junD = junData[bot] || {}; const julD = julData[bot] || {}; const agoD = agoData[bot] || {}; const sepD = sepData[bot] || {}; const d = mi === 0 ? eD : mi === 1 ? fD : mi === 2 ? mD : mi === 3 ? abrD : mi === 4 ? mayD : mi === 5 ? junD : mi === 6 ? julD : mi === 7 ? agoD : sepD;
                 const row = { mes: m };
                 CAT_ORDER.forEach(ck => { if (d[ck] != null) row[ck] = d[ck]; });
                 return row;
@@ -1443,7 +1542,7 @@ export default function App() {
           if (!mesData) return (
             <div key={cl} style={{ background: V.navyMid, border: "1px solid "+V.brd, borderRadius: 12, padding: 20, boxShadow: "0 2px 8px rgba(0,0,0,.3)" }}>
               <div style={{ fontFamily: V.font, fontSize: 14, fontWeight: 800, letterSpacing: 2, textTransform: "uppercase", marginBottom: 8 }}>{cl.toUpperCase()}</div>
-              <div style={{ color: V.gray500, fontSize: 12 }}>Sin datos para {catMes === "ene" ? "Enero" : catMes === "feb" ? "Febrero" : catMes === "mar" ? "Marzo" : catMes === "abr" ? "Abril" : catMes === "may" ? "Mayo" : catMes === "jun" ? "Junio" : catMes === "jul" ? "Julio" : "Agosto"} 2026</div>
+              <div style={{ color: V.gray500, fontSize: 12 }}>Sin datos para {catMes === "ene" ? "Enero" : catMes === "feb" ? "Febrero" : catMes === "mar" ? "Marzo" : catMes === "abr" ? "Abril" : catMes === "may" ? "Mayo" : catMes === "jun" ? "Junio" : catMes === "jul" ? "Julio" : catMes === "ago" ? "Agosto" : "Septiembre"} 2026</div>
             </div>
           );
           const bots = Object.keys(mesData).filter(b => botFilter === "ALL" || b === botFilter).sort((a, b) => {
@@ -1461,7 +1560,7 @@ export default function App() {
             <div key={cl} style={{ background: V.navyMid, border: "1px solid "+V.brd, borderRadius: 12, overflow: "hidden" }}>
               <div style={{ background: V.navyLight, padding: "12px 18px", borderBottom: "2px solid " + V.red }}>
                 <span style={{ fontFamily: V.font, fontSize: 15, fontWeight: 900, letterSpacing: 2, textTransform: "uppercase" }}>{cl.toUpperCase()}</span>
-                <span style={{ fontSize: 10, color: V.gray500, marginLeft: 10, letterSpacing: 2, textTransform: "uppercase" }}>{catMes === "ene" ? "Enero" : catMes === "feb" ? "Febrero" : catMes === "mar" ? "Marzo" : catMes === "abr" ? "Abril" : catMes === "may" ? "Mayo" : catMes === "jun" ? "Junio" : catMes === "jul" ? "Julio" : "Agosto"} 2026</span>
+                <span style={{ fontSize: 10, color: V.gray500, marginLeft: 10, letterSpacing: 2, textTransform: "uppercase" }}>{catMes === "ene" ? "Enero" : catMes === "feb" ? "Febrero" : catMes === "mar" ? "Marzo" : catMes === "abr" ? "Abril" : catMes === "may" ? "Mayo" : catMes === "jun" ? "Junio" : catMes === "jul" ? "Julio" : catMes === "ago" ? "Agosto" : "Septiembre"} 2026</span>
               </div>
               <div style={{ overflowX: "auto" }}>
                 <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 13 }}>
@@ -1524,7 +1623,9 @@ export default function App() {
   function renderBottlerTab(name) {
     const meta = BOT_META[name] || {};
     const col = meta.color || V.red;
-    const D = BOT_LOSS[name];
+    const hist = BOT_LOSS[name];
+    const monthKeys = hist ? Object.keys(hist) : [];
+    const D = hist ? hist[monthKeys[monthKeys.length - 1]] : null;
 
     if (!D) {
       return (
@@ -1737,7 +1838,7 @@ export default function App() {
           <h1 style={{ fontFamily: V.font, fontSize: "2rem", fontWeight: 900, textTransform: "uppercase", letterSpacing: 2, margin: 0 }}>
             Dashboard <span style={{ color: "#5BA8FF" }}>Argentina</span> — Customer Service
           </h1>
-          <p style={{ fontSize: 12, color: V.white, letterSpacing: 3, textTransform: "uppercase", marginTop: 3, fontFamily: V.font }}>Agosto 2026 · Coca-Cola</p>
+          <p style={{ fontSize: 12, color: V.white, letterSpacing: 3, textTransform: "uppercase", marginTop: 3, fontFamily: V.font }}>Septiembre 2026 · Coca-Cola</p>
         </div>
       </div>
 
@@ -1753,14 +1854,14 @@ export default function App() {
         <div style={{ padding: "28px 36px", display: "flex", flexDirection: "column", gap: 20 }}>
 
           {/* KPI Cards */}
-          <SecLabel>Resumen Ejecutivo — Agosto 2026</SecLabel>
+          <SecLabel>Resumen Ejecutivo — Septiembre 2026</SecLabel>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(5,1fr)", gap: 12 }}>
             {[
-              { lb: "ARG Total", v: "90.3%", s: "Ago'26", c: BOTTLER_COLORS.arg, d: "+0.1pp", up: true, record: false },
-              { lb: "Femsa", v: "89.8%", s: "Ago'26", c: BOTTLER_COLORS.femsa, d: "+1.3pp", up: true },
-              { lb: "Reginald Lee", v: "92.3%", s: "Ago'26", c: BOTTLER_COLORS.lee, d: "-0.4pp", up: false },
-              { lb: "Andina", v: "92.1%", s: "Ago'26", c: BOTTLER_COLORS.andina, d: "+1.4pp", up: true },
-              { lb: "Arca", v: "86.7%", s: "Ago'26", c: BOTTLER_COLORS.arca, d: "-4.1pp", up: false },
+              { lb: "ARG Total", v: "88.7%", s: "Sep'26", c: BOTTLER_COLORS.arg, d: "+3.6pp", up: true, record: false },
+              { lb: "Femsa", v: "87.1%", s: "Sep'26", c: BOTTLER_COLORS.femsa, d: "+2.7pp", up: true },
+              { lb: "Reginald Lee", v: "91.2%", s: "Sep'26", c: BOTTLER_COLORS.lee, d: "-0.6pp", up: false },
+              { lb: "Andina", v: "89.1%", s: "Sep'26", c: BOTTLER_COLORS.andina, d: "+6.6pp", up: true },
+              { lb: "Arca", v: "91.0%", s: "Sep'26", c: BOTTLER_COLORS.arca, d: "+1.0pp", up: true },
             ].map((k, i) => {
               const dc = k.up ? V.gn : V.rd;
               return (
@@ -1776,11 +1877,51 @@ export default function App() {
                   <div style={{ fontSize: 10, color: V.gray500, marginTop: 3, marginBottom: 6 }}>{k.s}</div>
                   <div style={{ display: "flex", alignItems: "center", gap: 4 }}>
                     <span style={{ fontSize: 14, color: dc, lineHeight: 1 }}>{k.up ? "▲" : "▼"}</span>
-                    <span style={{ fontFamily: V.font, fontSize: 13, fontWeight: 800, color: dc }}>{k.d.replace(/^[+-]/, "")} vs Ago'25</span>
+                    <span style={{ fontFamily: V.font, fontSize: 13, fontWeight: 800, color: dc }}>{k.d.replace(/^[+-]/, "")} vs Sep'25</span>
                   </div>
                 </div>
               );
             })}
+          </div>
+
+          {/* YTD */}
+          <div style={{ background: V.navyMid, border: "1px solid "+V.brd, borderRadius: 12, padding: "16px 20px", boxShadow: "0 2px 8px rgba(0,0,0,.3)" }}>
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 10 }}>
+              <SecLabel>Fill Rate YTD 2026{ytdT === "b" ? " vs PY" : ""}</SecLabel>
+              <div style={{ display: "flex", gap: 4 }}>
+                <button onClick={() => setYtdT("b")} style={pillBtn(ytdT === "b", V.red)}>Por Bottler</button>
+                <button onClick={() => setYtdT("c")} style={pillBtn(ytdT === "c", V.red)}>Por Cadena</button>
+              </div>
+            </div>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 10 }}>
+              {yi.map((row, i) => {
+                const w = Math.max(8, ((row.v - 70) / 30) * 100);
+                const pyd = row.py != null ? +(row.v - row.py).toFixed(1) : null;
+                const pyUp = pyd != null && pyd >= 0;
+                return (
+                  <div key={i} style={{ background: V.navyLight, border: "1px solid "+V.brd, borderRadius: 12, boxShadow: "0 1px 4px rgba(0,0,0,.2)", padding: "10px 12px" }}>
+                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 6 }}>
+                      <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+                        <div style={{ width: 8, height: 8, borderRadius: "50%", background: row.c, flexShrink: 0 }} />
+                        <span style={{ fontFamily: V.font, fontSize: 15, fontWeight: 800 }}>{row.n}</span>
+                      </div>
+                      {pyd != null && (
+                        <span title={`YTD'25: ${row.py.toFixed(1)}%`} style={{ fontSize: 11, fontWeight: 700, color: pyUp ? V.gn : V.rd, background: pyUp ? V.gnBg : V.rdBg, border: "1px solid " + (pyUp ? V.gn : V.rd), borderRadius: 6, padding: "1px 6px", fontFamily: V.font, whiteSpace: "nowrap" }}>
+                          {pyUp ? "+" : ""}{pyd}pp PY
+                        </span>
+                      )}
+                    </div>
+                    <div style={{ height: 26, background: V.bgBar2, borderRadius: 14, position: "relative", overflow: "hidden", marginBottom: 8 }}>
+                      <div style={{ width: w + "%", height: "100%", background: V.bgBar3, borderRadius: 14 }} />
+                      <span style={{ position: "absolute", left: 8, top: "50%", transform: "translateY(-50%)", fontFamily: V.font, fontSize: 16, fontWeight: 800, color: V.white }}>{row.v.toFixed(1)}%</span>
+                    </div>
+                    <div style={{ display: "flex", gap: 3, flexWrap: "wrap" }}>
+                      {Object.entries(row.s).map(([k, v]) => <Tag key={k} lb={k} v={v} c={ytdT === "b" ? "#888" : (BM[k] || "#888")} />)}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
           </div>
 
           {/* Evolution Line Chart */}
@@ -1824,7 +1965,7 @@ export default function App() {
             {/* Bar chart */}
             <div style={{ background: V.navyMid, border: "1px solid "+V.brd, borderRadius: 12, padding: "16px 20px", boxShadow: "0 2px 8px rgba(0,0,0,.3)" }}>
               <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 10 }}>
-                <SecLabel>Fill Rate por Cliente — Ago'26 vs Jul'26</SecLabel>
+                <SecLabel>Fill Rate por Cliente — Sep'25 vs Sep'26</SecLabel>
                 <div style={{ display: "flex", gap: 3, flexWrap: "wrap" }}>
                   {[{ k: "ARG", l: "ARG", c: BOTTLER_COLORS.arg }, { k: "FEMSA", l: "Femsa", c: BOTTLER_COLORS.femsa }, { k: "LEE", l: "Lee", c: BOTTLER_COLORS.lee }, { k: "ANDINA", l: "Andina", c: BOTTLER_COLORS.andina }, { k: "ARCA", l: "Arca", c: BOTTLER_COLORS.arca }].map(b => (
                     <button key={b.k} onClick={() => setBflt(b.k)} style={pillBtn(bflt === b.k, b.c)}>{b.l}</button>
@@ -1857,7 +1998,7 @@ export default function App() {
 
             {/* Delta */}
             <div style={{ background: V.navyMid, border: "1px solid "+V.brd, borderRadius: 12, padding: "16px 18px", boxShadow: "0 2px 8px rgba(0,0,0,.3)" }}>
-              <SecLabel>Delta Ago'26 vs Ago'25</SecLabel>
+              <SecLabel>Delta Sep'26 vs Ago'26</SecLabel>
               {DLT.map((row, i) => {
                 const ip = row.d >= 0; const lc = ip ? V.gn : V.rd; const maxD = Math.max(...DLT.map(r => Math.abs(r.d))); const bp = Math.min(48, (Math.abs(row.d) / maxD) * 45);
                 return (
@@ -1877,8 +2018,8 @@ export default function App() {
 
             {/* InStock */}
             <div style={{ background: V.navyMid, border: "1px solid "+V.brd, borderRadius: 12, padding: "16px 18px", boxShadow: "0 2px 8px rgba(0,0,0,.3)" }}>
-              <SecLabel>Instock — Ago'26</SecLabel>
-              {[{ n: "Femsa", v: 94.0, c: BOTTLER_COLORS.femsa }, { n: "Reg. Lee", v: 94.4, c: BOTTLER_COLORS.lee }, { n: "Andina", v: 94.8, c: BOTTLER_COLORS.andina }, { n: "Arca", v: 94.6, c: BOTTLER_COLORS.arca }].map((e, i) => {
+              <SecLabel>Instock — Sep'26</SecLabel>
+              {[{ n: "Femsa", v: 91.5, c: BOTTLER_COLORS.femsa }, { n: "Reg. Lee", v: 93.4, c: BOTTLER_COLORS.lee }, { n: "Andina", v: 90.7, c: BOTTLER_COLORS.andina }, { n: "Arca", v: 90.0, c: BOTTLER_COLORS.arca }].map((e, i) => {
                 const w = ((e.v - 68) / 32) * 100;
                 return (
                   <div key={i} style={{ padding: "10px 0", borderBottom: i < 3 ? "1px solid "+V.brd2+"" : "none" }}>
@@ -1897,7 +2038,7 @@ export default function App() {
 
           {/* Ranking */}
           <div style={{ background: V.navyMid, border: "1px solid "+V.brd, borderRadius: 12, padding: "16px 20px", boxShadow: "0 2px 8px rgba(0,0,0,.3)" }}>
-            <SecLabel>Ranking Clientes — Ago 2026</SecLabel>
+            <SecLabel>Ranking Clientes — Sep 2026</SecLabel>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 10 }}>
               {RNK.map((row, i) => {
                 const d = row.p != null ? +(row.f - row.p).toFixed(1) : null;
@@ -1909,9 +2050,9 @@ export default function App() {
                       <span style={{ fontFamily: V.font, fontSize: 15, fontWeight: 800 }}>{row.c}</span>
                       {d != null && <span style={{ fontSize: 11, fontWeight: 700, color: ip ? V.gn : V.rd, background: ip ? V.gnBg : V.rdBg, border: "1px solid " + (ip ? V.gn : V.rd), borderRadius: 6, padding: "1px 6px", fontFamily: V.font }}>{ip ? "+" : ""}{d}pp</span>}
                     </div>
-                    <div style={{ height: 22, background: V.bgBar2, borderRadius: 14, position: "relative", overflow: "hidden", marginBottom: 8 }}>
+                    <div style={{ height: 26, background: V.bgBar2, borderRadius: 14, position: "relative", overflow: "hidden", marginBottom: 8 }}>
                       <div style={{ width: w + "%", height: "100%", background: V.bgBar4, borderRadius: 14 }} />
-                      <span style={{ position: "absolute", left: 8, top: "50%", transform: "translateY(-50%)", fontFamily: V.font, fontSize: 13, fontWeight: 800, color: V.white }}>{row.f.toFixed(1)}%</span>
+                      <span style={{ position: "absolute", left: 8, top: "50%", transform: "translateY(-50%)", fontFamily: V.font, fontSize: 16, fontWeight: 800, color: V.white }}>{row.f.toFixed(1)}%</span>
                     </div>
                     <div style={{ display: "flex", gap: 3, flexWrap: "wrap" }}>
                       {Object.entries(row.b).map(([b, v]) => <Tag key={b} lb={b} v={v} c={BM[b] || "#888"} />)}
@@ -1922,37 +2063,6 @@ export default function App() {
             </div>
           </div>
 
-          {/* YTD */}
-          <div style={{ background: V.navyMid, border: "1px solid "+V.brd, borderRadius: 12, padding: "16px 20px", boxShadow: "0 2px 8px rgba(0,0,0,.3)" }}>
-            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 10 }}>
-              <SecLabel>Fill Rate YTD 2026</SecLabel>
-              <div style={{ display: "flex", gap: 4 }}>
-                <button onClick={() => setYtdT("b")} style={pillBtn(ytdT === "b", V.red)}>Por Bottler</button>
-                <button onClick={() => setYtdT("c")} style={pillBtn(ytdT === "c", V.red)}>Por Cadena</button>
-              </div>
-            </div>
-            <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-              {yi.map((row, i) => {
-                const w = Math.max(8, ((row.v - 70) / 30) * 100);
-                return (
-                  <div key={i} style={{ display: "grid", gridTemplateColumns: "120px 1fr auto", gap: 10, alignItems: "center" }}>
-                    <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
-                      <div style={{ width: 8, height: 8, borderRadius: "50%", background: row.c, flexShrink: 0 }} />
-                      <span style={{ fontFamily: V.font, fontSize: 14, fontWeight: 700 }}>{row.n}</span>
-                    </div>
-                    <div style={{ height: 22, background: V.bgBar2, borderRadius: 14, position: "relative", overflow: "hidden" }}>
-                      <div style={{ width: w + "%", height: "100%", background: V.bgBar3, borderRadius: 14 }} />
-                      <span style={{ position: "absolute", left: 8, top: "50%", transform: "translateY(-50%)", fontFamily: V.font, fontSize: 12, fontWeight: 800, color: V.white }}>{row.v.toFixed(1)}%</span>
-                      <div style={{ position: "absolute", right: 6, top: "50%", transform: "translateY(-50%)", display: "flex", gap: 3, flexWrap: "nowrap", overflow: "hidden" }}>
-                        {Object.entries(row.s).map(([k, v]) => <Tag key={k} lb={k} v={v} c={ytdT === "b" ? "#888" : (BM[k] || "#888")} />)}
-                      </div>
-                    </div>
-                    <span style={{ fontFamily: V.font, fontSize: 14, fontWeight: 800, width: 48, textAlign: "right" }}>{row.v.toFixed(1)}%</span>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
         </div>
       )}
 
